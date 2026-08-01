@@ -1,6 +1,6 @@
 # BidPoint — A Distributed Systems Reference Platform
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 ## Thesis

@@ -1,6 +1,6 @@
 # Observability
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 Observability makes the target platform's partial failures, lag, concurrency pressure, and recovery visible. It does not turn every signal into the same thing: metrics measure aggregates over time, traces follow a request/cause path, and logs preserve discrete redacted diagnostic records. This is target instrumentation and operations design, not evidence of running dashboards or alerting.

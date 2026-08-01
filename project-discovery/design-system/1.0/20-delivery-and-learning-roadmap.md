@@ -1,6 +1,6 @@
 # Delivery and learning roadmap
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 Every stage produces a vertical slice and lesson; target inclusion does not mean day-one activation.

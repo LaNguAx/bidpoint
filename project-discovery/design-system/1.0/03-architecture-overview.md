@@ -1,6 +1,6 @@
 # Architecture overview
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This is the canonical target topology for BidPoint. It names future deployables and their contracts; the discovery repository contains no implemented applications or infrastructure.

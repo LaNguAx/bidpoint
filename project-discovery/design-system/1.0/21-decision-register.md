@@ -1,6 +1,6 @@
 # BidPoint decision register
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This is the durable record of accepted target-design decisions. It describes no running application or provisioned platform. `Canonical` entries are the baseline a later implementation must preserve unless new evidence records the consequence of changing it. `Staged` entries are deliberate later increments, not day-one dependencies. `Open` entries are intentionally undecided and are detailed in [exclusions and open questions](22-exclusions-and-open-questions.md). Source and compatibility evidence is maintained in [primary sources](23-primary-sources.md).

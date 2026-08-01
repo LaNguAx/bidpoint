@@ -1,6 +1,6 @@
 # BidPoint primary sources and validation record
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This document records the evidence policy for the BidPoint target design. It is not a lockfile and does not prove that a dependency, AWS resource, or runtime is installed. The exact baseline and compatibility gates are in [versions and compatibility](19-versions-and-compatibility.md); accepted choices are indexed by the [decision register](21-decision-register.md).

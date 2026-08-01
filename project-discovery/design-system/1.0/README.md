@@ -1,7 +1,11 @@
 # BidPoint design knowledge base
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
+
+> **Superseded.** 2.0 is the current baseline. This corpus is kept intact as history and rationale, and its content is unedited apart from this status.
+>
+> 2.0 is a lean revision: it changes the technology periphery, version pin policy, and delivery sequence, and inherits documents 02–10, 15, and 23 below **unchanged** as the canonical contract. Where 2.0 and 1.0 conflict — chiefly documents 11–14 and 16–22 — **2.0 wins**; read them here for background rationale only. See the [decision delta](../2.0/04-decision-delta.md) for exactly what moved and why.
 
 ## Platform and engineering reading order
 
@@ -56,4 +60,4 @@ Unless a section is explicitly marked **Staged**, **Open**, **Optional**, or **E
 
 Always distinguish design status from repository reality: no applications, dependencies, manifests, initialized workspace, or infrastructure exist yet.
 
-The adjacent [structure template](../structure-template/) contains empty placeholders only. It is a proposed layout reference, not an initialized Nx, Maven, or Kubernetes workspace.
+The adjacent [structure template](../../structure-template/) contains empty placeholders only. It is a proposed layout reference, not an initialized Nx, Maven, or Kubernetes workspace.

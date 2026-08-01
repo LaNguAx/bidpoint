@@ -1,6 +1,6 @@
 # Security and identity
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This document defines BidPoint's target security boundary. It applies to a future implementation and is not evidence that identities, credentials, infrastructure policies, or provider integrations exist in this documentation-only repository.

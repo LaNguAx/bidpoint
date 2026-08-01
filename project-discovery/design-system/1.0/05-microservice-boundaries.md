@@ -1,6 +1,6 @@
 # Microservice boundaries
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 BidPoint uses services where a responsibility needs independent authority, failure handling, scaling, or integration isolation. This is the target architecture, not a description of running software. It is intentionally not a catalogue of CRUD services: Core remains a modular monolith, and every surrounding deployable has a concrete responsibility that cannot safely be reduced to a controller in another owner.

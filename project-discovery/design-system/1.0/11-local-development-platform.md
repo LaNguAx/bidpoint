@@ -1,6 +1,6 @@
 # Local development platform
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 BidPoint's complete local target environment is Kubernetes, not Docker Compose. It is a reproducible learning platform for the same boundaries that matter remotely: deployables, brokers, data stores, identity, edge routing, autoscaling, delivery, and telemetry. This repository contains the design only; no cluster, scripts, images, manifests, or Nx targets exist yet.

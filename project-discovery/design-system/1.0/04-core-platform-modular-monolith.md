@@ -1,6 +1,6 @@
 # Core platform modular monolith
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 `core-platform` is the target Spring Modulith modular monolith for the marketplace capabilities that benefit from cohesive evolution and local transactions. This is a target design in a documentation-only repository, not an implemented service. It deliberately keeps profiles, catalog, listings, auction lifecycle, and orders together while making their ownership boundaries executable and ready for later extraction only when evidence justifies it.

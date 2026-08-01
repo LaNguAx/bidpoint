@@ -1,6 +1,6 @@
 # BidPoint standalone new-chat handoff
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This document is the self-contained entry point for a new developer or AI agent. It records the accepted target, the repository's actual state, the decisions that must be preserved, the facts that remain open, and the safe next-step protocol. It requires no prior conversation history.

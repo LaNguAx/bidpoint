@@ -1,6 +1,6 @@
 # AWS production platform
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This is the target AWS production design, not provisioned infrastructure. It preserves the owner boundaries of the local platform while using managed services where that exposes production operations rather than creating undifferentiated self-managed work. Separate AWS accounts per environment are preferred when practical; canonical repository layout uses environment directories even if the learning start uses one account.

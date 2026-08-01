@@ -1,6 +1,6 @@
 # Kafka events and transactional outbox
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 Kafka transports BidPoint's durable, replayable business facts. This target design intentionally separates the committed state change from eventual publication without pretending the combined system has end-to-end exactly-once delivery.

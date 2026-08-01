@@ -1,6 +1,6 @@
 # BidPoint exclusions and open questions
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This register separates genuine future choices from baseline exclusions. An **Open** item needs evidence before selection; it is not a request to decide now. An **Excluded** item is deliberately outside the baseline and may be reconsidered only when its stated trigger is met. **Optional comparison** exercises are later learning work and cannot mutate the canonical target merely because they are evaluated.

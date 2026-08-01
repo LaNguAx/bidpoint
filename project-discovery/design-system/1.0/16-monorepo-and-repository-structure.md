@@ -1,6 +1,6 @@
 # Monorepo and repository structure
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 BidPoint is a future polyglot Nx monorepo with Maven as the independent Java build authority. This is target design only: the existing structure template describes a future shape, not an initialized workspace.

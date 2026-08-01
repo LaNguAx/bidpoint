@@ -1,6 +1,6 @@
 # Testing and quality
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 BidPoint uses a practical testing portfolio: the smallest fast test that can prove a behavior, supplemented by integration, contract, system, load, recovery, and AWS evidence where the boundary requires it. It is not a pursuit of a single coverage percentage, and this repository contains no test implementation yet.

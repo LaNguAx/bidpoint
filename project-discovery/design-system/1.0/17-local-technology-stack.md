@@ -1,6 +1,6 @@
 # Local technology stack
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 Future local inventory; exact pins are reproducibility policy, not installed software.

@@ -1,6 +1,6 @@
 # RabbitMQ jobs and notifications
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 RabbitMQ carries explicit, targeted work requests for a competing worker pool. Kafka carries business facts; RabbitMQ does not replace it for durable fan-out or become an unstructured queue of domain events. This is a target delivery design, not an implemented integration.

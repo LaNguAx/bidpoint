@@ -1,6 +1,6 @@
 # Data ownership and consistency
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This document defines the target data contract for BidPoint. It is design guidance for a future implementation in this documentation-only repository; it does not describe deployed databases or running consumers.

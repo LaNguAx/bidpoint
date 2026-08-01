@@ -1,6 +1,6 @@
 # CI/CD and GitOps
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 BidPoint separates build authority, image provenance, environment approval, and runtime reconciliation. This is a target pipeline, not automation present in the repository.

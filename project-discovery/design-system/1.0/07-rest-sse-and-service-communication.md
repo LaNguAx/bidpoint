@@ -1,6 +1,6 @@
 # REST, SSE, and service communication
 
-Status: Canonical
+Status: Superseded by [design-system 2.0](../2.0/README.md)
 Last validated: 2026-08-01
 
 This is the target communication contract for BidPoint, not a record of implemented endpoints. Protocol choice follows the needed delivery semantics: REST for request/response behavior, SSE for browser live updates, Kafka for durable replayable facts, and RabbitMQ for targeted work.
