@@ -7,7 +7,7 @@ Last validated: 2026-08-01
 
 ## Why a modular monolith
 
-These five capabilities share an early product cadence: listing readiness refers to category rules and auction configuration; an auction lifecycle refers to a listing; a closed-auction outcome initiates a durable order. Splitting each into a network service now would add failure modes without adding an independent scaling, consistency, or integration responsibility. A Spring Modulith keeps ordinary changes locally transactional while preventing the convenience of a shared codebase from becoming permission to couple internals.
+These five capabilities share an early product cadence: listing readiness refers to category rules and auction configuration; an auction lifecycle refers to a listing; the auctions-owned `AuctionClosed` fact initiates a durable order after the `CLOSED` commit. Splitting each into a network service now would add failure modes without adding an independent scaling, consistency, or integration responsibility. A Spring Modulith keeps ordinary changes locally transactional while preventing the convenience of a shared codebase from becoming permission to couple internals.
 
 The boundary is architectural, not merely organizational. A module is the only writer of its logical schema and exposes behavior through its Java API or events. Other Core modules do not import another module's persistence model, repository, controller, DTO implementation, or internal service. A future extraction replaces a stable module-facing contract with a remote/API-event contract; it must not begin with a database split or a copied table.
 
@@ -18,10 +18,10 @@ The boundary is architectural, not merely organizational. A module is the only w
 | `profiles` | Marketplace profile keyed by the validated Keycloak subject; idempotent onboarding after verified Keycloak identity evidence; display and marketplace preferences. | Profile behavior and producer-owned `UserRegistered` after marketplace profile activation. | Passwords, credentials, MFA, sessions, tokens, identity administration, or a Keycloak credential-creation event. |
 | `catalog` | Categories and classification rules. | Classification behavior and category facts. | Listing content or publish state. |
 | `listings` | Listing draft/content, image metadata, publish readiness, and publication. S3 holds image objects, not marketplace authority. | Listing commands, read behavior, and publication facts. | Category-rule authority, auction timing, bids, or S3 credentials. |
-| `auctions` | Scheduling, authoritative `closeAt`, monotonically increasing lifecycle version, lifecycle/reserve/cancellation, and the `CLOSING` record while a bid fence is pending. | Lifecycle behavior, auction facts, and idempotent close/cancel orchestration. | Authoritative bid price/winner, bid ordering, or bid acceptance. |
+| `auctions` | Scheduling, authoritative `closeAt`, lifecycle version, lifecycle/reserve/cancellation, and `CLOSING` while a bid fence is pending. | Lifecycle behavior, close/cancel orchestration, and producer-owned `AuctionClosed` after the `CLOSED` commit. | Authoritative bid price/winner, bid ordering, or bid acceptance. |
 | `orders` | Durable post-auction buyer/seller order and history records. | Order behavior and order facts. | Payment charging, provider integration, or payment state. |
 
-An auction close or cancellation is a cross-owner flow, not an excuse for `auctions` to infer the winner. `auctions` commits `CLOSING` and invokes `bidding-service` through an idempotent REST fence/finalize command. It remains `CLOSING` and retries the same command identity until the stable fence acknowledgement/final outcome is returned. Only then may Core commit `CLOSED` or `CANCELLED`; settlement follows the acknowledged outcome and required order/payment work. `orders` creates one logical order from a winning outcome idempotently. Reserve handling may result in no order, but never allows multiple winners.
+An auction close or cancellation is a cross-owner flow. `auctions` commits `CLOSING` and retries the same idempotent Bidding REST fence/finalize command until its stable acknowledgement/final outcome returns; that result is not the order trigger. For close, `auctions` then atomically commits `CLOSED` and one producer-owned `AuctionClosed` (winner/no-winner, final price, lifecycle version, stable identity) through the durable Spring Modulith event-publication/outbox mechanism. `orders` consumes only that fact after commit and deduplicates by event/auction identity. The same fact may be externalized to Kafka with the same identity. A bidding-owned final-outcome fact is audit/projection input only and cannot create an order. Cancellation commits `CANCELLED` without `AuctionClosed`.
 
 ## Package and artifact contract
 
@@ -60,14 +60,14 @@ flowchart LR
     P -. "published API/events only" .-> L
     C -. "classification API/events only" .-> L
     L -. "listing API/events only" .-> A
-    A -. "close facts/behavior only" .-> O
+    A -. "AuctionClosed after CLOSED commit" .-> O
 ```
 
-This diagram is not a license for a dependency where it is unnecessary; it shows the meaningful product relationships that must cross an explicit interface. `orders` consumes a final outcome through the approved cross-owner flow and does not inspect bid tables. The modules may share a PostgreSQL deployment/database initially, but each owns a logical schema. Sharing operations never permits cross-schema writes or joins as a module integration technique.
+This diagram shows only meaningful explicit relationships. `orders` consumes auctions-owned `AuctionClosed` only after the `CLOSED` commit; it neither inspects bid tables nor treats a bidding-owned outcome as a trigger. Modules may share a PostgreSQL deployment/database initially, but each owns a logical schema. Sharing operations never permits cross-schema writes or joins as a module integration technique.
 
 ## Transaction and publication responsibilities
 
-Within a module, a command commits its authoritative state and any required outbox row atomically in the module's local transaction. A relay publishes later, so a crash after commit leaves recoverable work rather than a lost business fact. Transactions do not cross into `bidding-service`, `payment-service`, or another database owner. Cross-owner updates are APIs or events plus owner-local processing, deduplication, and observable processing state.
+Within a module, a command commits authoritative state and any durable event-publication/outbox row atomically. In particular, `auctions` commits `CLOSED` with exactly one stable `AuctionClosed` publication. Spring Modulith delivers it after commit; externalization may relay the same identity to Kafka later. A crash after commit leaves recoverable work. Transactions do not cross database owners.
 
 The Core does not promise end-to-end exactly-once delivery. Consumers use stable event IDs and inbox/deduplication records (or an equivalent durable mechanism), allowing at-least-once delivery without a duplicate order, notification intent, or externally visible action. Query-side projections may lag; authoritative commands continue to route to the owning module/service.
 
@@ -80,5 +80,5 @@ Extraction is a later decision supported by evidence such as materially independ
 - `ApplicationModules.verify()` passes with explicit module detection.
 - ArchUnit demonstrates that no module imports another module's `internal` package.
 - Module integration tests prove API/event interactions without direct repository access.
-- Tests show one logical order for a redelivered close outcome and no Core module becoming bid or payment authority.
+- Tests prove the fence acknowledgement creates no order; `CLOSED` and one `AuctionClosed` commit atomically; `orders` runs only after commit; and redelivery creates at most one order by event/auction deduplication.
 - Schema/migration review shows a single logical writer per module schema even if Core initially shares a PostgreSQL deployment.

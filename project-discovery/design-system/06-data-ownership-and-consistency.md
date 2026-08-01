@@ -30,7 +30,7 @@ Transactions stop at a local database boundary. A command never opens a distribu
 | --- | --- | --- |
 | Accept a bid | Immediate local invariant enforcement | Same idempotency key resolves ambiguous timeout |
 | Create a payment/provider action | One logical intent and no duplicate charge | Reconcile provider state before a new action |
-| Create an order from close outcome | Exactly one logical order despite redelivery | Durable deduplication of close fact |
+| Create an order from auctions-owned `AuctionClosed` after `CLOSED` | One logical order despite redelivery | Event/auction deduplication; bidding outcome cannot trigger |
 | Search, notification view, SSE | Eventual consistency is allowed | Expose lag; refetch authoritative state when needed |
 
 Search results, notification views, and live streams may lag. Accepting an invalid bid and charging twice may not. This distinction determines whether a decision belongs at an owner write boundary or can be computed asynchronously.
@@ -47,9 +47,9 @@ Retries are explicitly classified retryable, terminal, or provider-ambiguous as 
 
 `bidding-service` owns one authoritative current price and at most one current winner for an `auctionId`. Its local auction-state projection stores Core's authoritative `closeAt` and monotonically increasing `lifecycleVersion`. Acceptance checks projected eligibility, minimum increment, bidder rules, and idempotency at the authoritative write boundary, and trusted server/database time rejects every request at or after `closeAt`; client time is ignored. Projection lag while opening may cause a conservative rejection, but lag while closing or cancelling may never permit acceptance.
 
-Core `auctions` commits `CLOSING` before sending an idempotent REST fence/finalize command with a stable command identity, close/cancel reason, authoritative `closeAt`, and lifecycle version. `bidding-service` serializes that command with in-flight bid transactions at the same per-auction boundary. The fence transaction makes later bid attempts reject, captures the authoritative final outcome, and persists a stable acknowledgement; a duplicate command returns the same acknowledgement and outcome. A timeout leaves Core in `CLOSING`, and Core retries the same command rather than advancing locally. Core commits `CLOSED` or `CANCELLED`, creates downstream close work, and later settles only after acknowledgement.
+Core `auctions` commits `CLOSING` and sends an idempotent Bidding REST fence/finalize command. Bidding serializes it with bid transactions and returns a stable acknowledgement/final outcome; this is not an order trigger. After close acknowledgement, `auctions` atomically commits `CLOSED` and one stable producer-owned `AuctionClosed` through Spring Modulith durable event publication. It carries winner/no-winner, final price, and lifecycle version. Cancellation commits `CANCELLED` without an order trigger.
 
-The implementation choice between optimistic locking, pessimistic locking, and an atomic database operation is deliberately **Open** until measurement. Load and concurrency tests must prove the invariant, characterize hot records, and show how conflict handling behaves. Auction facts are partitioned by `auctionId` for per-auction event order. This can make a popular auction a hot Kafka partition, so load tests and mitigations are required rather than assuming partitioning solves capacity.
+The exact choice between optimistic locking, pessimistic locking, and an atomic database operation is a **Staged implementation choice**, not a discovery-level Open architectural question. Measurement selects it during bidding implementation. Load and concurrency tests must prove the invariant, characterize hot records, and show how conflict handling behaves. Auction facts are partitioned by `auctionId` for per-auction event order. This can make a popular auction a hot Kafka partition, so load tests and mitigations are required rather than assuming partitioning solves capacity.
 
 ## Failure-aware flow ownership
 
@@ -67,4 +67,4 @@ sequenceDiagram
     C->>C: Persist stable ID and apply local effect
 ```
 
-For auction close/cancel, `core-platform`/`auctions` owns timing, lifecycle version, `CLOSING`, and retrying the synchronous idempotent fence; `bidding-service` owns the serializing fence acknowledgement and authoritative final outcome; `core-platform`/`orders` consumes a winning outcome idempotently. For payment, `payment-service` owns intent, webhook verification, reconciliation, audit, and its outbox. For notification, `notification-service` owns policy and durable intent, while `notification-worker` owns delivery attempts and quarantines ambiguous provider results as `UNKNOWN` until reconciliation. In each case an unavailable downstream owner leaves observable pending work, not an invented synchronous success.
+For close, `auctions` owns `CLOSING`, `CLOSED`, and the single authoritative `AuctionClosed` order trigger. Bidding owns the fence acknowledgement/final bid outcome, but its outcome is audit/projection input only. `orders` consumes `AuctionClosed` after commit and creates at most one order through event/auction deduplication. The same fact may be externalized to Kafka with the same identity. Other owners retain their payment and notification responsibilities.

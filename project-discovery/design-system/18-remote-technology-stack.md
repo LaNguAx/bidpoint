@@ -72,4 +72,4 @@ AWS target inventory; managed-family rows require region/account availability an
 | Jenkins | Canonical | 2.568.1 LTS, JCasC/versioned plugins | CI | Never direct production apply. |
 | k6 | Canonical | 1.7.1 | Load/smoke | Controlled runtime evidence. |
 
-**Open:** payment, frontend, MSK, schema registry (Apicurio parity vs AWS Glue), license. **Excluded:** AWS API Gateway, Ansible, direct Jenkins production deployment, environment branches, legacy X-Ray SDK/daemon, ingress-nginx.
+**Open:** payment provider, notification delivery provider, frontend, MSK, schema registry (Apicurio parity vs AWS Glue), license. **Excluded:** AWS API Gateway, Ansible, direct Jenkins production deployment, environment branches, legacy X-Ray SDK/daemon, ingress-nginx.

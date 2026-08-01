@@ -23,14 +23,14 @@ The experimental-plugin guard is non-negotiable: direct Maven commands must rema
 
 ```text
 BidPoint/
-??? apps/backend/
-?   ??? api-gateway/  bidding-service/  payment-service/  realtime-service/
-?   ??? notification-service/  notification-worker/  search-service/ (Staged)
-?   ??? core-platform/             # intentional nested multi-module Maven exception
-??? libs/java/                      # cross-cutting mechanics only
-??? platform/                       # reusable platform definitions
-??? deploy/                         # GitOps composition: dev/stage/prod
-??? tests/  tools/  docs/
+|-- apps/backend/
+|   |-- api-gateway/  bidding-service/  payment-service/  realtime-service/
+|   |-- notification-service/  notification-worker/  search-service/ (Staged)
+|   `-- core-platform/             # intentional nested multi-module Maven exception
+|-- libs/java/                      # cross-cutting mechanics only
+|-- platform/                       # reusable platform definitions
+|-- deploy/                         # GitOps composition: dev/stage/prod
+`-- tests/  tools/  docs/
 ```
 
 Backend applications are flat peers under `apps/backend`; `core-platform` is nested because its Spring Modulith modules are one deployable/local transaction boundary. Java root namespace is `com.bidpoint`.
@@ -43,4 +43,4 @@ Permitted shared Java libraries are cross-cutting mechanics only: `bidpoint-secu
 
 Jib Maven Plugin 3.5.2 is the routine backend image path; routine per-service Dockerfiles are **Excluded**. Future pnpm/Nx UX (including `pnpm nx local-up core|platform`) is a design contract, not a present command, and must preserve a direct Maven equivalent, clear failure evidence, and ownership.
 
-**Open:** frontend libraries, payment provider, MSK mode, schema registry, public license. **Staged:** search-service/frontend packages and custom Nx wrappers if needed. **Excluded:** Java builds that only work through Nx, routine Dockerfiles, environment branches, shared business models, and cosmetic microservices.
+**Open:** frontend libraries, payment provider, notification delivery provider, MSK mode, schema registry, public license. **Staged:** search-service/frontend packages and custom Nx wrappers if needed. **Excluded:** Java builds that only work through Nx, routine Dockerfiles, environment branches, shared business models, and cosmetic microservices.

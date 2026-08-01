@@ -11,8 +11,8 @@ An event reports something that an authoritative owner has committed. It is not 
 
 | Producer | Representative facts | Consumers/use |
 | --- | --- | --- |
-| `core-platform` modules | `profiles.UserRegistered` after marketplace profile activation, listing and lifecycle facts carrying `closeAt`/lifecycle version, close/order facts | Notification policy, bidding auction-state projection, realtime, **Staged** search |
-| `bidding-service` | Bid accepted/rejected outcome as appropriate, final auction outcome | Realtime, orders close processing, notification policy |
+| `core-platform` modules | `profiles.UserRegistered`; listing/lifecycle facts; auctions-owned `AuctionClosed` committed atomically with `CLOSED`; order facts | `orders` after-commit handling, notification policy, bidding projection, realtime, **Staged** search |
+| `bidding-service` | Bid accepted/rejected outcomes and final bid outcome | Audit/projections, realtime, notification policy; never order creation |
 | `payment-service` | Payment state/finalization facts | Orders/history views, notification policy, realtime where useful |
 
 `search-service` is **Staged** and consumes listing facts to build an OpenSearch-derived store. Search does not become an authority and initial browse/filter remains owned by Core. Kafka/MSK operating mode and schema registry are **Open**; this document does not select either.
@@ -62,8 +62,8 @@ Each consumer uses a durable inbox/deduplication table or equivalent stable-ID p
 
 ## Flow examples
 
-- A bid command commits in `bidding-service` with bid state and a bid outbox row. Kafka delivery updates realtime and may initiate downstream order/notification work, but cannot retroactively alter the accepted bid.
-- Kafka lifecycle facts update the Bidding projection, but close/cancel correctness does not wait for Kafka lag: Core commits `CLOSING` and uses the idempotent REST fence/finalize command. `bidding-service` serializes the fence with bid writes and returns its stable acknowledgement/final outcome. Core advances only after that acknowledgement; `orders` consumes a winning outcome idempotently to create one logical post-auction order.
+- A bid command commits in `bidding-service` with bid state and a bid outbox row. Kafka delivery may update realtime, notification, and audit projections, but cannot trigger an order.
+- Close correctness does not wait for Kafka lag: after the stable Bidding acknowledgement/final outcome (not an order trigger), `auctions` atomically commits `CLOSED` and one producer-owned `AuctionClosed` through the durable Spring Modulith event-publication/outbox mechanism. `orders` consumes only that fact after commit and deduplicates by event/auction identity. The same `AuctionClosed` may be externalized to Kafka with the same identity.
 - `payment-service` commits verified webhook application with payment state and a payment outbox fact. Replayed webhooks and repeated events resolve through stable provider/event identifiers, never a second charge.
 - `UserRegistered` is a producer-owned `profiles` application fact emitted after verified Keycloak identity evidence activates the marketplace profile idempotently. It is not a Keycloak credential-creation event. `notification-service` consumes it, decides a welcome email is required, and starts its own local intent/job-outbox transaction; RabbitMQ delivery is a subsequent work flow, not a Kafka consumer side effect without recovery evidence.
 

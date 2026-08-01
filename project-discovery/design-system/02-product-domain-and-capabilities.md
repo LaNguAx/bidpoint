@@ -34,7 +34,7 @@ The lifecycle vocabulary is intentionally small. Detailed pricing policies, disp
 
 ### Listing
 
-`DRAFT ? PUBLISHED`
+`DRAFT -> PUBLISHED`
 
 - Only the owner may edit a draft.
 - Publish requires required content, valid category classification, usable image metadata, and auction configuration to be ready.
@@ -48,8 +48,8 @@ The lifecycle vocabulary is intentionally small. Detailed pricing policies, disp
 
 - Core `auctions` owns the authoritative `closeAt` and a monotonically increasing `lifecycleVersion`. The `bidding-service` projection retains both. A stale opening projection may conservatively reject a valid bid, but lifecycle lag must never permit a bid after close or cancellation has been fenced.
 - An auction cannot accept a bid unless the projection says it is open and trusted server/database time is strictly before `closeAt`; client-supplied time is ignored.
-- Close or cancel moves Core to `CLOSING`, then Core sends an idempotent REST fence/finalize command to `bidding-service`. The fence serializes with in-flight bid transactions, commits a stable acknowledgement and final bid outcome, and returns that same result on retry. Core remains `CLOSING` after a timeout or failure and retries the same command identity; it closes/cancels and later settles only after the fence acknowledgement.
-- Closing establishes one final outcome from authoritative bid state. Reserve handling may yield no winner; it never yields multiple winners.
+- Close or cancel moves Core to `CLOSING`, then Core sends an idempotent Bidding REST fence/finalize command. Its stable acknowledgement/final bid outcome is not an order trigger. Core retries the same identity after ambiguity. After close acknowledgement, `auctions` atomically commits `CLOSED` and one producer-owned `AuctionClosed` through the durable Spring Modulith event-publication/outbox mechanism; cancellation commits `CANCELLED` without an order trigger.
+- `AuctionClosed` carries winner/no-winner, final price, lifecycle version, and stable identity. Reserve handling may yield no winner; it never yields multiple winners.
 - `auctions` owns timing and lifecycle. It does not become the source of truth for bids, current price, or winner.
 - Settlement follows successful creation of the post-auction trade and the required payment outcome; it does not imply that `orders` charges money.
 
@@ -64,7 +64,7 @@ A bid is accepted or rejected; accepted bids are immutable facts.
 
 ### Order and payment
 
-An order is created from a closed-auction outcome and records the durable buyer, seller, auction, item, and amount history. Reprocessing the same close outcome cannot create a second order. Payment has its own lifecycle in `payment-service`; a provider request, provider webhook, or local retry cannot produce a second charge for the same payment intent.
+An order is created only from auctions-owned `AuctionClosed` after the `CLOSED` commit. `orders` deduplicates by event/auction identity. A bidding-owned final-outcome fact is audit/projection input only and cannot create an order. Payment has its own lifecycle in `payment-service`; no retry can produce a second charge for the same payment intent.
 
 ## Consistency promises
 
@@ -73,7 +73,7 @@ An order is created from a closed-auction outcome and records the durable buyer,
 | Bid acceptance and current winner/price | Authoritative and immediately invariant-preserving | Reject conflicts or invalid bids; retry only with the same idempotency key |
 | Payment charge and webhook application | Authoritative and idempotent | Reconcile provider state and deduplicate webhook/provider identifiers |
 | Listing and auction commands | Local transactional consistency at the owning module | Return the owner's committed result |
-| Order creation from auction close | Eventually initiated across owners, exactly one logical order | Deduplicate the close fact and expose processing state |
+| Order creation from auction close | Triggered only by auctions-owned `AuctionClosed` after `CLOSED`; one logical order | Deduplicate by event/auction identity and expose processing state |
 | Search results | **Staged**, eventually consistent | Expose index freshness; allow authoritative refetch |
 | Notification views and deliveries | Eventually consistent | Show pending/failure state where useful; retry boundedly |
 | SSE live updates | Eventually consistent with bounded replay | Reconnect with last event ID; refetch after a replay gap |

@@ -28,7 +28,7 @@ JUnit/Mockito/AssertJ/Testcontainers/WireMock/Awaitility/Toxiproxy use a compati
 | --- | --- |
 | Authoritative owner behavior | Unit and owner integration tests prove lifecycle/authorization/validation rules; database tests prove migrations and transaction semantics. |
 | Concurrent bidding | Deterministic concurrent test harness drives competing requests for one auction and proves one authoritative price/winner, legal increments, safe conflicts, and stable same-key retry results. It measures the selected database concurrency mechanism rather than assuming one. |
-| Close/fence/order path | Integration tests prove `CLOSING`, stable idempotent fence/finalize identity, serialization with bid writes, timeout retry, and exactly one logical order from outcome redelivery. |
+| Close/fence/order path | Tests prove no order from Bidding acknowledgement/outcome, atomic `CLOSED` plus one auctions-owned `AuctionClosed`, after-commit handling, and at most one order under event/auction redelivery. |
 | Outbox and Kafka | Database + Testcontainers tests prove atomic state/outbox commit, relay retry/duplicate publication tolerance, consumer stable-ID deduplication, ordering by `auctionId`, schema/contract compatibility, lag/replay, and no repeated local/external effect. |
 | RabbitMQ notification work | Tests prove intent plus job-outbox atomically, competing-worker redelivery, bounded retry classification, DLQ/quarantine, stable provider key, and `UNKNOWN` reconciliation before any controlled retry. |
 | REST/SSE | Contract/system tests prove JWT/owner authorization, idempotency/error semantics, bounded SSE replay, reconnect, and authoritative refetch after a gap. SSE updates never prove bid acceptance. |

@@ -53,4 +53,4 @@ Event and job payloads contain stable identifiers and the minimum business data 
 
 **Staged:** Istio ambient service-to-service identity, mTLS, authorization policies, and fault injection. They complement application-layer resource-server validation and owner-level business authorization; they do not replace them.
 
-**Open:** payment provider and the remaining platform choices recorded elsewhere. **Excluded from the baseline:** AWS API Gateway, gateway-only authorization, committing application credentials, trusting identity from a request body, and accepting unsigned or replayed payment webhooks.
+**Open:** payment provider, notification delivery provider, and the remaining platform choices recorded elsewhere. **Excluded from the baseline:** AWS API Gateway, gateway-only authorization, committing application credentials, trusting identity from a request body, and accepting unsigned or replayed payment webhooks.

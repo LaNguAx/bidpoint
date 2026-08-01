@@ -69,4 +69,4 @@ Future local inventory; exact pins are reproducibility policy, not installed sof
 | Istio ambient | Staged | 1.30.3 full profile | Identity/policy/fault learning | Add when operable. |
 | OpenSearch | Staged | 3.5 | Search index | After browse/filter baseline. |
 
-**Open:** frontend libraries, payment provider, MSK mode, schema registry, license. **Excluded:** Docker Compose full environment, MinIO/AIStor, LocalStack OSS, ingress-nginx, H2, Promtail, Eureka, Spring Cloud Stream initially, AWS API Gateway, routine Dockerfiles.
+**Open:** frontend libraries, payment provider, notification delivery provider, MSK mode, schema registry, license. **Excluded:** Docker Compose full environment, MinIO/AIStor, LocalStack OSS, ingress-nginx, H2, Promtail, Eureka, Spring Cloud Stream initially, AWS API Gateway, routine Dockerfiles.

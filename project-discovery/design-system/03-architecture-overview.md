@@ -58,7 +58,7 @@ Browser live updates use SSE, not WebSockets by default. Kafka and RabbitMQ are 
 ### Local
 
 ```text
-client ? external pinned Traefik ? Spring Cloud Gateway ? Kubernetes Service ? backend
+client -> external pinned Traefik -> Spring Cloud Gateway -> Kubernetes Service -> backend
 ```
 
 Traefik is the local cluster edge and remains external/pinned. Spring Cloud Gateway is the application gateway and owns the application routing concerns listed above.
@@ -66,7 +66,7 @@ Traefik is the local cluster edge and remains external/pinned. Spring Cloud Gate
 ### AWS
 
 ```text
-Route 53 DNS ? AWS WAF ? ALB (via AWS Load Balancer Controller) ? Spring Cloud Gateway ? Kubernetes Service ? backend
+Route 53 DNS -> AWS WAF -> ALB (via AWS Load Balancer Controller) -> Spring Cloud Gateway -> Kubernetes Service -> backend
 ```
 
 Keycloak has a distinct authentication host or path and is not routed through Spring Cloud Gateway. Kubernetes Gateway API is a configuration API, not BidPoint's runtime application gateway. **Excluded:** AWS API Gateway.
@@ -75,16 +75,16 @@ Keycloak has a distinct authentication host or path and is not routed through Sp
 
 | Flow | Owner sequence | Important failure and recovery points |
 | --- | --- | --- |
-| Bid | client ? `api-gateway` ? `bidding-service` ? bid database/outbox ? Kafka | A timeout after commit is resolved by the idempotency key. Concurrency conflicts cannot weaken bid invariants. A relay outage leaves a committed outbox row for later publication. |
-| Auction close/cancel and order | `core-platform`/`auctions` commits `CLOSING` with its monotonic lifecycle version -> idempotent internal REST fence/finalize command -> `bidding-service` serializes the fence with bid writes and returns a stable acknowledgement/final outcome -> Kafka -> `core-platform`/`orders` creates one order when applicable | Bidding rejects using trusted time after authoritative `closeAt`, regardless of client time. A stale opening projection may reject; close lag may never accept. A timeout leaves Core in `CLOSING`, retrying the same command identity; Core closes/cancels and later settles only after acknowledgement. Outcome redelivery is deduplicated. |
-| Payment and webhook | order/client action ? `payment-service` ? provider ? verified provider webhook ? payment database/outbox ? Kafka | Stable intent and provider IDs prevent double charge. Unknown or invalid signatures are rejected. Ambiguous provider timeouts are reconciled before retry. |
-| Realtime | owner outbox ? Kafka ? `realtime-service` ? Redis ? SSE replicas ? browser | Consumer lag may delay display. Reconnect uses bounded replay; a gap instructs the client to refetch authoritative REST state. |
+| Bid | client -> `api-gateway` -> `bidding-service` -> bid database/outbox -> Kafka | A timeout after commit is resolved by the idempotency key. Concurrency conflicts cannot weaken bid invariants. A relay outage leaves a committed outbox row for later publication. |
+| Auction close and order | `auctions` commits `CLOSING` -> idempotent Bidding REST fence/finalize acknowledgement with stable final outcome (not an order trigger) -> `auctions` atomically commits `CLOSED` plus one producer-owned `AuctionClosed` through the durable Spring Modulith event-publication/outbox mechanism -> `orders` consumes after commit and creates one order when applicable | `AuctionClosed` carries winner/no-winner, final price, lifecycle version, and stable identity. `orders` deduplicates by event/auction identity. The same fact may be externalized to Kafka with the same identity; a bidding-owned final-outcome fact is audit/projection input only. Timeout leaves Core in `CLOSING`; cancellation commits `CANCELLED` without an order trigger. |
+| Payment and webhook | order/client action -> `payment-service` -> provider -> verified provider webhook -> payment database/outbox -> Kafka | Stable intent and provider IDs prevent double charge. Unknown or invalid signatures are rejected. Ambiguous provider timeouts are reconciled before retry. |
+| Realtime | owner outbox -> Kafka -> `realtime-service` -> Redis -> SSE replicas -> browser | Consumer lag may delay display. Reconnect uses bounded replay; a gap instructs the client to refetch authoritative REST state. |
 | Notification | Kafka fact -> `notification-service` policy/intent/job outbox -> RabbitMQ -> `notification-worker` -> provider | Both fact and work can redeliver. Provider selection requires idempotency and reconciliation by stable delivery key. A crash/timeout after a provider may have accepted delivery is recorded `UNKNOWN` and quarantined without automatic replay until reconciliation establishes the provider outcome. |
 
 ## Staged, open, and excluded decisions
 
 **Staged:** `search-service`/OpenSearch; Istio ambient service identity, mTLS, authorization policies, and fault injection.
 
-**Open:** payment provider, frontend libraries, Kafka/MSK mode, schema registry, public license.
+**Open:** payment provider, notification delivery provider, frontend libraries, Kafka/MSK mode, schema registry, public license.
 
 **Excluded:** Spring Cloud Stream, Eureka, AWS API Gateway, WebSockets by default, and unnecessary CRUD microservices.

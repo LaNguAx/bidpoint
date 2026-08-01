@@ -79,4 +79,4 @@ Consumers tolerate duplicate/redelivered messages. Retries are bounded and class
 - `search-service` is **Staged**, not a day-one dependency; browse/filter remains a Core capability.
 - Istio ambient service identity, mTLS, authorization policies, and fault injection are **Staged**. They complement but never replace backend JWT validation and owner-level authorization.
 - Spring Cloud Stream, Eureka, AWS API Gateway, WebSockets by default, and services created only for appearance are **Excluded** from the baseline.
-- Payment provider, frontend libraries, Kafka/MSK mode, schema registry, and public license are **Open** choices. No owner should encode an assumed choice before evidence selects one.
+- Payment provider, notification delivery provider, frontend libraries, Kafka/MSK mode, schema registry, and public license are **Open** choices. No owner should encode an assumed choice before evidence selects one.

@@ -1,4 +1,4 @@
-# BidPoint ? A Distributed Systems Reference Platform
+# BidPoint — A Distributed Systems Reference Platform
 
 Status: Canonical
 Last validated: 2026-08-01
@@ -29,13 +29,13 @@ The first useful marketplace supports identity, marketplace profiles, classified
 
 **Staged:** `search-service` and OpenSearch add full-text search after the core marketplace is sound. Istio ambient service identity, authorization policies, mTLS, and fault injection are also staged.
 
-**Open:** the payment provider, frontend libraries, Kafka/MSK operating mode, schema registry, and public license. These documents deliberately do not choose them.
+**Open:** the payment provider, notification delivery provider, frontend libraries, Kafka/MSK operating mode, schema registry, and public license. These documents deliberately do not choose them.
 
 **Excluded from the baseline:** Spring Cloud Stream, Eureka, AWS API Gateway, WebSockets by default, and CRUD microservices with no independent consistency, scaling, or failure responsibility.
 
 ## Why auctions create the right pressure
 
-An auction concentrates writes on one authoritative record. Concurrent bids must be evaluated against status, time, minimum increment, bidder rules, and prior idempotency keys while preserving one winner and current price. That produces hot database records and, because auction facts are partitioned by `auctionId`, potentially hot Kafka partitions. The correct concurrency mechanism?optimistic, pessimistic, or an atomic database operation?must be selected by measurement and proven with invariant tests rather than promised in advance.
+An auction concentrates writes on one authoritative record. Concurrent bids must be evaluated against status, time, minimum increment, bidder rules, and prior idempotency keys while preserving one winner and current price. That produces hot database records and, because auction facts are partitioned by `auctionId`, potentially hot Kafka partitions. The correct concurrency mechanism (optimistic, pessimistic, or an atomic database operation) must be selected by measurement and proven with invariant tests rather than promised in advance.
 
 Downstream work broadens the failure surface. Facts may be duplicated or redelivered. Publication must survive a process crash after a local commit. Search indexes, notification views, and live streams may be eventually consistent and visibly lag. Retries can amplify load; poison messages need quarantine; replay must rebuild projections without repeating emails or charges. Auction close, order creation, payment, and notification delivery span independent owners, so partial success and recovery are normal conditions to design for.
 
