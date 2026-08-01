@@ -29,7 +29,7 @@ Start at [2.0/99-handoff.md](project-discovery/design-system/2.0/99-handoff.md) 
 
 ## Architecture essentials
 
-Spring Modulith `core-platform` modular monolith — modules `profiles`, `catalog`, `listings`, `auctions`, `orders` — surrounded by `api-gateway`, `bidding-service`, `payment-service`, `realtime-service`, `notification-service`, `notification-worker`, and staged `search-service`. Full maps in [1.0/03](project-discovery/design-system/1.0/03-architecture-overview.md), [1.0/04](project-discovery/design-system/1.0/04-core-platform-modular-monolith.md), [1.0/05](project-discovery/design-system/1.0/05-microservice-boundaries.md).
+Spring Modulith `core-platform` modular monolith — modules `profiles`, `catalog`, `listings`, `auctions`, `orders`, plus `payment` with a fake adapter — alongside three services: `bidding-service`, `notification-service`, `notification-worker`. **Four deployables total** (ADR-038). `api-gateway`, `payment-service`, `realtime-service`, and `search-service` were removed; SSE is served from multiple `core-platform` replicas. Background in [1.0/03](project-discovery/design-system/1.0/03-architecture-overview.md), [1.0/04](project-discovery/design-system/1.0/04-core-platform-modular-monolith.md), [1.0/05](project-discovery/design-system/1.0/05-microservice-boundaries.md).
 
 These invariants are the point of the project. Generated code may never violate them:
 
@@ -40,7 +40,7 @@ These invariants are the point of the project. Generated code may never violate 
 - Kafka carries durable replayable facts. RabbitMQ carries targeted work. Redis is never authoritative. SSE is display-only, never command authority.
 - Lag is acceptable in search, notifications, and SSE. Accepting an invalid bid or charging twice is not.
 
-**Name components exactly.** Say Spring Cloud Gateway `api-gateway`, Traefik, ALB, AWS Load Balancer Controller, or Kubernetes Gateway API — never "the gateway", which conflates five different things. And `search-service`, never `search-indexer`.
+**The two-broker split is the point, not redundancy.** Kafka carries durable, replayable, per-key-ordered facts many consumers read. RabbitMQ carries one work obligation that exactly one of N competing workers executes. The canonical chain is `bidding-service` —Kafka fact→ `notification-service` —RabbitMQ job→ `notification-worker` at N replicas. Never propose collapsing them into one broker.
 
 ## Commands
 
@@ -56,7 +56,7 @@ for f in $(find . -name '*.md' -not -path './.git/*' -not -path './project-disco
     case "$l" in http*) continue;; esac; [ -e "$d/$l" ] || echo "BROKEN: $f -> $l"; done; done
 ```
 
-After stage A1 exists, the build is **plain Maven via wrapper** — `./mvnw verify`, `./mvnw -pl <module> test`, single test `./mvnw test -Dtest=ClassName#method`. Not present yet.
+After stage A1 exists, the build is **plain Maven via wrapper** — `./mvnw verify`, `./mvnw -pl <module> test`, single test `./mvnw test -Dtest=ClassName#method`. Not present yet. A1 also brings up a k3d cluster; ordinary tests use Testcontainers and need no cluster.
 
 **No Nx, no pnpm, no `nx` targets.** ADR-019-R1 made Maven the sole build authority. 1.0's documents and the structure template both still reference Nx; both are stale on this point.
 
@@ -101,7 +101,9 @@ Pin policy (ADR-028-R1):
 
 - **Every component must map to a learning outcome** in [2.0/01](project-discovery/design-system/2.0/01-project-thesis.md). One that cannot is removed, not staged. This rule removed Nx and X-Ray.
 - **Do not write new design documents** (ADR-034). The corpus is closed. Record changes as amendments in [2.0/04-decision-delta.md](project-discovery/design-system/2.0/04-decision-delta.md). Runbooks and notes written *from* evidence are outputs, not design.
-- **Phase A before Phase B.** Phase A (A1–A8, correctness) runs on Testcontainers plus a narrow Compose file with **no cluster**. Kubernetes, Jenkins, Argo CD, and AWS are Phase B. Do not pull Phase B work forward — that ordering mistake is what 2.0 exists to fix. See [2.0/03](project-discovery/design-system/2.0/03-delivery-roadmap.md).
+- **Phase A before Phase B.** Phase A is A1–A9 (correctness), running on **local k3d from stage one** — there is no Compose phase (ADR-037), and proposing one is a regression. A4 is an early AWS tracer bullet: one service on ECS Fargate, then destroyed. Phase B is CI/CD, full AWS deployment, and one bounded EKS exercise. See [2.0/03](project-discovery/design-system/2.0/03-delivery-roadmap.md).
+- **The stack was deliberately cut to ~20 tools** (ADR-035 through ADR-039) by asking of each one: *is a backend engineer ever actually asked about this, or is it platform/SRE tooling?* Removed, and **not to be reintroduced without naming the learning outcome first**: Istio, KEDA, Argo Rollouts, Argo CD, Jenkins, Strimzi and the RabbitMQ operator, Spring Cloud Gateway, Loki, Tempo, MSK, Amazon MQ, Redis Cloud, AMP, Managed Grafana, X-Ray, OpenSearch, CloudFront.
+- **ECS Fargate is the AWS target, not EKS.** An EKS control plane is ~$73/month against **$100 total credits**. Kubernetes depth comes from free local k3d; EKS is one bounded exercise at B3. Watch the NAT Gateway (~$32/month) — it costs more than the database and is the classic silent credit-killer.
 - **AWS is created and destroyed per session** (ADR-033), never left running. Cost is the main abandonment risk.
 - Changing a Canonical decision requires stating consequences **first**: affected owner, contract and data boundary, migration, compatibility, rollback.
 - Open questions ([2.0/05](project-discovery/design-system/2.0/05-exclusions-and-open-questions.md)) are gates with criteria, not invitations to decide opportunistically. A fake adapter unblocks the payment and notification stages.

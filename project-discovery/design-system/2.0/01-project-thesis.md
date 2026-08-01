@@ -41,8 +41,8 @@ Every technology and deployable must teach one of these responsibilities. A spli
 
 | Phase | Contains | Question it answers | Standalone? |
 | --- | --- | --- | --- |
-| **A — Correctness** | The marketplace, bidding concurrency, outbox, Kafka facts, SSE, notifications, orders and payment, observability and load evidence. | *Can I build a distributed system that stays correct under concurrency and partial failure, and prove it?* | Yes. Complete, demonstrable, and interview-ready on its own. |
-| **B — Platform** | Kubernetes, GitOps delivery, AWS/EKS, resilience and scaling work. | *Can I run and deliver that system the way production teams do?* | Yes. Deploys the Phase A artifact; adds no domain behavior. |
+| **A — Correctness** | The marketplace on local k3d, bidding concurrency, an early AWS tracer bullet, outbox, Kafka facts, SSE, the Kafka-to-RabbitMQ fan-out, orders and payment, observability and load evidence. | *Can I build a distributed system that stays correct under concurrency and partial failure, and prove it?* | Yes. Complete, demonstrable, and interview-ready on its own — and real AWS experience is banked at A4. |
+| **B — Production delivery** | CI/CD with GitHub Actions, full AWS deployment on ECS Fargate, one bounded EKS exercise. | *Can I ship and operate that system the way a team does?* | Yes. Deploys the Phase A artifact; adds no domain behavior. |
 
 Phase B is a second project that happens to deploy the first. Treating the two as one is the primary risk to completion identified in this revision.
 
@@ -62,9 +62,9 @@ The central distinction is consequence: search results, notification views, and 
 
 Unchanged. The first useful marketplace supports identity, marketplace profiles, classified listing drafts and images, auction publication and lifecycle, concurrent bidding, live updates, post-auction orders, provider-backed payments, notification delivery, and durable history. Initial discovery uses ordinary browse and filters.
 
-**Staged:** `search-service` and OpenSearch; Istio ambient identity, authorization policy, mTLS, and fault injection.
+**Staged:** nothing. The stack reduction (ADR-035 through ADR-039) removed the staged tier entirely — items are either in the baseline or excluded, since `staged` had become a place where unjustifiable tooling waited rather than a genuine later increment.
 
-**Open:** payment provider, notification delivery provider, frontend libraries, Kafka/MSK operating mode, schema registry, public license. See [05](05-exclusions-and-open-questions.md).
+**Open:** payment provider, notification delivery provider, frontend libraries, schema registry, public license. See [05](05-exclusions-and-open-questions.md).
 
 **Excluded from the baseline:** Spring Cloud Stream, Eureka, AWS API Gateway, WebSockets by default, CRUD microservices with no independent responsibility, and — new in 2.0 — Nx as build orchestration while the repository has no frontend.
 

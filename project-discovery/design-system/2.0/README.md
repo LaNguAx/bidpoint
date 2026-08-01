@@ -4,7 +4,9 @@ Status: Canonical
 Last validated: 2026-08-01
 Supersedes: [design-system 1.0](../1.0/README.md)
 
-2.0 is a **lean revision**, not a rewrite. It changes the technology periphery, the pin policy, and the delivery sequence. It does not change the domain, ownership boundaries, or messaging semantics — those remain the strongest part of 1.0 and are inherited unchanged.
+2.0 is a **lean revision**, not a rewrite. It changes the technology stack, the pin policy, the delivery sequence, and how many deployables the ownership rules are distributed across.
+
+It does not change the **domain, the ownership rules themselves, or the messaging semantics** — write authority, transactional outboxes, at-least-once delivery, the close-and-order sequence, and the Kafka-versus-RabbitMQ distinction are the strongest part of 1.0 and are inherited unchanged. ADR-038 reduces seven deployables to four by folding `payment` and `realtime` into `core-platform` as modules; every retained boundary keeps its authority, and no owner gained the right to write another's data.
 
 ## What 2.0 contains
 
@@ -14,7 +16,7 @@ Supersedes: [design-system 1.0](../1.0/README.md)
 | [02 Technology stack](02-technology-stack.md) | Local and remote inventory, merged and reduced. |
 | [03 Delivery roadmap](03-delivery-roadmap.md) | Resequenced so bidding correctness arrives early. |
 | [04 Decision delta](04-decision-delta.md) | Every change from 1.0, with rationale and consequence. |
-| [05 Exclusions and open questions](05-exclusions-and-open-questions.md) | Revised register; Compose and Nx reclassified. |
+| [05 Exclusions and open questions](05-exclusions-and-open-questions.md) | Revised register; the stack reduction moved a dozen tools to Excluded. |
 | [99 Handoff](99-handoff.md) | Standalone entry point for a new developer or AI session. |
 
 ## What 2.0 inherits from 1.0 unchanged
@@ -39,7 +41,7 @@ Where 1.0 documents 11–14 and 16–22 conflict with 2.0, **2.0 wins**; consult
 
 ## The change in one paragraph
 
-1.0 was a correct architecture wrapped in more platform surface than one engineer can carry to completion. 2.0 keeps the architecture, removes the tooling that teaches nothing (Nx, duplicated telemetry), relaxes pins that were bleeding-edge for no benefit, and reorders delivery so the auction concurrency work — the actual thesis — arrives in weeks rather than after a full Kubernetes platform build. The project is explicitly split into two phases so that Phase A can be finished, demonstrated, and talked about on its own.
+1.0 was a correct architecture wrapped in more platform surface than one engineer can carry to completion. 2.0 keeps the architecture and cuts the surface. Two passes: the first removed tooling that taught nothing (Nx, duplicated telemetry) and relaxed bleeding-edge pins; the second cut the stack from roughly forty tools to twenty by asking of each one whether a backend engineer is ever actually asked about it — which removed the mesh, GitOps, operator, and progressive-delivery tier, dropped deployables from seven to four, and made ECS Fargate the AWS target so that 00 in credits is enough. Delivery is resequenced so bidding concurrency arrives at A3 and real AWS experience at A4, rather than at stage eleven.
 
 ## Interpretation
 

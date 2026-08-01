@@ -4,9 +4,11 @@ Status: Canonical
 Last validated: 2026-08-01
 Amends: [1.0/21 Decision register](../1.0/21-decision-register.md)
 
-This is the complete record of what 2.0 changes. Every 1.0 decision not listed here is **retained unchanged and remains Canonical**, including all of ADR-001 through ADR-018, ADR-020, ADR-021, ADR-023, ADR-026, ADR-027, ADR-029, and ADR-030.
+This is the complete record of what 2.0 changes. Every 1.0 decision not listed here is **retained unchanged and remains Canonical** — notably ADR-001 through ADR-004, ADR-006 through ADR-016, ADR-018, ADR-020, ADR-021, ADR-027, ADR-029, and ADR-030, which carry the domain, ownership, messaging, and security contract.
 
 Per 1.0's change discipline, each amendment identifies the affected owner, the boundary touched, the migration and rollback path, and what it turns a staged or excluded item into. Revisions use the `-R1` suffix against the original identifier so 1.0 remains traceable.
+
+The register was revised twice. The **first revision** (ADR-019-R1 through ADR-034) changed technology periphery, pin policy, and delivery sequence. The **second revision** (ADR-035 through ADR-039) is a stack reduction driven by tool volume, and it supersedes two first-revision decisions — ADR-017-R1 and ADR-022-R1 — which are marked void where they appear. Read both passes; where they disagree, the second wins.
 
 ## Amendments to existing decisions
 
@@ -25,6 +27,8 @@ Per 1.0's change discipline, each amendment identifies the affected owner, the b
 
 ### ADR-025-R1 — Telemetry consolidated to one stack
 
+> **Narrowed.** The consolidation principle stands, but [ADR-039](#adr-039--jenkins-removed-in-favour-of-github-actions-telemetry-reduced) reduces the selected stack from Prometheus/Loki/Tempo/Grafana to **Prometheus and Grafana**. X-Ray remains excluded; AMP and Managed Grafana are removed entirely rather than kept as optional comparisons.
+
 | Field | Record |
 | --- | --- |
 | **1.0 position** | ADR-025: local OTel/Prometheus/Loki/Tempo/Grafana maps to remote ADOT/AMP/CloudWatch Logs/X-Ray/Managed Grafana. Canonical. |
@@ -37,6 +41,8 @@ Per 1.0's change discipline, each amendment identifies the affected owner, the b
 | **Affected documents** | [1.0/14](../1.0/14-observability.md), [02](02-technology-stack.md) |
 
 ### ADR-017-R1 — Kubernetes is a Phase B lesson, not a Phase A prerequisite
+
+> **VOID.** Superseded by [ADR-037](#adr-037--kubernetes-from-stage-a1-the-compose-phase-is-removed): k3d runs from stage A1 and there is no Compose phase. Retained below for the reasoning.
 
 | Field | Record |
 | --- | --- |
@@ -63,6 +69,8 @@ Per 1.0's change discipline, each amendment identifies the affected owner, the b
 | **Affected documents** | [1.0/19](../1.0/19-versions-and-compatibility.md), [1.0/23](../1.0/23-primary-sources.md), [02](02-technology-stack.md), [05](05-exclusions-and-open-questions.md) |
 
 ### ADR-022-R1 — Jenkins retained, with the reason recorded
+
+> **VOID.** Superseded by [ADR-039](#adr-039--jenkins-removed-in-favour-of-github-actions-telemetry-reduced): GitHub Actions is the CI baseline and Jenkins is removed. The fallback this decision recorded is now the baseline. Retained below for the reasoning.
 
 | Field | Record |
 | --- | --- |
@@ -116,6 +124,68 @@ Per 1.0's change discipline, each amendment identifies the affected owner, the b
 | **Rationale** | Twenty-four canonical documents, a five-word status vocabulary, and a 634-directory placeholder tree already exist for a project with no code. Continued documentation of unwritten software is the most available form of procrastination here. |
 | **Consequences** | Implementation notes, runbooks, and ADRs written *from* evidence remain welcome — they are outputs, not design. Documents 1.0/11–14 and 1.0/16–22 stay readable for background rationale where 2.0 does not contradict them. |
 | **Affected documents** | This document, [2.0/README](README.md) |
+
+## Stack reduction (second revision)
+
+Prompted by a direct observation: the stack carried roughly forty tools, and most were not things a backend engineer is asked about. The test applied to every tool was **does this appear in backend job postings, or is it platform/SRE tooling that is industry-standard in large organizations but rarely asked of a backend developer?** The second category is legitimate technology and largely irrelevant to the stated goal.
+
+### ADR-035 — ECS Fargate is the primary AWS target; EKS is one bounded exercise
+
+| Field | Record |
+| --- | --- |
+| **Prior position** | EKS with managed node groups as the AWS runtime; MSK, Amazon MQ, Redis Cloud, AMP, and Managed Grafana as managed dependencies. |
+| **Decision** | **ECS Fargate** is the primary AWS compute target. **EKS is a single bounded exercise** at B3: stand up, deploy the local Helm charts, document the differences, tear down. Kafka and RabbitMQ are **self-hosted as containers** on AWS. MSK, Amazon MQ, Redis Cloud, AMP, Managed Grafana, X-Ray, CloudFront, and OpenSearch Service are removed. |
+| **Status** | Canonical |
+| **Rationale** | Budget decides this. An EKS control plane is roughly $73/month before any compute, against $100 in available credits — five weeks of burn for nothing else. ECS Fargate has no control-plane fee and still teaches the AWS surface interviews probe: IAM roles, task definitions, ECR, VPC, RDS connectivity, secret injection, log shipping. The deeper error was conflating **learning Kubernetes** with **learning AWS**: Kubernetes depth belongs on local k3d where iteration is free, and EKS is where the two meet briefly, not the vehicle for either. |
+| **Consequences** | No managed-broker operational experience; mitigated by self-hosting brokers already known from local work, plus an optional short managed comparison. ECS task definitions are not portable to Kubernetes, so B3 does re-do deployment configuration — accepted, and the contrast is itself instructive. The NAT Gateway (~$32/month plus data) is called out explicitly as the largest silent cost. |
+| **Migration and rollback** | Nothing to migrate; no infrastructure exists. Terraform is designed for repeated create/destroy from the start (ADR-033), so switching targets later is a module swap, not a rebuild. |
+| **Affected documents** | [02](02-technology-stack.md), [03](03-delivery-roadmap.md), [05](05-exclusions-and-open-questions.md) |
+
+### ADR-036 — Platform and operator tooling removed
+
+| Field | Record |
+| --- | --- |
+| **Decision** | Removed from the baseline: **Istio ambient**, **KEDA**, **Argo Rollouts**, **Argo CD**, **Strimzi**, **RabbitMQ Cluster Operator**, and **Traefik / Gateway API as study items**. |
+| **Status** | Canonical |
+| **Rationale** | Each fails the selection test. Service mesh, progressive delivery, GitOps reconciliation, and queue-driven autoscaling are platform and SRE responsibilities; backend postings essentially never require them. The operators are the sharpest case: the goal is to learn **Kafka and RabbitMQ**, and operator lifecycle management is a distinct Kubernetes-administration skill that teaches nothing about partitions, ordering, consumer groups, or delivery semantics. Together these were among the largest lifts in the plan. |
+| **Consequences** | No mesh identity, mTLS, or fault-injection experience; application-layer security and Toxiproxy cover the equivalent lessons. No GitOps reconciliation; B1 teaches build-versus-deploy separation through GitHub Actions instead. Brokers install from community Helm charts, which is also how most teams start. |
+| **Affected documents** | [02](02-technology-stack.md), [03](03-delivery-roadmap.md), [05](05-exclusions-and-open-questions.md) |
+
+### ADR-037 — Kubernetes from stage A1; the Compose phase is removed
+
+| Field | Record |
+| --- | --- |
+| **Prior position** | ADR-017-R1: Testcontainers plus a narrow Compose aid for Phase A; k3d deferred to Phase B. |
+| **Decision** | **k3d from A1.** There is no Compose phase and no migration between environments. Ordinary tests continue to use Testcontainers and require no cluster. |
+| **Status** | Canonical |
+| **Rationale** | ADR-017-R1 optimised for reaching bidding concurrency fastest, which was right about the goal and wrong about the cost. Learning Kubernetes against a two-service system is materially easier than retrofitting it onto nine, and a single environment removes the Compose-to-cluster migration along with the risk of Compose-only assumptions leaking into application code. Kubernetes is also a stated learning target in its own right, so deferring it deferred a primary objective. |
+| **Consequences** | A slower first week: A1 now includes cluster setup before any domain code. Accepted deliberately. If cluster friction blocks progress on correctness work, the recorded fallback is to run dependencies through Testcontainers alone and defer in-cluster deployment to the end of the stage — not to reintroduce Compose. |
+| **Supersedes** | ADR-017-R1, which is void. |
+| **Affected documents** | [02](02-technology-stack.md), [03](03-delivery-roadmap.md) |
+
+### ADR-038 — Deployables reduced from seven to four
+
+| Field | Record |
+| --- | --- |
+| **Prior position** | ADR-005: `api-gateway`, `bidding-service`, `payment-service`, `realtime-service`, `notification-service`, `notification-worker`, staged `search-service`. |
+| **Decision** | Four deployables: **`core-platform`**, **`bidding-service`**, **`notification-service`**, **`notification-worker`**. `payment-service` becomes a Core module with a fake provider adapter. `realtime-service` folds into `core-platform`, which runs multiple replicas so SSE fan-out remains a real problem. `api-gateway` and `search-service` are removed. |
+| **Status** | Canonical |
+| **Rationale** | Volume is not only tools. Every deployable is an image, a chart, configuration, secrets, and a deployment, and seven multiplied every platform task. The four retained each keep an independent consistency, scaling, or failure responsibility, so ADR-005's underlying rule is preserved rather than weakened. The notification pair is retained specifically because the Kafka-fact → policy-decision → RabbitMQ-job → **N competing workers** chain is the clearest demonstration of why the two brokers differ. |
+| **Consequences** | No dedicated application-gateway experience; Spring Cloud Gateway is removed with it. Payment provider isolation is weaker inside Core, revisited if a real provider is adopted. SSE fan-out is still genuinely tested because `core-platform` runs at more than one replica. |
+| **Migration and rollback** | Extraction remains available under ADR-003's existing evidence requirement: independent load, cadence, ownership, or failure isolation. |
+| **Affected documents** | [02](02-technology-stack.md), [03](03-delivery-roadmap.md), [1.0/05](../1.0/05-microservice-boundaries.md) |
+
+### ADR-039 — Jenkins removed in favour of GitHub Actions; telemetry reduced
+
+| Field | Record |
+| --- | --- |
+| **Prior position** | ADR-022-R1 retained Jenkins on employability grounds, with GitHub Actions as the recorded fallback. Telemetry was OTel Collector plus Prometheus, Loki, Grafana. |
+| **Decision** | **GitHub Actions is the CI and deployment baseline. Jenkins is removed.** Telemetry reduces to **Prometheus and Grafana**; Loki and Tempo are removed. |
+| **Status** | Canonical |
+| **Rationale** | This reverses ADR-022-R1. That decision weighed Jenkins' presence in enterprise Java shops against its cost and chose employability; the reduction pass reweighs it against total volume and reaches the opposite answer. A JCasC controller with ephemeral Kubernetes agents was among the largest single lifts in the plan, for a tool declining in postings, teaching a separation of build from deploy that GitHub Actions teaches in an afternoon. Log aggregation and distributed tracing are worth knowing, but two additional stores to operate is exactly the volume problem; metrics alone make partial failure visible enough for every acceptance requirement in [03](03-delivery-roadmap.md). |
+| **Consequences** | No Jenkins experience, which remains a genuine if narrowing gap in enterprise contexts. Log inspection is per-service via `kubectl logs` and CloudWatch rather than centralized queries. No distributed tracing; correlation IDs in structured logs carry the correlation lesson instead. Tracing is the first thing to add back if the stack later has room. |
+| **Supersedes** | ADR-022-R1, which is void. ADR-025-R1's consolidation stands; its Prometheus/Loki/Tempo/Grafana selection narrows to Prometheus/Grafana. |
+| **Affected documents** | [02](02-technology-stack.md), [03](03-delivery-roadmap.md), [05](05-exclusions-and-open-questions.md) |
 
 ## Change discipline
 

@@ -27,7 +27,7 @@ Inherited unchanged from 1.0 and still authoritative: [02 product domain](../1.0
 
 ## Product scope and invariants
 
-Identity and marketplace-profile onboarding, classified listing drafts and images, publication, auction scheduling/open/close/cancel/settle, concurrent bidding, live updates, post-auction orders, provider-backed payments, notification delivery, durable history. Initial discovery is ordinary browse and filter; full-text search is staged.
+Identity and marketplace-profile onboarding, classified listing drafts and images, publication, auction scheduling/open/close/cancel/settle, concurrent bidding, live updates, post-auction orders, provider-backed payments, notification delivery, durable history. Initial discovery is ordinary browse and filter. Full-text search and OpenSearch are excluded (ADR-035).
 
 - Keycloak owns credentials. Core `profiles` owns marketplace profile activation keyed by the validated Keycloak subject. `UserRegistered` means idempotent profile activation, not credential creation.
 - A listing moves `DRAFT` to `PUBLISHED`; only its owner edits the draft; publication requires valid content, classification, images, and auction configuration.
@@ -36,7 +36,7 @@ Identity and marketplace-profile onboarding, classified listing drafts and image
 - Reusing an idempotency key for the same logical bid returns the recorded result and cannot create another accepted bid. After every committed acceptance there is one authoritative price and at most one current winner.
 - Close/cancel moves Core to `CLOSING`, then issues an idempotent Bidding REST fence/finalize command. Its acknowledgement is **not** an order trigger; Core retries the same identity after ambiguity.
 - After acknowledgement, `auctions` atomically commits `CLOSED` and one producer-owned `AuctionClosed` via durable Spring Modulith event publication. `orders` consumes only after commit and deduplicates by event/auction identity. A bidding-owned outcome is audit and projection input only.
-- `payment-service` owns payment state, provider calls, verified webhooks, reconciliation, and audit. Card data is outside BidPoint.
+- The `payment` module inside `core-platform` owns payment state, provider calls, verified webhooks, reconciliation, and audit, behind a fake provider adapter. Card data is outside BidPoint.
 - Search, notification views, and SSE may lag and must expose recovery behavior. Invalid bid acceptance and duplicate charging may not be excused by eventual consistency.
 
 ## Topology and ownership
@@ -51,23 +51,33 @@ Spring Modulith `core-platform` modular monolith surrounded by focused services.
 | `auctions` | Schedule, lifecycle, `closeAt`, lifecycle version, close/cancel coordination, authoritative `AuctionClosed`; never authoritative bids. |
 | `orders` | Idempotent post-auction trade records and history; never payment charging. |
 
+**Four deployables** (ADR-038, reduced from seven):
+
 | Deployable | Owns | Does not own |
 | --- | --- | --- |
-| `api-gateway` | Spring Cloud Gateway WebFlux; public routing, CORS, correlation IDs, trace propagation, early JWT rejection, Redis-backed rate limits. | Identity storage, final business authorization, domain data. |
+| `core-platform` | The five Modulith modules, plus payment as a module with a fake provider adapter, plus SSE served from multiple replicas. | Bids, current price, or current winner. |
 | `bidding-service` | Bid acceptance/state, current price/winner, per-auction concurrency and idempotency, auction projection, fence/finalize, bid outbox. | Auction scheduling or lifecycle authority. |
-| `payment-service` | Payment state, provider integration, verified webhooks, reconciliation, retries, audit, payment outbox. | Orders or card data. |
-| `realtime-service` | Kafka-derived live view, Redis fan-out and bounded replay, SSE from every replica, reconnect signalling. | Auction or bid authority. |
 | `notification-service` | Kafka-fact consumption, notification policy, durable intent, job outbox, RabbitMQ work publication. | Provider calls. |
-| `notification-worker` | RabbitMQ job execution, provider calls, attempt audit, stable-key idempotency, retry classification, reconciliation, DLQ/quarantine. | Deciding which facts merit notifications. |
-| `search-service` | **Staged:** OpenSearch indexing and full-text REST query. | Authoritative listing data or initial browse/filter. |
+| `notification-worker` | RabbitMQ job execution, provider calls, attempt audit, stable-key idempotency, retry classification, reconciliation, DLQ/quarantine. **Runs at N replicas as competing consumers.** | Deciding which facts merit notifications. |
 
-The name is always `search-service`, never `search-indexer`. PostgreSQL is authoritative; Redis is acceleration and ephemeral coordination; S3 stores listing objects while `listings` owns their metadata; Kafka carries durable replayable facts; RabbitMQ carries targeted work; staged OpenSearch is derived only.
+Removed: `api-gateway` and Spring Cloud Gateway, `search-service` and OpenSearch, `payment-service` and `realtime-service` as separate deployables.
+
+PostgreSQL is authoritative; Redis is acceleration and ephemeral coordination; S3 stores listing objects while `listings` owns their metadata; Kafka carries durable replayable facts; RabbitMQ carries targeted work.
+
+The two-broker split is deliberate and is the clearest demonstration in the system:
+
+```
+bidding-service --Kafka fact--> notification-service --RabbitMQ job--> notification-worker x N
+   (producer)                      (decides policy)                      (competing consumers)
+```
+
+Kafka carries a durable, replayable, per-key-ordered fact that many independent consumers read. RabbitMQ carries one work obligation that exactly one of N workers executes.
 
 ## Key flows
 
-**Front door.** Local: `browser -> Traefik -> api-gateway -> Kubernetes Service -> backend`. AWS: `Route 53 -> WAF -> ALB -> api-gateway -> Kubernetes Service -> backend`. Keycloak uses a distinct authentication host and is not routed through Spring Cloud Gateway. Kubernetes Gateway API is configuration, not a runtime gateway product; AWS API Gateway is excluded. The gateway rejects invalid tokens early, but every backend independently validates JWTs and the owner makes business and object-level authorization decisions.
+**Front door.** Local: `browser -> k3d ingress -> Kubernetes Service -> backend`. AWS: `ALB -> ECS Fargate service -> backend`. There is no application gateway — `api-gateway` and Spring Cloud Gateway were removed by ADR-038. **Every backend independently validates JWTs** as a resource server, and the owning service makes business and object-level authorization decisions. Removing the gateway removes an early-rejection optimisation, not a security control.
 
-**Bid.** `client -> api-gateway -> bidding-service -> authoritative transaction + outbox -> Kafka`. Client supplies a stable idempotency key. Bidding validates its owner-local auction projection, trusted time, amount, and bidder rules; serializes or conflict-detects; commits result plus outbox row; publishes later. A timeout after commit resolves with the same key. Duplicate publication is expected and deduplicated.
+**Bid.** `client -> bidding-service -> authoritative transaction + outbox -> Kafka`. Client supplies a stable idempotency key. Bidding validates its owner-local auction projection, trusted time, amount, and bidder rules; serializes or conflict-detects; commits result plus outbox row; publishes later. A timeout after commit resolves with the same key. Duplicate publication is expected and deduplicated.
 
 **Close and order.** `auctions` commits `CLOSING`, calls the idempotent fence/finalize command, retries after timeout, then atomically commits `CLOSED` plus one `AuctionClosed`. `orders` creates at most one trade using event/auction deduplication. Cancellation commits `CANCELLED` without `AuctionClosed`.
 
@@ -75,31 +85,44 @@ The name is always `search-service`, never `search-indexer`. PostgreSQL is autho
 
 **Notifications.** `Kafka fact -> notification-service decision -> durable intent + job outbox -> relay -> RabbitMQ -> notification-worker -> provider`. The worker uses a stable provider key, records attempts, bounds retries, sends terminal failures to DLQ, marks ambiguous outcomes `UNKNOWN`, and reconciles before any controlled retry.
 
-**Payments.** `payment-service` owns provider intent and audit. Requests use stable idempotency identities. Webhooks require signature verification and replay protection, apply transitions idempotently, and commit facts through an outbox. Ambiguous timeouts reconcile before retry.
+**Payments.** The `payment` module owns provider intent and audit. Requests use stable idempotency identities. Webhooks require signature verification and replay protection, apply transitions idempotently, and commit facts through an outbox. Ambiguous timeouts reconcile before retry.
 
-**Realtime.** Owner outboxes publish Kafka facts; `realtime-service` maintains an ephemeral Redis-backed view and serves SSE from all replicas. Clients reconnect with the last event ID for bounded replay; on a gap the service signals a REST refetch. SSE is a display channel, never command authority.
+**Realtime.** Owner outboxes publish Kafka facts; `core-platform` maintains an ephemeral Redis-backed view and serves SSE from all of its replicas. Clients reconnect with the last event ID for bounded replay; on a gap the service signals a REST refetch. SSE is a display channel, never command authority.
 
 ## Delivery plan — two phases
 
-**Phase A (correctness)** runs on Testcontainers plus a narrow Docker Compose aid. No cluster.
+**Phase A (correctness)** runs on local k3d from stage one. There is no Compose phase. Ordinary tests use Testcontainers and need no cluster.
 
-A1 repository fitness (Maven reactor, boundaries, quality gates) → A2 core domain and identity → **A3 bidding concurrency and idempotency, the thesis** → A4 Kafka facts, outbox, replay → A5 realtime and SSE → A6 RabbitMQ notifications → A7 orders and payment → A8 observability and load.
+A1 foundation (Maven reactor, boundaries, quality gates, k3d cluster, one service deployed) → A2 core domain and identity → **A3 bidding concurrency and idempotency, the thesis** → **A4 AWS tracer bullet (one service on ECS Fargate, real Terraform/IAM/ECR/RDS/Secrets/CloudWatch, destroyed afterward)** → A5 Kafka facts, outbox, replay → A6 realtime and SSE → A7 Kafka-to-RabbitMQ fan-out with N competing workers → A8 orders and payment → A9 observability and load.
 
-**Phase B (platform)** adds no domain behavior.
+**Phase B (production delivery)** adds no domain behavior.
 
-B1 local Kubernetes (k3d/k3s, Traefik, operators, HPA) → B2 delivery (Jenkins, Jib, ECR digests, Argo CD) → B3 AWS parity (Terraform, EKS, RDS, managed services) → B4 resilience (OpenSearch, KEDA, Istio ambient, canary, chaos).
+B1 CI/CD with GitHub Actions → B2 full AWS deployment of all four services on ECS Fargate → B3 one bounded EKS exercise.
 
-Phase A is independently complete and demonstrable. Full acceptance evidence per stage is in [03 Delivery roadmap](03-delivery-roadmap.md).
+A4 exists so AWS experience is banked early rather than held hostage to finishing everything else. Phase A is independently complete and demonstrable. Full acceptance evidence per stage is in [03 Delivery roadmap](03-delivery-roadmap.md).
 
 ## Stack summary
 
-Maven is the sole build authority — **there is no Nx**. Temurin LTS, Spring Boot/Cloud/Modulith pinned one minor behind current, Spring Cloud Gateway (the only WebFlux component), Spring Security resource server, Spring Data JPA, Flyway, Spring for Kafka, Spring AMQP, Actuator, Micrometer, OpenTelemetry, AWS SDK v2, Jib. PostgreSQL, Redis, Kafka, RabbitMQ, Keycloak, S3Mock. JUnit, Mockito, AssertJ, Testcontainers, WireMock, Awaitility, Toxiproxy, ArchUnit, JaCoCo, Spotless, k6.
+Roughly twenty tools, reduced from about forty. The selection rule: **does this appear in backend job postings, or is it platform/SRE tooling rarely asked of a backend developer?**
 
-Phase B adds k3d/k3s, Traefik, Gateway API, Helm, Strimzi, RabbitMQ Cluster Operator, metrics-server, Jenkins, Argo CD, Terraform, EKS, RDS, ECR, S3, Amazon MQ, Redis Cloud, Secrets Manager, ALB. Telemetry is one OTel → Prometheus/Loki/Tempo/Grafana stack in **both** environments; ADOT collects on AWS and CloudWatch Logs is retained. **X-Ray is excluded**; AMP and Managed Grafana are optional comparisons.
+Maven is the sole build authority — **there is no Nx**. Temurin LTS, Spring Boot and Spring Modulith pinned one minor behind current, Spring Security resource server, Spring Data JPA, Flyway, Spring for Kafka, Spring AMQP, Actuator, Micrometer, AWS SDK v2, Jib. PostgreSQL, Kafka, RabbitMQ, Redis, Keycloak. JUnit, Mockito, AssertJ, Testcontainers, WireMock, Awaitility, Toxiproxy, ArchUnit, JaCoCo, Spotless, k6.
+
+Local: Docker, k3d/k3s, kubectl, Helm, Prometheus, Grafana. Dependencies install from community Helm charts — **no operators**.
+
+AWS: Terraform, ECR, **ECS Fargate as the primary compute target**, RDS PostgreSQL, S3, IAM, Secrets Manager, CloudWatch Logs, ALB, VPC, GitHub Actions. Kafka and RabbitMQ are **self-hosted containers**, not MSK and Amazon MQ. EKS is **one bounded exercise** at B3, budgeted at roughly $20 of credits.
+
+**Removed:** Istio, KEDA, Argo Rollouts, Argo CD, Jenkins, Strimzi, RabbitMQ Cluster Operator, Spring Cloud Gateway, Traefik as a study item, Loki, Tempo, MSK, Amazon MQ, Redis Cloud, AMP, Managed Grafana, X-Ray, OpenSearch, CloudFront, Karpenter, multi-region DR. Rationale per item in [04](04-decision-delta.md), ADR-035 through ADR-039.
 
 Pin policy: behavioral components at current stable, frameworks one minor behind, tooling floating within a family, AWS managed families verified at implementation. Never infer a version from a general project page; never use `latest`. Exact 1.0 pins in [1.0/19](../1.0/19-versions-and-compatibility.md) are a snapshot to re-validate, not a contract.
 
-AWS infrastructure is created and destroyed per session and never left running.
+## Budget
+
+The working constraint is **$100 in AWS credits**. It is sufficient if infrastructure is disposable.
+
+- Create and destroy per session (ADR-033). Never leave it running.
+- **Watch the NAT Gateway** — roughly $32/month plus data, more than the database, and the classic silent credit-killer. Use public subnets or VPC endpoints.
+- Set a billing alarm before the first `terraform apply`.
+- ECS Fargate over EKS specifically because an EKS control plane is ~$73/month before any compute.
 
 ## Repository and package rules
 
@@ -120,7 +143,7 @@ Not requests for an immediate answer; decide at the gates in [05](05-exclusions-
 1. Frontend framework and companion libraries; CSR is decided. A frontend selection also decides whether Node tooling returns at all.
 2. Payment provider and its idempotency, webhook-signature, sandbox, and reconciliation contract.
 3. Notification delivery provider and its stable-key idempotency and status-lookup contract.
-4. Amazon MSK Express 4.2.x versus Provisioned 4.1.x, and local Kafka alignment.
+4. ~~Amazon MSK mode~~ — closed by ADR-035; Kafka is self-hosted on AWS.
 5. Schema registry: Apicurio versus AWS Glue.
 6. Public license — relevant sooner than 1.0 assumed, since a portfolio project shown to employers is a form of publication.
 7. Timing and success criteria for optional comparison exercises.
