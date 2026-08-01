@@ -1,16 +1,26 @@
-# BidPoint — A Distributed Systems Reference Platform
+# BidPoint
 
-Status: Canonical
-Last validated: 2026-08-01
+A real-time auction marketplace, built to learn the practical, industry-standard engineering that senior backend engineers actually do.
 
-BidPoint is currently a discovery-only repository. It records the product and architecture decisions needed before implementation begins.
+Java · Spring Boot · PostgreSQL · Kafka · RabbitMQ · Redis · Kubernetes · AWS
 
-**New developer or AI session:** begin with the [standalone handoff](project-discovery/design-system/2.0/99-handoff.md), then use the [2.0 index](project-discovery/design-system/2.0/README.md).
+## Why
 
-Start with the [project discovery index](project-discovery/README.md) and consult the [current design baseline](project-discovery/design-system/2.0/README.md).
+Auctions concentrate concurrent writes on one record with a hard invariant — exactly one current price, at most one winner. That single pressure point forces everything worth learning: idempotency, transactional outboxes, at-least-once delivery, hot partitions, partial failure, and recovery. You can't fake your way past a race condition.
 
-The design knowledge base is versioned: [2.0](project-discovery/design-system/2.0/README.md) is canonical, and [1.0](project-discovery/design-system/1.0/README.md) is superseded but kept as history. Where they conflict, 2.0 wins.
+It's a learning project. The deliverable is evidence that the system stays correct under concurrency and failure, not a feature list.
 
-> The [structure template](project-discovery/structure-template/) is a brainstorm, not a target. It sketches what a layout could look like; the real project does not have to match it. Every file in it is empty, and parts of it are outdated. It is not an initialized workspace.
+## Docs
 
-Discovery describes the target design, not existing code or infrastructure. No implementation exists yet.
+| | |
+| --- | --- |
+| [Thesis](docs/01-thesis.md) | What this is and why it's being built. |
+| [Architecture](docs/02-architecture.md) | How it's shaped, and the rules that must never break. |
+| [Tech stack](docs/03-tech-stack.md) | The tools, why each earns its place, and the local and AWS environments. |
+| [Roadmap](docs/04-roadmap.md) | What gets built next, and what proves it's done. |
+
+## Status
+
+**Nothing is implemented yet.** No build, no dependencies, no infrastructure. Next step is A1 in [the roadmap](docs/04-roadmap.md).
+
+[`old/`](old/) holds superseded design material, kept for history only.

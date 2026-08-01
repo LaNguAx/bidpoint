@@ -18,12 +18,10 @@ Desktop.ini
 *.key
 secrets/
 
-# Maven, Node, and Nx build outputs
+# Build outputs
 target/
-node_modules/
 dist/
 tmp/
-.nx/
 
 # Generated test and coverage results
 coverage/
