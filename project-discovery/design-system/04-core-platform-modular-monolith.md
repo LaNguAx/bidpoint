@@ -1,0 +1,84 @@
+# Core platform modular monolith
+
+Status: Canonical
+Last validated: 2026-08-01
+
+`core-platform` is the target Spring Modulith modular monolith for the marketplace capabilities that benefit from cohesive evolution and local transactions. This is a target design in a documentation-only repository, not an implemented service. It deliberately keeps profiles, catalog, listings, auction lifecycle, and orders together while making their ownership boundaries executable and ready for later extraction only when evidence justifies it.
+
+## Why a modular monolith
+
+These five capabilities share an early product cadence: listing readiness refers to category rules and auction configuration; an auction lifecycle refers to a listing; a closed-auction outcome initiates a durable order. Splitting each into a network service now would add failure modes without adding an independent scaling, consistency, or integration responsibility. A Spring Modulith keeps ordinary changes locally transactional while preventing the convenience of a shared codebase from becoming permission to couple internals.
+
+The boundary is architectural, not merely organizational. A module is the only writer of its logical schema and exposes behavior through its Java API or events. Other Core modules do not import another module's persistence model, repository, controller, DTO implementation, or internal service. A future extraction replaces a stable module-facing contract with a remote/API-event contract; it must not begin with a database split or a copied table.
+
+## Module authority
+
+| Module | Owns | Exposes | Must not own |
+| --- | --- | --- | --- |
+| `profiles` | Marketplace profile keyed by the validated Keycloak subject; idempotent onboarding after verified Keycloak identity evidence; display and marketplace preferences. | Profile behavior and producer-owned `UserRegistered` after marketplace profile activation. | Passwords, credentials, MFA, sessions, tokens, identity administration, or a Keycloak credential-creation event. |
+| `catalog` | Categories and classification rules. | Classification behavior and category facts. | Listing content or publish state. |
+| `listings` | Listing draft/content, image metadata, publish readiness, and publication. S3 holds image objects, not marketplace authority. | Listing commands, read behavior, and publication facts. | Category-rule authority, auction timing, bids, or S3 credentials. |
+| `auctions` | Scheduling, authoritative `closeAt`, monotonically increasing lifecycle version, lifecycle/reserve/cancellation, and the `CLOSING` record while a bid fence is pending. | Lifecycle behavior, auction facts, and idempotent close/cancel orchestration. | Authoritative bid price/winner, bid ordering, or bid acceptance. |
+| `orders` | Durable post-auction buyer/seller order and history records. | Order behavior and order facts. | Payment charging, provider integration, or payment state. |
+
+An auction close or cancellation is a cross-owner flow, not an excuse for `auctions` to infer the winner. `auctions` commits `CLOSING` and invokes `bidding-service` through an idempotent REST fence/finalize command. It remains `CLOSING` and retries the same command identity until the stable fence acknowledgement/final outcome is returned. Only then may Core commit `CLOSED` or `CANCELLED`; settlement follows the acknowledged outcome and required order/payment work. `orders` creates one logical order from a winning outcome idempotently. Reserve handling may result in no order, but never allows multiple winners.
+
+## Package and artifact contract
+
+Each Core module is one Maven JAR: there are no separate `-api` and implementation artifacts. Its top-level shape is intentionally predictable:
+
+```text
+modules/<module>/
+  api/                         Java interfaces usable by another Core module
+    events/                    separately named Spring Modulith internal-event interface
+  contracts/events/            producer-owned external Kafka wire contracts
+  internal/
+    controller/                Spring MVC adapter where the module owns HTTP endpoints
+    dto/                       adapter DTOs
+    service/                   application/domain orchestration
+    model/                     module-owned domain and persistence model
+    repository/                module-owned persistence access
+```
+
+`api/` is the only Java surface another Core module may compile against. `api/events/` makes internal Spring Modulith events explicit rather than leaking an implementation class as an event type. `contracts/events/` is not an internal API: it contains the producer-owned external Kafka wire contract, versioned independently from private model classes. A consumer treats it as a published contract and does not reach into the producer's `internal/` packages.
+
+The `internal/` subtree is deliberately broad enough for conventional Spring MVC implementation concerns, but additions require a module-specific reason. Do not create arbitrary shared layers or capability trees before a genuine second capability needs them. Surrounding non-reactive services use familiar top-level Spring MVC packages (`controller`, `dto`, `service`, `model`, `repository`, `config`, `client`, `messaging`) and apply the same restraint.
+
+## Enforceable dependency rules
+
+Spring Modulith module detection is configured explicitly rather than inferred from accidental package placement. `ApplicationModules.verify()` is a required architecture check. Module integration tests exercise exported API/event behavior across a real application context, and ArchUnit prevents imports from one module's `internal` packages into another module. The verification suite also rejects cycles and makes the intended allowed dependencies visible.
+
+The intended dependency directions are:
+
+```mermaid
+flowchart LR
+    P["profiles"]
+    C["catalog"]
+    L["listings"]
+    A["auctions"]
+    O["orders"]
+    P -. "published API/events only" .-> L
+    C -. "classification API/events only" .-> L
+    L -. "listing API/events only" .-> A
+    A -. "close facts/behavior only" .-> O
+```
+
+This diagram is not a license for a dependency where it is unnecessary; it shows the meaningful product relationships that must cross an explicit interface. `orders` consumes a final outcome through the approved cross-owner flow and does not inspect bid tables. The modules may share a PostgreSQL deployment/database initially, but each owns a logical schema. Sharing operations never permits cross-schema writes or joins as a module integration technique.
+
+## Transaction and publication responsibilities
+
+Within a module, a command commits its authoritative state and any required outbox row atomically in the module's local transaction. A relay publishes later, so a crash after commit leaves recoverable work rather than a lost business fact. Transactions do not cross into `bidding-service`, `payment-service`, or another database owner. Cross-owner updates are APIs or events plus owner-local processing, deduplication, and observable processing state.
+
+The Core does not promise end-to-end exactly-once delivery. Consumers use stable event IDs and inbox/deduplication records (or an equivalent durable mechanism), allowing at-least-once delivery without a duplicate order, notification intent, or externally visible action. Query-side projections may lag; authoritative commands continue to route to the owning module/service.
+
+## Extraction guardrails
+
+Extraction is a later decision supported by evidence such as materially independent load, deployment cadence, data ownership, or failure isolation. Before extraction, preserve the module's API/event contract, establish its owned migration history and data boundary, then move one authority without allowing a transitional shared-writer state. Do not extract `profiles`, `catalog`, or `listings` merely for symmetrical service counts; do not re-centralize bidding or payment authority in Core for convenience.
+
+## Acceptance evidence for later implementation
+
+- `ApplicationModules.verify()` passes with explicit module detection.
+- ArchUnit demonstrates that no module imports another module's `internal` package.
+- Module integration tests prove API/event interactions without direct repository access.
+- Tests show one logical order for a redelivered close outcome and no Core module becoming bid or payment authority.
+- Schema/migration review shows a single logical writer per module schema even if Core initially shares a PostgreSQL deployment.
