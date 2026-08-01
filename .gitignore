@@ -1,0 +1,44 @@
+# Operating system and editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.iml
+
+# Secrets and local environment configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Maven, Node, and Nx build outputs
+target/
+node_modules/
+dist/
+tmp/
+.nx/
+
+# Generated test and coverage results
+coverage/
+test-results/
+playwright-report/
+surefire-reports/
+failsafe-reports/
+*.lcov
+
+# Terraform local state and plans
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+
+# Local agent working artifacts
+.superpowers/
