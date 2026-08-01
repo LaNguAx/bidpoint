@@ -42,11 +42,15 @@ Skip the preamble for mechanical work — renames, config, boilerplate, anything
 
 ## The two environments
 
-**Local — where you build.** k3d runs a real Kubernetes cluster on the machine, free and disposable. PostgreSQL, Kafka, RabbitMQ, Redis, and Keycloak install from community Helm charts. Iteration is unlimited, so this is where Kubernetes depth is built. Ordinary tests use Testcontainers and need no cluster at all.
+**Same Kubernetes on both sides.** The same operators, manifests, and Helm charts run locally and on AWS — only values differ. That's deliberate: nothing gets built twice, nothing gets thrown away.
 
-**Remote — AWS, where you prove it ships.** ECS Fargate, not EKS: an EKS control plane is ~$73/month against **$100 in total credits**. Terraform, ECR, RDS, S3, IAM, Secrets Manager, CloudWatch, ALB. Kafka and RabbitMQ run as containers, not MSK/Amazon MQ.
+**Local — where you build.** k3d, free and disposable, unlimited iteration. Stateful dependencies run under operators: **Strimzi** (Kafka), **CloudNativePG** (Postgres), **RabbitMQ Cluster Operator**, **Keycloak Operator**. Redis is a plain Deployment — non-authoritative, so HA machinery buys nothing. Ordinary tests use Testcontainers and need no cluster.
 
-**AWS is created and destroyed every session — never left running.** Watch the NAT Gateway (~$32/month, more than the database). Set a billing alarm before the first `terraform apply`. Details in [tech stack](docs/03-tech-stack.md).
+*Do not suggest Bitnami charts.* Their free catalog was deprecated in Aug 2025 and the images are being wound down — that path is dead.
+
+**Remote — AWS on EKS.** Terraform, ECR, RDS, S3, IAM + Pod Identity, Secrets Manager, ALB, CloudWatch. Kafka and RabbitMQ run via the same operators, not MSK/Amazon MQ.
+
+**Destroyed at the end of every session — never left running.** At ~$0.21/hr, $100 buys roughly 475 cluster-hours; left running it's ~$150/month and the credits are gone in three weeks. Avoid the NAT Gateway (~$0.045/hr, more than the nodes). Billing alarm before the first `terraform apply`. Details in [tech stack](docs/03-tech-stack.md).
 
 ## Delegating to subagents
 
@@ -76,6 +80,8 @@ Full detail in [architecture](docs/02-architecture.md). The short version:
 
 After stage A1, the build is plain Maven via wrapper: `./mvnw verify`, `./mvnw -pl <module> test`, single test `./mvnw test -Dtest=ClassName#method`. **No Nx, no pnpm, no Node tooling.**
 
+Delivery is **GitHub Actions for CI, Argo CD for CD** — CI never deploys directly, and a rollback is a git revert. Not Jenkins.
+
 **Next step is A1** — Maven reactor, `com.bidpoint` namespace, module boundaries, quality gates, k3d cluster, one service deployed. See [roadmap](docs/04-roadmap.md).
 
-[`old/`](old/) holds superseded design material. It describes decisions that were later reversed — seven deployables, Nx, Jenkins, Istio, EKS-as-primary. **Don't work from it**, and don't maintain it.
+[`old/`](old/) holds superseded design material. It describes decisions that were later reversed — seven deployables, Nx, an `api-gateway`, Jenkins, Istio. **Don't work from it**, and don't maintain it.

@@ -9,7 +9,7 @@ Twelve stages in two phases. Each produces something that runs and something tha
 Three deliberate choices:
 
 1. **Bidding concurrency is A3, not the end.** It's the thesis. Everything else exists to surround it.
-2. **AWS is A4, not stage eleven.** Deploy something real early, while the system is small enough to understand, so cloud experience is banked rather than held hostage to finishing everything.
+2. **AWS is A4, not stage eleven.** Deploy something real early, while the system is small enough to understand, so cloud experience is banked rather than held hostage to finishing everything. Same Kubernetes on both sides, so nothing is thrown away.
 3. **Kubernetes from A1.** Learning k8s against a two-service system is far easier than retrofitting it onto nine. There's no Compose phase and no migration.
 
 ---
@@ -19,9 +19,9 @@ Three deliberate choices:
 Runs on local k3d. Tests use Testcontainers and need no cluster.
 
 ### A1 — Foundation
-Maven reactor, `com.bidpoint` namespace, module boundaries, quality gates. A k3d cluster with PostgreSQL. One service deployed and reachable.
+Maven reactor, `com.bidpoint` namespace, module boundaries, quality gates. A k3d cluster with PostgreSQL via **CloudNativePG**. One service deployed and reachable.
 
-**Done when:** `./mvnw verify` passes; an ArchUnit or Modulith test **fails** when you deliberately violate a boundary; Spotless and JaCoCo are wired; `kubectl get pods` shows a healthy service; a Flyway migration has run in-cluster.
+**Done when:** `./mvnw verify` passes; an ArchUnit or Modulith test **fails** when you deliberately violate a boundary; Spotless and JaCoCo are wired; `kubectl get pods` shows a healthy service; a Flyway migration has run against a CloudNativePG cluster; you can explain what the operator's reconciliation loop is doing.
 
 ### A2 — Core domain and identity
 Profiles, catalog, listings, auction scheduling and lifecycle. Keycloak, JWT validation, object-level authorization.
@@ -34,9 +34,9 @@ Safe concurrent bids, the fence/finalize handshake, hot-record authority.
 **Done when:** a concurrency test with many simultaneous bidders proves **exactly one price and one winner** survived; reusing an idempotency key returns the recorded result instead of creating a second bid; a fence retry after simulated ambiguity produces the same outcome; and the concurrency mechanism was chosen **by measurement**, with the numbers written down.
 
 ### A4 — AWS tracer bullet
-Containerize **one** service and run it on real AWS. Terraform, IAM, ECR, ECS Fargate, RDS, Secrets Manager, CloudWatch.
+Stand up **EKS** with Terraform and run **one** service on it. IAM, Pod Identity, ECR, RDS, Secrets Manager, ALB, CloudWatch.
 
-**Done when:** `terraform apply` goes from nothing to a reachable service; the image was promoted to ECR by digest; secrets came from Secrets Manager and are not in the image; logs appear in CloudWatch; **`terraform destroy` returns to zero**; a billing alarm is set; the session cost is recorded.
+**Done when:** `terraform apply` goes from nothing to a reachable service on EKS; the image was promoted to ECR by digest; secrets came from Secrets Manager and are not in the image; logs appear in CloudWatch; **`terraform destroy` returns to zero**; a billing alarm is set; the session cost is recorded and compared against the ~$0.21/hr estimate.
 
 *Small on purpose. The goal is proving the whole path end to end, not deploying the finished system.*
 
@@ -61,9 +61,11 @@ One order per close. Provider adapter. Webhook recovery.
 **Done when:** a redelivered `AuctionClosed` creates **exactly one** order; a simulated provider timeout is reconciled without double charging; webhook signature verification and replay protection are tested. A fake provider adapter is sufficient.
 
 ### A9 — Observability and load
-Metrics that make partial failure visible. Failure injection. Capacity.
+The full LGTM stack: OpenTelemetry Collector, Prometheus, Loki, Tempo, Grafana. Failure injection. Capacity.
 
-**Done when:** Grafana shows request rate, errors, latency, outbox age, consumer lag, and DLQ depth; Toxiproxy-induced failures show recovery; k6 results are recorded with the conditions they were taken under; **hot-partition behavior is measured**, not assumed.
+**Done when:** Grafana shows request rate, errors, latency, outbox age, consumer lag, and DLQ depth; logs are queryable across services in Loki; **one bid is visible as a single connected trace in Tempo** spanning REST → transaction → outbox → Kafka → notification-service → RabbitMQ → worker; Toxiproxy-induced failures show recovery; k6 results are recorded with their conditions; **hot-partition behavior is measured**, not assumed.
+
+*That single end-to-end trace is the best artifact this project produces. Treat it as the deliverable.*
 
 **Phase A is complete and demonstrable on its own.** If nothing further gets built, the goal is met — and A4 already banked real AWS experience.
 
@@ -73,20 +75,22 @@ Metrics that make partial failure visible. Failure injection. Capacity.
 
 No new domain behavior. This is about shipping and operating what already works.
 
-### B1 — CI/CD
-GitHub Actions: build, test, image, deploy. Build separated from deploy.
+### B1 — CI/CD with GitOps
+GitHub Actions for CI, **Argo CD** for CD. Build strictly separated from deploy.
 
-**Done when:** the pipeline runs the full Maven verify including Testcontainers; images are tagged by digest; a merge deploys to ECS; a rollback to a previous digest is demonstrated.
+The flow: push → Actions builds and tests → image to ECR by digest → commit the digest to the GitOps repo → Argo CD reconciles the cluster.
+
+**Done when:** the pipeline runs the full Maven verify including Testcontainers; images are tagged by digest, never `latest`; Argo CD shows the app synced and healthy; **a manual `kubectl edit` is automatically reverted** — proving reconciliation actually works; a rollback is a git revert, not a pipeline re-run; CI has no cluster credentials.
 
 ### B2 — Full AWS deployment
-All four deployables on ECS Fargate against RDS, S3, and self-hosted brokers.
+All four deployables on EKS, with the **same operators and Helm charts used locally** — Strimzi, RabbitMQ, Keycloak — against RDS and S3.
 
-**Done when:** every service is healthy behind the ALB; secrets come from Secrets Manager; logs are in CloudWatch; a full create-and-destroy cycle completes; **cost per session is recorded**.
+**Done when:** every service is healthy behind the ALB; the same manifests that run on k3d run here, with only values differing; workload identity is Pod Identity, not static keys; secrets come from Secrets Manager; a full create-and-destroy cycle completes; **cost per session is recorded**.
 
-### B3 — EKS exercise
-Bounded. Stand up EKS, deploy the same Helm charts used locally, tear it down.
+### B3 — Resilience and scale
+HPA under load. Chaos. Whatever the measurements from A9 said was weakest.
 
-**Done when:** the local charts run on EKS; the differences from ECS are written down; the cluster is destroyed; spend is recorded. Budget ~$20 of credits.
+**Done when:** HPA scales a service under k6 load and scales back down; a deliberately killed pod is replaced without dropping work; a broker restart is survived without losing a message; results are written down with what surprised you.
 
 ---
 

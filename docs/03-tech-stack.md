@@ -1,16 +1,15 @@
 # Tech stack
 
-Roughly twenty tools. Nothing here is obscure.
+Around thirty tools. The stack optimizes for **production-realistic** — running things the way real teams run them on Kubernetes, so nothing has to be unlearned later.
 
 ## The selection rule
 
-Every tool has to pass one test:
+Two filters, applied in order:
 
-> **Does this appear in backend engineering job postings, or is it platform/SRE tooling that is industry-standard in large organizations but rarely asked of a backend developer?**
+1. **Does this teach something on the list in [01 Thesis](01-thesis.md)?** If not, it's out. No exceptions for "industry standard."
+2. **Is this how it's actually done?** Where a real team would reach for an operator, a managed service, or a specific pattern, do that — even when a simpler hack exists. The simpler hack teaches a habit you'd have to break.
 
-The second category is where side-project stacks go to die. Service meshes, GitOps reconcilers, operators, and progressive-delivery controllers are legitimate, widely deployed, and almost never asked of a backend candidate. An earlier version of this stack had about forty tools and a third of them were in that category.
-
-The other rule, from [01 Thesis](01-thesis.md): every tool must map to a lesson. If it can't, it's removed — not deferred.
+There is a real cost to this: more Kubernetes surface to learn before writing domain code. The tradeoff was taken deliberately.
 
 ## Application
 
@@ -18,118 +17,154 @@ The other rule, from [01 Thesis](01-thesis.md): every tool must map to a lesson.
 | --- | --- |
 | **Java (Temurin LTS)** | The job. |
 | **Spring Boot** | The framework those jobs use. |
-| **Spring Modulith** | Enforces module boundaries inside the monolith, and provides durable event publication. |
+| **Spring Modulith** | Enforces module boundaries inside the monolith; provides durable event publication. |
 | **Spring Data JPA** | Persistence. |
-| **Flyway** | Versioned schema migration — how real teams change databases. |
-| **Spring Security (resource server)** | JWT validation in every service independently. |
+| **Flyway** | Versioned schema migration. |
+| **Spring Security (resource server)** | JWT validation, independently, in every service. |
 | **Spring for Apache Kafka** | Kafka integration. |
 | **Spring AMQP** | RabbitMQ integration. |
 | **Actuator + Micrometer** | Health, readiness, metrics. |
-| **AWS SDK for Java v2** | Used directly rather than wrapped, so the cloud API stays visible. |
+| **Micrometer Tracing / OpenTelemetry** | Trace context propagation across REST, Kafka, and RabbitMQ boundaries. |
+| **AWS SDK for Java v2** | Used directly, so the cloud API stays visible. |
 | **Maven (+ wrapper)** | The only build authority. No Nx, no pnpm, no Node tooling. |
-| **Jib** | Builds container images from Maven with no Dockerfile. |
+| **Jib** | Container images from Maven, no Dockerfile. |
 
-## Data and messaging
+## Data and messaging — via operators
 
-| Tool | Role |
-| --- | --- |
-| **PostgreSQL** | Authoritative storage and outboxes. Transactions and locking are core lessons. |
-| **Kafka** | Durable replayable facts. The highest-value distributed item on a CV. |
-| **RabbitMQ** | Targeted work to competing workers. Plain broker, no cluster. |
-| **Redis** | Caching and ephemeral coordination. Never authoritative. |
-| **Keycloak** | OIDC/OAuth2 identity. One realm, one client — deliberately simple. |
+Everything stateful runs under a Kubernetes operator, because that is how it is actually done and because the alternative got worse.
 
-Both brokers are kept on purpose. See [02 Architecture](02-architecture.md) for why they are not redundant.
+**Why not "just use a community Helm chart":** Bitnami — whose charts were the de facto community charts for Postgres, Kafka, RabbitMQ, and Redis — deprecated its free catalog on 28 August 2025. Images moved to a `bitnamilegacy` repository that receives no updates and is being wound down through August 2026. The charts remain published but will not deploy without overriding every image reference by hand. That path is a dead end.
+
+| Component | Operator | Why this one |
+| --- | --- | --- |
+| **Kafka** | **Strimzi** | CNCF-hosted, actively maintained, free, and the standard for Kafka on Kubernetes. Also *easier* than the alternative — a ~20-line `Kafka` custom resource replaces hand-rolled StatefulSets, storage, KRaft config, listeners, and rolling upgrades. |
+| **PostgreSQL** | **CloudNativePG** | CNCF-hosted. The modern standard for Postgres on Kubernetes: failover, backups, point-in-time recovery, rolling minor upgrades. |
+| **RabbitMQ** | **RabbitMQ Cluster Operator** | Official. Makes clustering and quorum queues tractable. |
+| **Keycloak** | **Keycloak Operator** | Official. Declarative realm and client configuration. |
+| **Redis** | *none* — plain Deployment, official image | Redis is non-authoritative here: cache and ephemeral coordination only. Losing it must never lose data, so HA machinery buys nothing. |
+
+### The operator pattern is itself a lesson
+
+A custom resource declares **desired state**. A controller watches actual state and continuously reconciles toward desired, converging after failure without human intervention.
+
+That is the Kubernetes control loop, and it is the same reconciliation thinking behind the outbox relay and projection rebuilds in this system. It's a distributed-systems concept, not administrative trivia.
 
 ## Testing
 
 | Tool | Role |
 | --- | --- |
 | **JUnit, Mockito, AssertJ** | Unit and behavior tests. |
-| **Testcontainers** | Real PostgreSQL, Kafka, RabbitMQ, and Redis in tests. No H2, no mocks for infrastructure. |
+| **Testcontainers** | Real PostgreSQL, Kafka, RabbitMQ, Redis in tests. No H2, no mocked infrastructure. |
 | **Awaitility** | Asserting on asynchronous outcomes without `Thread.sleep`. |
 | **WireMock** | Simulating external providers. |
-| **Toxiproxy** | Injecting network failure — latency, partitions, resets. |
+| **Toxiproxy** | Injecting latency, partitions, and resets. |
 | **ArchUnit** | Failing the build when a module boundary is violated. |
-| **k6** | Load testing, concurrency, SSE. |
-| **Spotless / JaCoCo** | Formatting gate; coverage as diagnostic signal, never a target. |
+| **k6** | Load, concurrency, SSE. |
+| **Spotless / JaCoCo** | Formatting gate; coverage as signal, never a target. |
 
 Testing against real infrastructure via Testcontainers is a genuine interview differentiator — most candidates have only mocked.
 
+**Tests do not need a cluster.** Testcontainers starts what they need and throws it away.
+
+## Observability — the full LGTM stack
+
+| Tool | Signal |
+| --- | --- |
+| **OpenTelemetry Collector** | Vendor-neutral collection for all three signals. The industry standard, and the seam that makes backends swappable. |
+| **Prometheus** | Metrics — request rate, errors, latency, outbox age, consumer lag, queue depth. |
+| **Loki** | Log aggregation, queryable across services. |
+| **Tempo** | Distributed tracing. |
+| **Grafana** | One pane over all three. |
+
+Tracing earns its place *specifically* in this project. Following a single bid through REST → transaction → outbox → Kafka → `notification-service` → RabbitMQ → worker, as one connected trace, is the clearest possible demonstration of what's being built — and being able to show that trace is a strong interview artifact.
+
+## Delivery
+
+| Tool | Role |
+| --- | --- |
+| **GitHub Actions** | CI: build, test, image, push. |
+| **Argo CD** | CD: GitOps reconciliation. Git holds desired state; Argo converges the cluster toward it. |
+| **Jib** | Image build inside Maven. |
+| **Helm** | Packaging services and dependencies. |
+
+**Not Jenkins.** Actions + Argo CD is the modern production combination; Jenkins is the legacy one. Adding it would mean building a JCasC controller with ephemeral agents to learn a separation of build from deploy that Actions already teaches.
+
+The flow: **push → Actions builds and tests → image to registry by digest → commit the digest to the GitOps repo → Argo CD reconciles the cluster.** CI never deploys directly. That separation is the point.
+
 ## Local environment
 
-**Kubernetes from day one.** k3d runs a real cluster on your machine for free, with unlimited iteration. This is where Kubernetes depth gets built.
+k3d runs a real Kubernetes cluster on the machine, free and disposable. This is where Kubernetes depth is built — unlimited iteration, no cost, delete and recreate freely.
 
 | Tool | Role |
 | --- | --- |
 | **Docker** | Container runtime. |
-| **k3d / k3s** | Local Kubernetes cluster. Disposable — delete and recreate freely. |
+| **k3d / k3s** | Local Kubernetes. |
 | **kubectl** | Cluster interaction. |
-| **Helm** | Packaging your services, and installing dependencies. |
-| **Prometheus + Grafana** | Metrics and dashboards: request rates, error rates, latency, outbox age, consumer lag, queue depth. |
+| **Helm** | Installing operators and charts. |
+| **Argo CD** | GitOps, learned here first. |
 
-PostgreSQL, Kafka, RabbitMQ, Redis, and Keycloak install **from community Helm charts** — no operators. The goal is to learn the brokers, not their Kubernetes operators.
+Operators install from their own official charts or manifests — Strimzi, CloudNativePG, RabbitMQ, Keycloak — none of which depend on the Bitnami catalog.
 
-**Ordinary tests don't need the cluster at all** — Testcontainers spins up what they need and throws it away.
+## Remote environment — AWS on EKS
 
-## Remote environment (AWS)
-
-**ECS Fargate is the target, not EKS.**
-
-An EKS control plane costs roughly **$73/month before any compute**, against **$100 in total credits**. That's five weeks of burn for nothing else. ECS Fargate has no control-plane fee and still teaches everything an interview probes: IAM roles, task definitions, ECR, VPC and networking, RDS connectivity, secret injection, and log shipping.
-
-The deeper point: **learning Kubernetes and learning AWS are different goals.** Kubernetes is learned locally on k3d where iteration is free. AWS is learned on managed services that are cheap to create and destroy. EKS is where they meet — once, briefly, at the end.
+The same manifests, operators, and Helm charts run locally and on AWS. One deployment model, not two.
 
 | Tool | Role |
 | --- | --- |
 | **Terraform** | All AWS infrastructure. Written to be destroyed and recreated. |
-| **ECR** | Container image registry. |
-| **ECS Fargate** | Primary compute. No control-plane fee. |
-| **RDS PostgreSQL** | Managed database. |
-| **S3** | Listing images. |
-| **IAM** | Roles, task roles, least privilege. The AWS skill that transfers everywhere. |
-| **Secrets Manager** | Secret storage and injection. |
-| **CloudWatch Logs** | Where logs land. |
-| **ALB + VPC** | Public entry and networking. |
-| **GitHub Actions** | CI and deployment. |
-| **EKS** | **One bounded exercise:** stand it up, deploy the same Helm charts used locally, document the differences, tear it down. Budget ~$20 of credits. |
+| **Amazon EKS** | Kubernetes runtime. |
+| **EKS managed node groups** | Node capacity. |
+| **Amazon ECR** | Image registry. |
+| **Amazon RDS PostgreSQL** | Production database. CloudNativePG runs locally; real teams use RDS in production, and so does this. |
+| **Amazon S3** | Listing images. |
+| **IAM + EKS Pod Identity** | Workload identity, least privilege. The AWS skill that transfers everywhere. |
+| **AWS Secrets Manager** | Secret storage and injection. |
+| **AWS Load Balancer Controller + ALB** | Public entry. |
+| **CloudWatch Logs** | Where EKS logs land regardless. |
 
-Kafka and RabbitMQ run as **containers on AWS**, not MSK and Amazon MQ. Managed brokers are the largest line items available, and you'll already know both operationally from local work.
+Kafka and RabbitMQ run **via the same operators on EKS** — not MSK and Amazon MQ. Managed brokers are the largest line items available, and the operators are already known from local work.
 
-## Budget discipline
+### Budget
 
-$100 in credits is enough — if infrastructure is treated as disposable.
+**$100 in credits, and that is plenty — as long as nothing is left running.**
 
-- **Create and destroy per session.** Never leave it running. Terraform layout, data seeding, and teardown must be designed for repeated cycles from the very first commit, not retrofitted.
-- **Watch the NAT Gateway.** Roughly **$32/month plus data processing** — more than the database, and the classic silent credit-killer. Use public subnets or VPC endpoints for a learning environment.
+| Item | Hourly |
+| --- | --- |
+| EKS control plane | $0.10 |
+| 2 × t3.medium nodes | ~$0.08 |
+| ALB | ~$0.02 |
+| **Total** | **~$0.21/hr** |
+
+That's roughly **475 cluster-hours**, or about sixty 8-hour sessions. The always-on figure (~$150/month) is what makes EKS look unaffordable, and it's irrelevant if the cluster is destroyed at the end of every session.
+
+Rules:
+
+- **Create and destroy per session.** Terraform layout, seeding, and teardown designed for repeated cycles from the first commit, not retrofitted.
+- **Avoid the NAT Gateway** — ~$0.045/hr plus data processing, more than the nodes. Use public subnets or VPC endpoints for a learning environment.
 - **Set a billing alarm before the first `terraform apply`.** Not after.
 - Smallest viable instance classes. They teach the same lessons.
 
+*Verify these prices against the AWS pricing pages before relying on them — they are estimates and they change.*
+
 ## Versions
 
-- **Behavioral tools** (PostgreSQL, Kafka, RabbitMQ, Redis, Keycloak, Kubernetes) — pin to current stable. Their behavior *is* the lesson, so drift changes the answer.
-- **Frameworks** (Spring Boot, Spring Modulith) — pin **one minor behind current**. Settled releases have documentation, examples, and answered questions. Debugging a brand-new major teaches nothing about distributed systems.
+- **Behavioral tools** (PostgreSQL, Kafka, RabbitMQ, Redis, Keycloak, Kubernetes) — pin to current stable. Their behavior *is* the lesson.
+- **Operators** (Strimzi, CloudNativePG, RabbitMQ, Keycloak) — pin exactly, and check the compatibility matrix; each supports a specific range of the thing it operates.
+- **Frameworks** (Spring Boot, Spring Modulith) — pin **one minor behind current**. Settled releases have documentation and answered questions.
 - **Tooling** (Maven, Jib, Spotless, ArchUnit, Testcontainers) — pin loosely, float patches.
-- **AWS managed services** — verify availability, compatibility, and quotas at the time you use them.
+- **AWS** — verify availability, add-on compatibility, and quotas at the time of use.
 
-**Never use `latest`. Never infer a compatible version pair from a general project page.** Check current releases before naming a version — the answer changes faster than any model's training data.
+**Never use `latest`. Never infer a compatible version pair from a general project page.** Check current releases before naming a version — this changes faster than any model's training data, and the Bitnami situation above is exactly what stale assumptions cost.
 
-## What was cut, and why
+## Still excluded
 
-| Removed | Why |
+| Not included | Why |
 | --- | --- |
-| Istio / service mesh | Platform and SRE domain. Enormous lift; duplicates lessons proven at the application layer. |
-| KEDA | Niche autoscaler. HPA teaches the concept. |
-| Argo CD, Argo Rollouts | GitOps reconciliation and progressive delivery are platform-team concerns. |
-| Jenkins | A JCasC controller with ephemeral agents is one of the biggest lifts available, for a declining tool, teaching a build-vs-deploy separation GitHub Actions teaches in an afternoon. |
-| Strimzi, RabbitMQ Operator | Learn the brokers, not their operators. Operator lifecycle is a Kubernetes-admin skill. |
-| Spring Cloud Gateway / `api-gateway` | A whole extra deployable for a pattern better learned once the system exists. |
-| Traefik / Gateway API as topics | Use whatever k3d ships with. The edge is plumbing, not the lesson. |
-| Loki, Tempo | Two more stores to run. Prometheus and Grafana are enough; tracing is the first thing to add back if there's room. |
-| MSK, Amazon MQ, Redis Cloud | Budget. Self-host what you already know. |
-| AMP, Managed Grafana, X-Ray | Budget and duplication. |
+| Istio / service mesh | Large lift, and its lessons are proven at the application layer here. The most likely candidate to add later. |
+| KEDA | HPA teaches the autoscaling concept. |
+| Argo Rollouts | Progressive delivery on top of GitOps; add only after ordinary deployment works. |
+| Jenkins | Actions + Argo CD is the modern combination. |
+| MSK, Amazon MQ, ElastiCache | Budget, and the operators already teach the operational side. |
 | OpenSearch / full-text search | Browse and filter covers discovery. |
 | CloudFront, Karpenter, multi-region DR | Out of scope at this size. |
-| Nx, pnpm, Node build tooling | No frontend exists. Maven alone is the build. |
-
-None of these are bad technology. They're just not what this project is for.
+| Nx, pnpm, Node tooling | No frontend exists. Maven alone is the build. |
