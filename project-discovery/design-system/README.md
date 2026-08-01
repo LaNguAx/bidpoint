@@ -3,6 +3,19 @@
 Status: Canonical
 Last validated: 2026-08-01
 
+## Platform and engineering reading order
+
+11. [Local development platform](11-local-development-platform.md)
+12. [AWS production platform](12-aws-production-platform.md)
+13. [CI/CD and GitOps](13-ci-cd-and-gitops.md)
+14. [Observability](14-observability.md)
+15. [Testing and quality](15-testing-and-quality.md)
+16. [Monorepo and repository structure](16-monorepo-and-repository-structure.md)
+17. [Local technology stack](17-local-technology-stack.md)
+18. [Remote technology stack](18-remote-technology-stack.md)
+19. [Versions and compatibility](19-versions-and-compatibility.md)
+20. [Delivery and learning roadmap](20-delivery-and-learning-roadmap.md)
+
 `design-system` is BidPoint's canonical product and architecture knowledge base. It is not a frontend component library. These documents describe a target design for a documentation-only discovery repository; they do not describe an existing implementation.
 
 ## Recommended reading order
