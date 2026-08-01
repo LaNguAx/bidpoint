@@ -109,7 +109,9 @@ Each Core module is one Maven JAR with public `api/`, separately named internal 
 
 External REST and event contracts are producer-owned. Shared libraries may hold cross-cutting mechanics only — never business-domain models, entities, repositories, tables, or decision services. Jib is the routine image mechanism; per-service Dockerfiles are excluded.
 
-`project-discovery/structure-template/` is a proposed layout reference containing **634 directories and 788 zero-byte placeholder files**, all empty, with 634 `.gitkeep` files. Empty names like `package.json`, `nx.json`, `pom.xml`, and `project.json` are placeholders, not configuration. It reflects 1.0's Nx assumptions and predates ADR-019-R1. Do not treat it as executable and do not alter it during discovery.
+`project-discovery/structure-template/` is a **brainstorm, not a target**. It sketches what a layout could look like; it is not a commitment, and the implementation does not have to match it. Where it disagrees with what the code actually needs, the code wins.
+
+It contains **634 directories and 788 zero-byte placeholder files**, all empty, with 634 `.gitkeep` files. Empty names like `package.json`, `nx.json`, `pom.xml`, and `project.json` are placeholders, not configuration. It reflects 1.0's Nx assumptions and predates ADR-019-R1, so parts of it are known-stale. Do not treat it as executable and do not alter it during discovery.
 
 ## Open questions
 

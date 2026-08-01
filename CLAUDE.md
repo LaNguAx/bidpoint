@@ -8,6 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 What physically exists: markdown under [project-discovery/](project-discovery/), and [project-discovery/structure-template/](project-discovery/structure-template/) — 634 directories and 788 files that are **all zero bytes**.
 
+Nothing has been implemented. The next unstarted step is stage **A1, repository fitness** — a Maven reactor, the `com.bidpoint` namespace, module boundaries, and quality gates. See [2.0/03-delivery-roadmap.md](project-discovery/design-system/2.0/03-delivery-roadmap.md).
+
 > **The structure template is a brainstorm, not a target.** It was sketched to think through what a layout *could* look like. It is not a commitment, not a specification, and the real project does not have to end up shaped like it. Do not treat it as a blueprint to satisfy, and do not preserve its structure for its own sake — when it disagrees with what the code actually needs, the code wins.
 >
 > Two further cautions: every file in it is empty, so names like `pom.xml`, `nx.json`, `package.json`, and `project.json` are placeholders rather than configuration; and the tree still reflects the Nx layout that ADR-019-R1 removed, so parts of it are known-stale. Never cite it as evidence anything is set up, and verify a file is non-empty before calling it initialized.

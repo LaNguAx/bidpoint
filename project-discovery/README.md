@@ -16,8 +16,6 @@ This area gathers the discovery material that defines BidPoint's intended produc
 
 Where the two conflict, 2.0 wins. The [decision delta](design-system/2.0/04-decision-delta.md) records every change and why.
 
-The [structure template](structure-template/) presents the proposed repository layout.
-
 Discovery describes the target design; it does not describe an existing implementation. No application code or infrastructure exists yet.
 
-> Warning: `structure-template/` contains empty placeholders only. It is not an initialized Nx, Maven, or Kubernetes workspace.
+> The [structure template](structure-template/) is a brainstorm of what a layout could look like, not a target the implementation is expected to match. Every file in it is empty, and parts of it are outdated. It is not an initialized workspace.
