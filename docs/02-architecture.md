@@ -2,34 +2,26 @@
 
 ## Shape
 
-A **Spring Modulith monolith** (`core-platform`) plus three services. Not all-microservices — a service exists only when it has an independent consistency, scaling, or failure responsibility.
+A **Spring Modulith monolith** (`core-platform`) plus three domain services, fronted by **Spring Cloud Gateway**. This is not all-microservices — a domain service exists only when it has an independent consistency, scaling, or failure responsibility. The gateway is a fifth runtime deployable, but it owns no domain state or authorization decisions.
 
 ```
-                        ┌──────────────────┐
-   browser ──REST/SSE──▶│  core-platform   │  profiles · catalog · listings
-                        │  (N replicas)    │  auctions · orders · payment
-                        └────────┬─────────┘
-                                 │ REST (fence/finalize)
-                                 ▼
-                        ┌──────────────────┐
-                        │ bidding-service  │  bids · price · winner
-                        └────────┬─────────┘
-                                 │ Kafka facts
-                                 ▼
-                     ┌───────────────────────┐
-                     │ notification-service  │  decides policy
-                     └───────────┬───────────┘
-                                 │ RabbitMQ jobs
-                                 ▼
-                     ┌───────────────────────┐
-                     │ notification-worker   │  × N competing consumers
-                     └───────────────────────┘
+browser ──REST/SSE──▶ api-gateway
+                         ├──REST/SSE──▶ core-platform (N replicas)
+                         │               profiles · catalog · listings
+                         │               auctions · orders · payment
+                         └──bid REST───▶ bidding-service
+                                           bids · price · winner
+
+core-platform ──REST fence/finalize──▶ bidding-service
+bidding-service ──Kafka facts────────▶ notification-service
+notification-service ──RabbitMQ jobs─▶ notification-worker × N
 ```
 
-## The four deployables
+## The four domain deployables plus the gateway
 
 | Deployable | Owns | Must never own |
 | --- | --- | --- |
+| **`api-gateway`** | Edge routing, token relay, per-route filters, request aggregation, and resilience policy at the edge. Runs on Spring Cloud Gateway WebFlux. | Domain state, object-level authorization, or trust decisions on behalf of a backend. |
 | **`core-platform`** | Five Modulith modules — `profiles`, `catalog`, `listings`, `auctions`, `orders` — plus `payment` behind a fake provider adapter. Serves REST and SSE from multiple replicas. | Bids, current price, current winner. |
 | **`bidding-service`** | Bid acceptance, current price, current winner, per-auction concurrency control, idempotency, its own auction-state projection, the bid outbox. | Auction scheduling or lifecycle authority. |
 | **`notification-service`** | Consumes Kafka facts, decides what deserves a notification, writes durable intent and a job outbox, publishes RabbitMQ work. | Calling providers. |
@@ -113,7 +105,7 @@ A Kafka fact is broadcast — search, analytics, and notifications can all consu
 
 ## Key flows
 
-**Bid.** Client sends a bid with an idempotency key → `bidding-service` validates against its local auction projection, trusted server time, minimum increment, and bidder rules → serializes or conflict-detects concurrent updates → commits the bid plus an outbox row in one transaction → relay publishes to Kafka. A client timeout after commit resolves with the same key. Duplicate publication is expected and deduplicated downstream.
+**Bid.** Client sends a bid with an idempotency key through `api-gateway` → `bidding-service` validates against its local auction projection, trusted server time, minimum increment, and bidder rules → serializes or conflict-detects concurrent updates → commits the bid plus an outbox row in one transaction → relay publishes to Kafka. A client timeout after commit resolves with the same key. Duplicate publication is expected and deduplicated downstream.
 
 **Close and order.** As in invariant 2 above. `auctions` retries the fence call with the same identity after an ambiguous timeout.
 
@@ -123,7 +115,7 @@ A Kafka fact is broadcast — search, analytics, and notifications can all consu
 
 **Payments.** The `payment` module owns provider intent and audit. Provider requests use stable idempotency identities. Webhooks require signature verification and replay protection, then apply transitions idempotently. An ambiguous timeout is reconciled before retry. Card data never enters BidPoint.
 
-**Realtime.** Kafka facts feed an ephemeral Redis-backed view; `core-platform` serves SSE from all of its replicas. Clients reconnect with the last event ID for bounded replay; on a gap, the server tells the client to refetch authoritative state over REST. **SSE is a display channel, never command authority.**
+**Realtime.** Kafka facts feed an ephemeral Redis-backed view; `core-platform` serves SSE from all of its replicas through `api-gateway`. Clients reconnect with the last event ID for bounded replay; on a gap, the server tells the client to refetch authoritative state over REST. **SSE is a display channel, never command authority.** Proxying and reconnect behavior through the WebFlux gateway must be proven early, not assumed.
 
 ## Storage roles
 
@@ -135,6 +127,6 @@ A Kafka fact is broadcast — search, analytics, and notifications can all consu
 
 ## Security
 
-Keycloak owns credentials and issues tokens. **Every backend independently validates JWTs** as a resource server — there is no gateway doing it once on everyone's behalf, and no service trusts another's say-so. The owning service makes business and object-level authorization decisions ("is this your listing to edit?"), because only the owner knows.
+Keycloak owns credentials and issues tokens. `api-gateway` may relay the token and apply edge policy, but **every backend independently validates JWTs** as a resource server — the gateway never does it once on everyone's behalf, and no service trusts another's say-so. The owning service makes business and object-level authorization decisions ("is this your listing to edit?"), because only the owner knows.
 
 Secrets never appear in Git, Terraform state, Helm values, events, jobs, logs, or diagnostics.

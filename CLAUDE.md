@@ -42,15 +42,15 @@ Skip the preamble for mechanical work — renames, config, boilerplate, anything
 
 ## The two environments
 
-**Same Kubernetes on both sides.** The same operators, manifests, and Helm charts run locally and on AWS — only values differ. That's deliberate: nothing gets built twice, nothing gets thrown away.
+**Same Kubernetes model on both sides.** The same application Helm charts and `HTTPRoute` resources run locally and on AWS; environment-specific controllers, registries, secret stores, and PostgreSQL implementations differ deliberately. The exact deltas are listed in [tech stack](docs/03-tech-stack.md). Nothing gets built twice and nothing gets thrown away.
 
-**Local — where you build.** k3d, free and disposable, unlimited iteration. Stateful dependencies run under operators: **Strimzi** (Kafka), **CloudNativePG** (Postgres), **RabbitMQ Cluster Operator**, **Keycloak Operator**. Redis is a plain Deployment — non-authoritative, so HA machinery buys nothing. Ordinary tests use Testcontainers and need no cluster.
+**Local — where you build.** k3d, free and disposable, unlimited iteration. Traefik v3 implements Gateway API and routes to Spring Cloud Gateway. Stateful dependencies run under operators: **Strimzi** (Kafka), **CloudNativePG** (Postgres), **RabbitMQ Cluster Operator**, **Keycloak Operator**. Redis is a plain Deployment — non-authoritative, so HA machinery buys nothing. External Secrets Operator reads from a throwaway Vault dev server. Ordinary tests use Testcontainers and need no cluster.
 
 *Do not suggest Bitnami charts.* Their free catalog was deprecated in Aug 2025 and the images are being wound down — that path is dead.
 
-**Remote — AWS on EKS.** Terraform, ECR, RDS, S3, IAM + Pod Identity, Secrets Manager, ALB, CloudWatch. Kafka and RabbitMQ run via the same operators, not MSK/Amazon MQ.
+**Remote — AWS on EKS.** One cluster carries dev, stage, and prod as three fully isolated namespaces, all running simultaneously. Each has its own Strimzi Kafka, RabbitMQ, Keycloak, Redis, and Single-AZ RDS instance. One shared ALB serves three hostnames through Gateway API. Images live in ECR; workloads use Pod Identity; External Secrets Operator reads dev/stage secrets from SSM Parameter Store and prod secrets from Secrets Manager; Loki and Tempo retain evidence in S3. Kafka and RabbitMQ run via operators, not MSK or Amazon MQ.
 
-**Destroyed at the end of every session — never left running.** At ~$0.21/hr, $100 buys roughly 475 cluster-hours; left running it's ~$150/month and the credits are gone in three weeks. Avoid the NAT Gateway (~$0.045/hr, more than the nodes). Billing alarm before the first `terraform apply`. Details in [tech stack](docs/03-tech-stack.md).
+**Only the ephemeral `environment/` Terraform stack is destroyed after every session.** It contains the VPC, EKS cluster, nodes, RDS instances, and add-ons. The `bootstrap/` stack — state bucket, ECR, Route53, ACM, IAM OIDC, budget alarm, and secret backends — persists at roughly $4.70/month. The full three-environment target is estimated at **~$0.54/hr On-Demand or ~$0.33/hr with Spot for dev/stage**; after three months of persistent costs, $100 buys roughly 160 or 260 cluster-hours respectively. Use public subnets with restrictive security groups and the free S3 gateway endpoint: a NAT Gateway is $0.045/hr plus data, while the five required interface endpoints across two AZs are about $0.10/hr. Details and verified unit rates are in [tech stack](docs/03-tech-stack.md).
 
 ## Delegating to subagents
 
@@ -66,6 +66,7 @@ When work genuinely parallelizes, **delegate it**. Good candidates: independent 
 Full detail in [architecture](docs/02-architecture.md). The short version:
 
 - **`bidding-service` alone** owns bids, current price, and current winner. **`auctions` alone** owns lifecycle and the `AuctionClosed` event that triggers an order. A bidding-owned outcome **cannot create an order**.
+- **`api-gateway` owns routing, not trust.** It may relay tokens and apply edge policy, but every backend still validates JWTs and makes its own business authorization decisions.
 - State changes and outgoing events **commit in one local transaction** (transactional outbox), then publish separately.
 - Delivery is **at-least-once**. Every consumer deduplicates by stable ID. Never claim exactly-once.
 - **Kafka carries facts** many consumers read; **RabbitMQ carries work** one of N competing workers executes. They are not redundant — never propose collapsing them.
@@ -74,14 +75,14 @@ Full detail in [architecture](docs/02-architecture.md). The short version:
 
 ## Repository state
 
-**Documentation only — there is no code yet.** No Maven reactor, no `pom.xml`, no dependencies, no cluster, no infrastructure.
+**Documentation only — there is no code yet.** No Gradle settings or build files, no wrapper, no dependencies, no cluster, no infrastructure.
 
 **There is no build, lint, or test command.** Anything resembling one is fabricated — don't offer it.
 
-After stage A1, the build is plain Maven via wrapper: `./mvnw verify`, `./mvnw -pl <module> test`, single test `./mvnw test -Dtest=ClassName#method`. **No Nx, no pnpm, no Node tooling.**
+After stage A1, the build is Gradle via the checked-in wrapper: `./gradlew check`, module tests with `./gradlew :<module>:test`, and a single test with `./gradlew :<module>:test --tests 'com.bidpoint.ClassName.methodName'`. **No Maven, Nx, pnpm, or Node tooling.**
 
-Delivery is **GitHub Actions for CI, Argo CD for CD** — CI never deploys directly, and a rollback is a git revert. Not Jenkins.
+Delivery is **GitHub Actions for CI, Argo CD for CD**, in this single repository. CI publishes with Jib, commits the dev image digest under `deploy/`, and never deploys directly. Path filters plus `[skip ci]` prevent that commit from retriggering the build. Promotion to stage and prod is a pull request; rollback is `git revert`. Not Jenkins.
 
-**Next step is A1** — Maven reactor, `com.bidpoint` namespace, module boundaries, quality gates, k3d cluster, one service deployed. See [roadmap](docs/04-roadmap.md).
+**Next step is A1** — Gradle multi-project foundation on Corretto 25 and Spring Boot 4.0.x, `com.bidpoint` namespace, Modulith boundary verification, quality gates, a k3d cluster, Spring Cloud Gateway, and one backend deployed through Gateway API. See [roadmap](docs/04-roadmap.md).
 
-[`old/`](old/) holds superseded design material. It describes decisions that were later reversed — seven deployables, Nx, an `api-gateway`, Jenkins, Istio. **Don't work from it**, and don't maintain it.
+[`old/`](old/) holds superseded design material. It describes decisions that were later reversed — seven domain deployables, Nx, Jenkins, Istio, and obsolete service boundaries. **Don't work from it**, and don't maintain it.

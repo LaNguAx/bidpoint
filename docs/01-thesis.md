@@ -57,6 +57,6 @@ These are also, not coincidentally, the answers to the interview questions that 
 
 ## Scope discipline
 
-Every tool and every service must map to one of the lessons above. If it can't, it gets removed — not deferred, not marked "later." That rule is what kept the stack at roughly twenty tools instead of forty. See [03 Tech stack](03-tech-stack.md).
+Every tool and every service must map to one of the lessons above. If it can't, it gets removed — not deferred, not marked "later." The final stack is intentionally explicit about two complete environments and their operational machinery; its length is not permission to add tools without a lesson. See [03 Tech stack](03-tech-stack.md).
 
 More technology does not improve the outcome. More evidence does.
