@@ -4,6 +4,8 @@
 
 - `backend/` — backend
 - `frontend/` — frontend
+  - `frontend/web/` — web client
+  - `frontend/mobile/` — mobile client
 - `infra/` — infrastructure
 - `config/` — configuration
 - `docs/` — documentation
