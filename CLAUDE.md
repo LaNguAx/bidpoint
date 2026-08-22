@@ -34,6 +34,8 @@ infra/   → what underlying infrastructure exists
 - No application logic inside `gitops/` or `infra/`.
 - No environment knowledge hardcoded in application code — services read configuration through explicit interfaces and environment variables.
 
+**Never let a setting have two owners.** [`config/`](config/README.md) owns what an application does — timeouts, retries, feature flags, log levels, business thresholds. [`gitops/`](gitops/README.md) owns how it runs — replicas, image version, resources, probes, networking. A workload in `gitops/` may set only bootstrap and identity environment variables (`SPRING_PROFILES_ACTIVE`, `SPRING_APPLICATION_NAME`, `SPRING_CONFIG_IMPORT`) plus secret-backed variables from Kubernetes Secrets; any other environment variable there declares a property that `config/` already owns. When a setting is ambiguous: one that is generic to all software belongs to `gitops/`, one that is meaningful only to BidPoint's domain belongs to `config/`.
+
 **Never commit secrets.** No passwords, tokens, API keys, or credential-bearing connection strings anywhere in this repository, including `config/`. Secret values live in AWS Secrets Manager or Vault; only references to them are declared in Git.
 
 **Preserve environment isolation.** `dev`, `staging`, and `prod` are separate. A change intended for one must not implicitly alter another.
