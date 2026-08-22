@@ -35,7 +35,7 @@ This split is deliberate. Infrastructure changes are slow, stateful, and expensi
 ## Interacts with
 
 - [`gitops/`](../gitops/README.md) — consumes the cluster created here
-- [`.github/`](../.github/README.md) — validates and applies infrastructure changes
+- [`.github/`](../.github/AUTOMATION.md) — validates and applies infrastructure changes
 
 ## Likely later
 

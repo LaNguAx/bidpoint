@@ -47,4 +47,4 @@ Neither is created yet. Application workloads and platform components are separa
 
 - [`infra/`](../infra/README.md) — provides the cluster this state is applied to
 - [`backend/`](../backend/README.md) and [`frontend/`](../frontend/README.md) — the workloads being deployed
-- [`.github/`](../.github/README.md) — validates manifests and publishes the image versions referenced here
+- [`.github/`](../.github/AUTOMATION.md) — validates manifests and publishes the image versions referenced here

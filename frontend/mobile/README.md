@@ -19,7 +19,7 @@ The mobile application domain.
 
 - [`backend/`](../../backend/README.md) — API consumer
 - [`config/`](../../config/README.md) — non-sensitive runtime settings
-- [`.github/`](../../.github/README.md) — build and release automation scoped to this path
+- [`.github/`](../../.github/AUTOMATION.md) — build and release automation scoped to this path
 
 ## Coupling
 

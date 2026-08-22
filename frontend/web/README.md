@@ -20,7 +20,7 @@ The browser-based BidPoint applications.
 
 - [`backend/`](../../backend/README.md) — API consumer
 - [`config/`](../../config/README.md) — endpoints, feature flags, and other non-sensitive settings
-- [`.github/`](../../.github/README.md) — build and deployment automation scoped to this path
+- [`.github/`](../../.github/AUTOMATION.md) — build and deployment automation scoped to this path
 
 ## Deployment model
 

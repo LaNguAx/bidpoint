@@ -15,7 +15,7 @@ BidPoint is an organization-level monorepo holding the application source, runti
 | [`config/`](config/README.md) | Application runtime configuration |
 | [`gitops/`](gitops/README.md) | Desired state of Kubernetes workloads |
 | [`infra/`](infra/README.md) | Cloud and platform infrastructure |
-| [`.github/`](.github/README.md) | CI/CD and repository automation |
+| [`.github/`](.github/AUTOMATION.md) | CI/CD and repository automation |
 | [`docs/`](docs/README.md) | Architecture and operational knowledge |
 
 ```text

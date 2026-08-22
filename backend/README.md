@@ -24,7 +24,7 @@ Backend code consumes configuration through explicit configuration interfaces an
 
 - [`config/`](../config/README.md) — supplies the runtime settings a service reads
 - [`gitops/`](../gitops/README.md) — declares how built images are deployed and scaled
-- [`.github/`](../.github/README.md) — builds, tests, and publishes container artifacts to ECR
+- [`.github/`](../.github/AUTOMATION.md) — builds, tests, and publishes container artifacts to ECR
 - [`frontend/`](../frontend/README.md) — consumes the APIs defined here
 
 ## Likely later

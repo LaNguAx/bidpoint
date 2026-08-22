@@ -26,7 +26,7 @@ Each subdirectory is an independent workspace root with its own toolchain, depen
 
 - [`backend/`](../backend/README.md) — the APIs clients consume
 - [`config/`](../config/README.md) — non-sensitive runtime settings such as endpoints and feature flags
-- [`.github/`](../.github/README.md) — path-aware build and deployment automation per client
+- [`.github/`](../.github/AUTOMATION.md) — path-aware build and deployment automation per client
 
 ## Cross-client rule
 
