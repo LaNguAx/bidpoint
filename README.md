@@ -1,17 +1,17 @@
 # BidPoint
 
-An event-driven auction platform engineered to production standards across architecture, infrastructure, and operations.
+An event-driven auction platform designed to production standards across architecture, infrastructure, and operations.
 
 BidPoint is an **organization-level monorepo**. It holds the application source, runtime configuration, deployment state, cloud infrastructure, and automation for the whole system — the complete lifecycle of a production distributed application in one repository.
 
-The system is in early scaffolding. This documentation establishes the architectural thesis and module boundaries before implementation begins.
+The system is in early scaffolding: this documentation establishes the architectural thesis and module boundaries; almost nothing is implemented yet.
 
 ## Modules
 
 | Path | Owns |
 | --- | --- |
 | [`backend/`](backend/README.md) | Server-side application systems |
-| [`frontend/`](frontend/README.md) | User-facing clients — web and mobile |
+| [`frontend/`](frontend/README.md) | User-facing clients — `web/` and `mobile/` |
 | [`config/`](config/README.md) | Application runtime configuration |
 | [`gitops/`](gitops/README.md) | Desired state of Kubernetes workloads |
 | [`infra/`](infra/README.md) | Cloud and platform infrastructure |
@@ -20,7 +20,7 @@ The system is in early scaffolding. This documentation establishes the architect
 
 ## Boundaries
 
-Six concerns, one owner each. A change belongs to exactly one of them.
+Six concerns, seven modules, one owner each. A change belongs to exactly one module — `backend/` and `frontend/` share the source-code concern but are separate modules. If a change must span modules, the reason belongs in the pull request.
 
 ```text
 SOURCE CODE           backend/  frontend/   what the system does
@@ -46,7 +46,7 @@ These are runtime systems BidPoint depends on. They may be **provisioned or conf
 | System | Role |
 | --- | --- |
 | ECR | Built container artifacts |
-| S3 / CDN | Built frontend artifacts |
+| S3 / CDN | Built frontend artifacts — if static hosting is adopted; the web deployment model is undecided |
 | AWS Secrets Manager / Vault | Secrets |
 | EKS | Workload runtime |
 | RDS / databases | Persistent data |

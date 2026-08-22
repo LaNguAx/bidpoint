@@ -8,7 +8,7 @@ frontend/
 └── mobile/  mobile applications
 ```
 
-Each subdirectory is an independent workspace root with its own toolchain, dependency graph, and CI path. `frontend/` is an organizational boundary, not a shared build system — there is no root package manifest or lockfile at this level, and adding one would take resolution control away from both clients.
+Each subdirectory is intended to be an independent workspace root with its own toolchain, dependency graph, and CI path — none of which exist yet. `frontend/` is an organizational boundary, not a shared build system — there is no root package manifest or lockfile at this level, and adding one would take resolution control away from both clients.
 
 ## What belongs here
 
