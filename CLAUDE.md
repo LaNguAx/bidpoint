@@ -28,9 +28,9 @@ infra/   → what underlying infrastructure exists
 
 **Read the module README before changing a module.** Each one states what belongs there and what does not. Do not infer a module's responsibility from its name.
 
-**Respect separation of concerns.** A change belongs to exactly one module. If a change needs to span several, that is worth questioning before writing it.
+**Respect separation of concerns.** A change belongs to exactly one module. If a change needs to span several, that is worth questioning before writing it; when it is genuinely necessary, state the reason in the pull request.
 
-- No infrastructure or deployment concerns inside application modules.
+- No infrastructure or deployment concerns inside application modules. One exception: client release packaging inseparable from a client's toolchain — mobile build, signing, and store-release configuration — lives with that client; the workflows that execute it live in `.github/`.
 - No application logic inside `gitops/` or `infra/`.
 - No environment knowledge hardcoded in application code — services read configuration through explicit interfaces and environment variables.
 

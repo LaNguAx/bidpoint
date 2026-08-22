@@ -7,7 +7,7 @@ Repository-level automation and governance.
 - CI workflows
 - Build and test automation
 - Release workflows
-- Frontend deployment automation
+- Frontend delivery automation — its mechanism depends on the web deployment model, which is undecided ([`frontend/web/`](../frontend/web/README.md))
 - Infrastructure validation and apply workflows
 - GitOps manifest validation
 - Dependency and security automation
@@ -37,7 +37,7 @@ Every module. CI builds [`backend/`](../backend/README.md) and [`frontend/`](../
 
 ## Delivery boundary
 
-CI builds and publishes artifacts. It does not deploy to clusters directly — deployment happens by changing declared state in [`gitops/`](../gitops/README.md) and letting the GitOps controller reconcile. Keeping build separate from deploy is the point.
+CI builds and publishes artifacts. It never deploys to clusters — cluster workloads are deployed by changing declared state in [`gitops/`](../gitops/README.md) and letting the GitOps controller reconcile. Artifacts that do not run on the cluster (a static web bundle, a mobile store release) are the one case where CI delivers directly. If the web application is later deployed as a cluster workload, it follows the gitops path like any other workload. Keeping build separate from cluster deployment is the point.
 
 ## Likely later
 
