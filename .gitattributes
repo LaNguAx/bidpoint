@@ -1,0 +1,3 @@
+# Normalize line endings for every clone and CI runner.
+# Without this, behavior depends on each developer's local core.autocrlf.
+* text=auto eol=lf

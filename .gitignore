@@ -1,0 +1,15 @@
+# Environment files — never commit secrets.
+# Secret values belong in AWS Secrets Manager or Vault.
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
