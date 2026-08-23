@@ -39,6 +39,6 @@ Every module. CI builds [`backend/`](../backend/README.md) and [`frontend/`](../
 
 CI builds and publishes artifacts. It never deploys to clusters — cluster workloads are deployed by changing declared state in [`gitops/`](../gitops/README.md) and letting the GitOps controller reconcile. Artifacts that do not run on the cluster (a static web bundle, a mobile store release) are the one case where CI delivers directly. If the web application is later deployed as a cluster workload, it follows the gitops path like any other workload. Keeping build separate from cluster deployment is the point.
 
-## Likely later
+## Current state
 
-Concrete workflow definitions, `CODEOWNERS`, and repository templates. None are implemented yet.
+`CODEOWNERS` and the pull request template provide baseline governance. Concrete workflow definitions and per-module ownership rules are not implemented yet.
