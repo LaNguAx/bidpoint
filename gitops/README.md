@@ -22,14 +22,14 @@ Nothing in this directory provisions infrastructure, and nothing here contains a
 
 - Cloud resource provisioning — the cluster itself, networking, and managed services are [`infra/`](../infra/README.md)
 - Application source code
-- Application behavior settings — timeouts, retries, feature flags, log levels, and business thresholds are [`config/`](../config/README.md)
+- Backend application behavior settings — timeouts, retries, feature flags, log levels, and business thresholds are [`config/`](../config/README.md)
 - Plaintext secrets. Secret **references** are declared here; secret **values** are resolved at runtime from a secret-management system.
 
 ## The boundary with config/
 
-Both directories hold settings, and both can end up as environment variables inside a running container. The test is **which process reads the value**: Kubernetes reads what is declared here, at pod creation; the application reads what is in [`config/`](../config/README.md), at startup and on refresh.
+Both directories hold settings, and both can end up as environment variables inside a running backend container. The test is **which process reads the value**: Kubernetes reads what is declared here, at pod creation; the backend application reads what is in [`config/`](../config/README.md), at startup and on refresh.
 
-A workload declared here may set **only** these environment variables:
+A backend workload declared here may set **only** these environment variables:
 
 ```text
 SPRING_PROFILES_ACTIVE     which environment the service is running as
@@ -38,7 +38,7 @@ SPRING_CONFIG_IMPORT       where the configuration server is
 + secret-backed variables sourced from Kubernetes Secrets
 ```
 
-Those are bootstrap and identity — the minimum a service needs before it can fetch its own configuration. Any other environment variable in a manifest here means a property is owned in two places, which in Spring Boot fails silently rather than loudly. [`config/`](../config/README.md) explains why.
+Those are bootstrap and identity — the minimum a service needs before it can fetch its own configuration. Any other backend application environment variable in a manifest here means a property is owned in two places, which in Spring Boot fails silently rather than loudly. [`config/`](../config/README.md) explains why.
 
 ## Environments
 
@@ -62,6 +62,6 @@ Neither is created yet. Application workloads and platform components are separa
 ## Interacts with
 
 - [`infra/`](../infra/README.md) — provides the cluster this state is applied to
-- [`config/`](../config/README.md) — the configuration server deployed from here is what serves those settings to workloads
+- [`config/`](../config/README.md) — the configuration server deployed from here is what serves those settings to backend workloads
 - [`backend/`](../backend/README.md) and [`frontend/`](../frontend/README.md) — the workloads being deployed
 - [`.github/`](../.github/AUTOMATION.md) — validates manifests and publishes the image versions referenced here

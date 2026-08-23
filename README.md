@@ -12,7 +12,7 @@ The system is in early scaffolding: this documentation establishes the architect
 | --- | --- |
 | [`backend/`](backend/README.md) | Server-side application systems |
 | [`frontend/`](frontend/README.md) | User-facing clients — `web/` and `mobile/` |
-| [`config/`](config/README.md) | Application runtime configuration |
+| [`config/`](config/README.md) | Backend application runtime configuration |
 | [`gitops/`](gitops/README.md) | Desired state of Kubernetes workloads |
 | [`infra/`](infra/README.md) | Cloud and platform infrastructure |
 | [`.github/`](.github/AUTOMATION.md) | CI/CD and repository automation |
@@ -20,11 +20,11 @@ The system is in early scaffolding: this documentation establishes the architect
 
 ## Boundaries
 
-Six concerns, seven modules, one owner each. A change belongs to exactly one module — `backend/` and `frontend/` share the source-code concern but are separate modules. If a change must span modules, the reason belongs in the pull request.
+Six concerns, seven modules, one owner each. Every artifact has exactly one owning module. A change may coordinate artifacts across several modules when necessary; when it does, the reason belongs in the pull request.
 
 ```text
 SOURCE CODE           backend/  frontend/   what the system does
-APPLICATION CONFIG    config/               how an application behaves
+BACKEND CONFIG        config/               how a backend application behaves
 DEPLOYMENT STATE      gitops/               how and where it runs on Kubernetes
 CLOUD INFRASTRUCTURE  infra/                what underlying infrastructure exists
 AUTOMATION            .github/              how changes are validated and delivered
@@ -34,7 +34,7 @@ KNOWLEDGE             docs/                 why the system is shaped this way
 The distinction that matters most:
 
 ```text
-config/  → how an application behaves
+config/  → how a backend application behaves
 gitops/  → how and where an application runs in Kubernetes
 infra/   → what underlying infrastructure exists
 ```

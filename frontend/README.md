@@ -14,6 +14,7 @@ Each subdirectory is intended to be an independent workspace root with its own t
 
 - Client application code, UI, and client-side state
 - Client-specific integration code against BidPoint APIs
+- Client-specific non-sensitive configuration, including endpoints and feature flags
 - Assets owned by a client
 
 ## What does not belong here
@@ -25,8 +26,11 @@ Each subdirectory is intended to be an independent workspace root with its own t
 ## Interacts with
 
 - [`backend/`](../backend/README.md) — the APIs clients consume
-- [`config/`](../config/README.md) — non-sensitive runtime settings such as endpoints and feature flags
 - [`.github/`](../.github/AUTOMATION.md) — path-aware build and deployment automation per client
+
+## Configuration ownership
+
+Each client owns its configuration inside its own workspace. `web/` and `mobile/` do not read from the root [`config/`](../config/README.md) module, which is backend-only. Configuration may not contain secrets because frontend artifacts are readable by their users.
 
 ## Cross-client rule
 

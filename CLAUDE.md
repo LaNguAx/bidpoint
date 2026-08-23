@@ -12,14 +12,14 @@ BidPoint is an organization-level monorepo holding the application source, runti
 | --- | --- |
 | [`backend/`](backend/README.md) | Server-side application systems |
 | [`frontend/`](frontend/README.md) | User-facing clients — `web/` and `mobile/` |
-| [`config/`](config/README.md) | Application runtime configuration |
+| [`config/`](config/README.md) | Backend application runtime configuration |
 | [`gitops/`](gitops/README.md) | Desired state of Kubernetes workloads |
 | [`infra/`](infra/README.md) | Cloud and platform infrastructure |
 | [`.github/`](.github/AUTOMATION.md) | CI/CD and repository automation |
 | [`docs/`](docs/README.md) | Architecture and operational knowledge |
 
 ```text
-config/  → how an application behaves
+config/  → how a backend application behaves
 gitops/  → how and where an application runs in Kubernetes
 infra/   → what underlying infrastructure exists
 ```
@@ -28,13 +28,13 @@ infra/   → what underlying infrastructure exists
 
 **Read the module README before changing a module.** Each one states what belongs there and what does not. Do not infer a module's responsibility from its name.
 
-**Respect separation of concerns.** A change belongs to exactly one module. If a change needs to span several, that is worth questioning before writing it; when it is genuinely necessary, state the reason in the pull request.
+**Respect separation of concerns.** Every artifact has exactly one owning module. A change may coordinate artifacts across several modules when necessary; when it does, state the reason in the pull request.
 
 - No infrastructure or deployment concerns inside application modules. One exception: client release packaging inseparable from a client's toolchain — mobile build, signing, and store-release configuration — lives with that client; the workflows that execute it live in `.github/`.
 - No application logic inside `gitops/` or `infra/`.
-- No environment knowledge hardcoded in application code — services read configuration through explicit interfaces and environment variables.
+- No environment knowledge hardcoded in backend application code — services read configuration through explicit interfaces and environment variables. Each frontend owns its non-sensitive configuration inside its own workspace.
 
-**Never let a setting have two owners.** [`config/`](config/README.md) owns what an application does — timeouts, retries, feature flags, log levels, business thresholds. [`gitops/`](gitops/README.md) owns how it runs — replicas, image version, resources, probes, networking. A workload in `gitops/` may set only bootstrap and identity environment variables (`SPRING_PROFILES_ACTIVE`, `SPRING_APPLICATION_NAME`, `SPRING_CONFIG_IMPORT`) plus secret-backed variables from Kubernetes Secrets; any other environment variable there declares a property that `config/` already owns. When a setting is ambiguous: one that is generic to all software belongs to `gitops/`, one that is meaningful only to BidPoint's domain belongs to `config/`.
+**Never let a setting have two owners.** [`config/`](config/README.md) owns how a backend application behaves — timeouts, retries, feature flags, log levels, business thresholds. Each frontend owns its own non-sensitive settings inside its workspace. [`gitops/`](gitops/README.md) owns how backend workloads run — replicas, image version, resources, probes, networking. A backend workload in `gitops/` may set only bootstrap and identity environment variables (`SPRING_PROFILES_ACTIVE`, `SPRING_APPLICATION_NAME`, `SPRING_CONFIG_IMPORT`) plus secret-backed variables from Kubernetes Secrets; any other application environment variable there declares a property that `config/` already owns. When a backend setting is ambiguous: one that is generic to all software belongs to `gitops/`, one that is meaningful only to BidPoint's domain belongs to `config/`.
 
 **Never commit secrets.** No passwords, tokens, API keys, or credential-bearing connection strings anywhere in this repository, including `config/`. Secret values live in AWS Secrets Manager or Vault; only references to them are declared in Git.
 

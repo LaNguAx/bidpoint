@@ -8,19 +8,24 @@ The browser-based BidPoint applications.
 - Administrative or internal interfaces
 - Shared UI packages consumed by the applications in this workspace
 - Browser-specific integration code
+- Web-specific non-sensitive configuration, including endpoints and feature flags
 - Micro-frontends, if the architecture later adopts them
 
 ## What does not belong here
 
 - Mobile application code — see [`../mobile/`](../mobile/README.md)
 - Authoritative business rules
+- Backend runtime configuration — see [`config/`](../../config/README.md)
 - Deployment manifests, infrastructure, or secrets
 
 ## Interacts with
 
 - [`backend/`](../../backend/README.md) — API consumer
-- [`config/`](../../config/README.md) — endpoints, feature flags, and other non-sensitive settings
 - [`.github/`](../../.github/AUTOMATION.md) — build and deployment automation scoped to this path
+
+## Configuration
+
+Web configuration lives in this workspace. Its delivery may be build-time or runtime depending on the deployment model, but it must remain non-sensitive because browser artifacts are readable by their users.
 
 ## Deployment model
 

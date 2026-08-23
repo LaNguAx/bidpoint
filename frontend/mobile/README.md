@@ -7,19 +7,24 @@ The mobile application domain.
 - Mobile application code and UI
 - Navigation and platform-specific behavior
 - Native integrations and device capability access
+- Mobile-specific non-sensitive configuration, including endpoints, feature flags, and build profiles
 - Mobile build, signing, and release configuration
 
 ## What does not belong here
 
 - Web application code — see [`../web/`](../web/README.md)
 - Authoritative business rules
+- Backend runtime configuration — see [`config/`](../../config/README.md)
 - Deployment manifests, infrastructure, or secrets
 
 ## Interacts with
 
 - [`backend/`](../../backend/README.md) — API consumer
-- [`config/`](../../config/README.md) — non-sensitive runtime settings
 - [`.github/`](../../.github/AUTOMATION.md) — build and release automation scoped to this path
+
+## Configuration
+
+Mobile configuration lives in this workspace. Build-time and remotely delivered settings must remain non-sensitive because application bundles and device traffic are inspectable by users.
 
 ## Coupling
 

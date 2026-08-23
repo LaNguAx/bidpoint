@@ -2,13 +2,14 @@
 
 <!-- What changes, and why. -->
 
-## Module
+## Modules
 
-<!-- Which module does this belong to? A change should belong to exactly one. -->
+<!-- Which modules own the artifacts changed here? If several are involved, why must this change coordinate them? -->
 
 ## Checklist
 
-- [ ] Scoped to a single module, or the cross-module reason is explained above
+- [ ] Every changed artifact has exactly one owning module
+- [ ] Cross-module coordination is explained above when applicable
 - [ ] No secrets, credentials, or environment-specific values committed
 - [ ] Module README updated if responsibilities changed
 - [ ] ADR added under `docs/adr/` if this introduces an architectural decision
