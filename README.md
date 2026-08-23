@@ -55,4 +55,4 @@ These are runtime systems BidPoint depends on. They may be **provisioned or conf
 
 ## Working in this repository
 
-Read [`CLAUDE.md`](CLAUDE.md) before making changes. Read the module's own README before changing a module. Record significant architectural decisions under `docs/adr/`.
+Read [`AGENTS.md`](AGENTS.md) before making changes. Read the module's own README before changing a module. Record significant architectural decisions under `docs/adr/`.
