@@ -2,6 +2,11 @@
 
 Instructions for AI agents working in this repository. This is the authoritative agent document; [`CLAUDE.md`](CLAUDE.md) points here.
 
+## old/
+
+**Ignore `old/` completely. It does not exist.**
+Never read it, never search it, never cite it, never edit it.
+
 ## What this repository is
 
 BidPoint is an organization-level monorepo holding the application source, runtime configuration, deployment state, cloud infrastructure, and automation for one distributed system. See [`README.md`](README.md) for the full thesis.
@@ -52,8 +57,3 @@ infra/   → what underlying infrastructure exists
 - Module `README.md` files — per-module responsibilities
 - `docs/architecture/` — system architecture
 - `docs/adr/` — Architecture Decision Records
-
-## old/
-
-**Ignore `old/` completely. It does not exist.**
-Never read it, never search it, never cite it, never edit it.
