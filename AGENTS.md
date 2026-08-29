@@ -43,7 +43,7 @@ infra/   → what underlying infrastructure exists
 
 **Never commit secrets.** No passwords, tokens, API keys, or credential-bearing connection strings anywhere in this repository, including `config/`. Secret values live in AWS Secrets Manager or Vault; only references to them are declared in Git.
 
-**Preserve environment isolation.** `dev`, `staging`, and `prod` are separate. A change intended for one must not implicitly alter another.
+**Preserve environment isolation.** There are four environments: `local`, `dev`, `stage`, and `prod`. `local` is local development on a developer's machine; `dev`, `stage`, and `prod` are remote Kubernetes clusters. Each is separate. A change intended for one must not implicitly alter another.
 
 **Prefer small, scoped changes.** Touch only what the task requires. Do not refactor adjacent code, reformat untouched lines, or add abstractions for single-use code.
 

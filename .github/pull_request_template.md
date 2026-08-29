@@ -10,6 +10,6 @@
 
 - [ ] Every changed artifact has exactly one owning module
 - [ ] Cross-module coordination is explained above when applicable
-- [ ] No secrets, credentials, or environment-specific values committed
+- [ ] No secrets or credentials committed, and no environment knowledge hardcoded in application code
 - [ ] Module README updated if responsibilities changed
 - [ ] ADR added under `docs/adr/` if this introduces an architectural decision

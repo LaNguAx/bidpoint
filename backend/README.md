@@ -15,7 +15,7 @@ The backend engineering domain: server-side application code implementing BidPoi
 ## What does not belong here
 
 - Deployment infrastructure — that is [`gitops/`](../gitops/README.md) and [`infra/`](../infra/README.md)
-- Environment-specific production configuration, including hostnames, endpoints, and credentials
+- Environment-specific configuration, including hostnames, endpoints, and credentials
 - Plaintext secrets of any kind
 
 Backend code consumes configuration through explicit configuration interfaces and environment variables. Environment knowledge is supplied to a service at runtime; it is never embedded in the code. A service should not be able to tell which environment it is running in by reading its own source.
