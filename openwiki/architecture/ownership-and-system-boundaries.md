@@ -1,11 +1,11 @@
 ---
 type: architecture concept
 title: Ownership and System Boundaries
-description: Source-of-truth boundaries for application code, backend behavior configuration, Kubernetes desired state, cloud infrastructure, automation, and durable knowledge, and how those owners are intended to compose into BidPoint's deployed system.
+description: Source-of-truth boundaries for application source, backend behavior, Kubernetes desired state, cloud foundations, automation, and durable knowledge, including their intended runtime handoffs and independent failure boundaries.
 tags: [architecture, ownership, system-boundaries, monorepo, gitops, infrastructure, automation]
 verified:
   - by: openwiki/0.4.3
-    at: 2026-08-29T16:26:54.497Z
+    at: 2026-08-29T17:10:15.382Z
 sources:
   - id: openwiki-source-d7476156bc2e7db82971c90b
     resource: repo://.github/AUTOMATION.md
@@ -35,14 +35,14 @@ sources:
     resource: repo://infra/README.md
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
-generated: { by: "openwiki/0.4.3", at: "2026-08-29T16:26:54.497Z" }
+generated: { by: "openwiki/0.4.3", at: "2026-08-29T17:10:15.382Z" }
 ---
 
 # Ownership and System Boundaries
 
 BidPoint is an organization-level monorepo for one distributed system. It keeps application source, backend runtime configuration, deployment state, cloud infrastructure definitions, repository automation, and durable engineering knowledge together, but it does **not** give those concerns shared ownership. Every committed artifact has exactly one owning module; a pull request may coordinate several owners only when it explains why the change crosses their boundaries.
 
-> **Current status:** these boundaries primarily document intended architecture. The Kubernetes cluster, configuration server, application workloads, backend configuration sets, and product delivery pipelines are not implemented. The repository currently provides boundary READMEs and baseline governance, plus a scheduled OpenWiki documentation workflow. Do not read the diagrams or lifecycle below as evidence that a deployable BidPoint system exists today.
+> **Current status:** these boundaries primarily document intended architecture. The cloud infrastructure and Kubernetes clusters, configuration server, application and platform workloads, backend configuration sets, and product delivery pipelines are not implemented. The implemented automation is baseline repository governance plus the scheduled or manually dispatched OpenWiki updater. Do not read the diagrams or lifecycle below as evidence that a deployable BidPoint system exists today.
 
 ## Two different maps: repository ownership and runtime relationships
 
@@ -104,13 +104,13 @@ flowchart TD
 
 *Figure 1. Repository sources of truth and their intended delivery and runtime relationships; the runtime components and most automation shown here are planned rather than deployed.*
 
-The diagram is a composition model, not one synchronous request flow. In particular, infrastructure provisioning, artifact publication, GitOps reconciliation, configuration refresh, and application execution have independent lifecycles.
+The diagram is a composition model, not one synchronous request flow. Infrastructure provisioning, artifact publication, GitOps reconciliation, configuration refresh, and application execution have separate owners and lifecycles, so completion of one does not establish completion of the next: publishing an image does not establish that a controller has reconciled it, changing `config/` does not establish that a service has refreshed it, and a workload fault does not itself change the infrastructure declaration. No recovery behavior is implemented.
 
 ## Repository owners
 
 ### Application source: `backend/` and `frontend/`
 
-[`backend/`](../../backend/README.md) is the source owner for server-side business capabilities: domain logic, authoritative business rules, APIs, persistence and migrations, asynchronous producers and consumers, provider integrations, and shared backend libraries. It does **not** own Kubernetes manifests, cloud infrastructure, environment-specific production values, or credentials. Backend source must consume environment knowledge through explicit configuration interfaces and environment variables, so the source itself cannot determine whether it is running in `dev`, `staging`, or `prod`.
+[`backend/`](../../backend/README.md) is the source owner for server-side business capabilities: domain logic, authoritative business rules, APIs, persistence and migrations, asynchronous producers and consumers, provider integrations, and shared backend libraries. It does **not** own Kubernetes manifests, cloud infrastructure, environment-specific configuration such as hostnames or endpoints, or credentials. Backend source must consume environment knowledge through explicit configuration interfaces and environment variables, so the source itself cannot determine whether it is running in `local`, `dev`, `stage`, or `prod`.
 
 [`frontend/`](../../frontend/README.md) owns user-facing source in independent `web/` and `mobile/` workspaces: UI, client state, assets, client-specific integrations, and each client's non-sensitive settings. A browser endpoint or mobile build profile belongs with that client, not in the backend-only root `config/`. Authoritative rules do not belong solely in a client, deployment and infrastructure declarations do not belong here, and no client bundle may contain secrets. Mobile packaging, signing, and store-release configuration is the narrow exception to the rule against deployment concerns in application modules because it is inseparable from the mobile toolchain; the workflow that executes it remains owned by `.github/`.
 
@@ -140,7 +140,7 @@ It does not own Kubernetes workload definitions, application behavior, source co
 
 Path scoping is part of the boundary design: a mobile-only change should not run infrastructure validation, and an infrastructure-only change should not rebuild both clients. If one automation job continually needs unrelated module paths to do one task, that is a signal to re-examine the ownership boundary rather than normalize the coupling.
 
-Directory structure alone does not enforce review ownership. `CODEOWNERS` is the enforcement mechanism, while the pull request template asks authors to identify all owning modules, explain cross-module coordination, check for secrets and environment values, and record architectural decisions. At present, `CODEOWNERS` routes all files to one default owner; per-module owners and product CI/CD workflows have not been implemented. The scheduled `openwiki-update.yml` workflow refreshes repository knowledge, but it is not an application build or delivery pipeline.
+Directory structure alone does not enforce review ownership. `CODEOWNERS` is the enforcement mechanism, while the pull request template asks authors to identify all owning modules, explain cross-module coordination, check for secrets and environment values, and record architectural decisions. At present, `CODEOWNERS` routes all files to one default owner; per-module owners and product CI/CD workflows have not been implemented. The `openwiki-update.yml` workflow runs on a daily schedule or manual dispatch, installs and runs OpenWiki, and opens a documentation update pull request; it is not an application build or delivery pipeline.
 
 ### Durable knowledge: `docs/`
 
@@ -202,9 +202,20 @@ A coordinated feature may touch several modules without turning them into one li
 6. **Secrets:** committed definitions contain references only; the runtime resolves values from AWS Secrets Manager or Vault.
 7. **Knowledge:** durable rationale and operating procedures are updated without becoming executable state.
 
-Live runtime data does not move back into Git. Container artifacts belong in ECR, static frontend artifacts may belong in S3 or a CDN if that model is selected, secrets remain in a secret manager, application data remains in databases, and telemetry remains in observability platforms. This repository may provision or configure those systems, but it does not own their live data as committed content.
+Live runtime data does not move back into Git. Container artifacts belong in ECR, static frontend artifacts may belong in S3 or a CDN if that model is selected, secrets remain in a secret manager, application data remains in databases, and telemetry remains in observability platforms. Kubernetes observed state and cloud provider state also remain runtime state rather than committed declarations. This repository may provision or configure those systems, but it does not own their live data or current state as committed content.
 
-Environment isolation is invariant across these lifecycles. `dev`, `staging`, and `prod` are separate; a behavior, workload, or infrastructure change intended for one must not implicitly alter another.
+### Environments
+
+The four environment names and meanings are fixed by the repository's current boundary documents:
+
+| Environment | Current meaning | Repository boundary |
+| --- | --- | --- |
+| `local` | Local development on a developer's machine | It is not a cluster declared in this repository and has no cloud infrastructure. How local development runs, including whether it uses a configuration server or reads `config/` files directly, is not decided. |
+| `dev` | Remote Kubernetes cluster | `infra/` is intended to provision the cluster; `gitops/` is intended to declare its workload state; `config/` may eventually hold its backend behavior values. |
+| `stage` | Remote Kubernetes cluster | The same ownership split applies, but its declarations and effects must remain isolated from every other environment. |
+| `prod` | Remote Kubernetes cluster | The same ownership split applies, but its declarations and effects must remain isolated from every other environment. |
+
+Environment isolation is invariant across these lifecycles. A behavior, workload, or infrastructure change intended for one of `local`, `dev`, `stage`, or `prod` must not implicitly alter another.
 
 ## Invariants and failure modes
 
@@ -225,7 +236,7 @@ There is no product implementation to run or deploy yet, so boundary validation 
 
 - policy checks that reject plaintext secrets and backend behavior variables in `gitops/` other than the three bootstrap variables and secret-backed values;
 - configuration inventories that detect a backend property declared in both `config/` and workload state;
-- manifest rendering and schema checks per environment, including tests that a `dev` change does not alter `staging` or `prod` output;
+- manifest rendering and schema checks per remote environment, including tests that a `dev` change does not alter `stage` or `prod` output;
 - Infrastructure as Code formatting, validation, policy, and reviewed plans before a separately authorized apply;
 - path-filter tests proving a change triggers only its owning build, validation, or delivery workflows;
 - artifact-to-GitOps checks proving a published image version is the one referenced by desired state, followed by reconciliation health checks once a controller and cluster exist;

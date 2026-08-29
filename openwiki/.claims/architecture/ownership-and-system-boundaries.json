@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:5a2bc6059893b9ba24552d7784b0998beb57c1e1bbdbadb0a06a51da42a6a093",
+  "pageVersion": "sha256:42c7a4c5d65f7191a8aa0acaa46e44d9956e1ef5a6bfa64d771102b70bc36da4",
   "claims": [
     {
       "id": "claim_15ee03e838a84f319e62b864a2d73750",
@@ -8,7 +8,7 @@
       "evidence": [
         {
           "resource": "repo://.github/pull_request_template.md#L1-L15",
-          "version": "repo-lines-v1:sha256:56bc693cc00ce01ab9aff972b6cd6a05d556b0ae63b8af8632362df58fd470d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "version": "repo-lines-v1:sha256:d38721ff55cb1e67c5cbb87148ec83ef2282259b1db4f3c40ce0ac21082c05a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
           "resource": "repo://AGENTS.md#L32-L42",
@@ -22,7 +22,7 @@
     },
     {
       "id": "claim_d3472d0cdcc34d24b88af4ce1807cb17",
-      "statement": "The repository is early scaffolding: the cloud infrastructure and cluster, backend configuration sets and configuration server, Kubernetes application and platform workloads, and concrete product CI/CD workflows are not implemented.",
+      "statement": "The repository is early scaffolding: the cloud infrastructure and clusters, backend configuration sets and configuration server, Kubernetes application and platform workloads, and concrete product CI/CD workflows are not implemented.",
       "evidence": [
         {
           "resource": "repo://.github/AUTOMATION.md#L42-L44",
@@ -33,11 +33,11 @@
           "version": "repo-lines-v1:sha256:836a26e6b01bc4654c39bf492f31a0e503db06ff0906c608eb6fd20e0fa9e2df:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM3MTY2MDNmM2FlNDk2YWNlMDRlZmY2ODJhZThjMGQ1YmI4MzQxZTdhNmNkNWM2NjU0NGEyNTc2ZmUzMTFkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYzMTcyZjJlM2NjNTk4ZjRlODJkMTZmYmUwYjgzYWE4ZmY5NjkwMDUyOGZmYzk5ZWI2YjRiZjMwZGVkNTdkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjFlMDE5NDJiOTIwNWUyZTlmN2ZjOGZlZTdjOTUyNzQ3YjEwODA0OGI0YjdlMWE5NDY1OWE3ZDUzY2VjMTc3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE1MDJlYWI0MGI5MzU2NDBjNWRiOTZhYTU4NzZkNWExNzYwMmE2ZWIxMjAzYzRjNDkxMzJkNTI4ZDgyZWIwZCJ9"
         },
         {
-          "resource": "repo://config/README.md#L59-L63",
-          "version": "repo-lines-v1:sha256:a6ba5e7987fe6cf194854af7d8354cbbb917a594bcfe45bac732b0fe23d0a2cb:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2UyMDY4N2I1ZTkxM2FkMmNmNjRmZjU5NDgxNjU1NTFkMDc5YjJhOTU4OTg3NTlmOGM3Y2Y2YTA5YWIzNzJhYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjllOWNkOTNmMDEzMWUzYTNjMmQ5YTc5ZmJlNjI4NjU5YTI4ZjJmZWI5ODgzYzk1NTE3Y2RkYTNiYTk0NzNlZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjhjYzA3ZjkzOWViZDVlNjFiOWQxZWIxNzZjOGI0NDczMjBhYzhmOGIzNjAxOWQ3MWQ3NDEwZDhhMTFkZDYyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+          "resource": "repo://config/README.md#L59-L72",
+          "version": "repo-lines-v1:sha256:51b38bc24b262f8a043f15c461f549618c97dbeefe367ed12cb273d2838c810d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlZTYxYjE1MjJmODMxOGM2YTY5NWE3MGM0YjIwNThkYjhhNjhmZWFlYWFhOWQ0NTlmMDAzMjc5ZjQ0ZTk4ZTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
-          "resource": "repo://gitops/README.md#L53-L60",
+          "resource": "repo://gitops/README.md#L55-L62",
           "version": "repo-lines-v1:sha256:590e95111bf10c8800e4bf35018b736fee27563109c51411475bc303b0297752:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM0M2M1MzY0YjJlMTI3OTQ2M2FmMDMxZjM3ZTZkZmNlNDQ3ZGQ2NDZhZGRjYmMyZjAzMDY2YTk5ZGJkMjcxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY0ZDFlOGI1OTlhMWE3OGM3NjNmZjI4MDI5MWI1ODRlODhmZmVlZmRkZmJmOGY4N2FkZjNiYjBkNTQ4N2NjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjQ4NTc2Zjg4M2FmZTkyZDViMTZjNjU3ZWQ4NTNjNDZiMjNlMGJjYjNhMDc3YWFhZGQ1NzE1NjYyOGU4NWExZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
         },
         {
@@ -60,21 +60,21 @@
         },
         {
           "resource": "repo://.github/pull_request_template.md#L1-L15",
-          "version": "repo-lines-v1:sha256:56bc693cc00ce01ab9aff972b6cd6a05d556b0ae63b8af8632362df58fd470d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "version": "repo-lines-v1:sha256:d38721ff55cb1e67c5cbb87148ec83ef2282259b1db4f3c40ce0ac21082c05a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
-          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L34",
-          "version": "repo-lines-v1:sha256:5e7d32384dce74f59a3a16616f70bc194f3f27a3968912482100d46a3b272d68:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0MWM2MGQ4MzU5N2M3NmNjYTY5NmFhYzc0ZGZiN2FjNWRjMzM2MmZlNjUxZjhjYWI1YTMwNDk5NjMwMTdkNDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmODQ2MzY1YmRiMGEyMWQzYWY5MGNlZTA5YjkyZTk0ZGI5NmMyMjg1YWE3N2ZiZTkwZTFjZGYxMmY0MDdkY2QifQ"
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L63",
+          "version": "repo-lines-v1:sha256:5d889024f103f843e45c4971d998f3b89e76d648c3ec2348bb205fa5cb83b86a:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
     {
       "id": "claim_350f4a44fbc84d08a6f162acbd391d96",
-      "statement": "The backend domain owns server-side business capabilities, including business logic, APIs, persistence and migrations, asynchronous behavior, integrations, and shared libraries, while deployment infrastructure, environment-specific production values, and secrets are excluded from backend source.",
+      "statement": "The backend domain owns server-side business capabilities, including business logic, APIs, persistence and migrations, asynchronous behavior, integrations, and shared libraries, while deployment infrastructure, environment-specific configuration, and secrets are excluded from backend source.",
       "evidence": [
         {
           "resource": "repo://backend/README.md#L1-L21",
-          "version": "repo-lines-v1:sha256:6c4689c0aef5c6b36fa9f85448c72410d04042ebd2640e6b27e69ab5ddeda118:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5NjE4MTZkYTBhODYzMjVkM2M0YTcyZjFkNjI3ZTIyMmJlYTIxMjY5MmNlNjFiYzE3MDFhYWFkYWY1OTFhMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjZGYwMTAyYjM5MGYxM2ZmNmY2MjlhODdiMjlhNDRlOGI1MDRhYTQzM2ZhYjc1ZjU1NjFkMDMwMDM0MzE5ODMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0MDllMDkwYzBkZWNjYWFmMzA3MDg5NjY3MzMzYmU5NjQ0MmQxMDU4MzVmNTEyNzRiNTFjYjJkYzZmNmNhZmIifQ"
+          "version": "repo-lines-v1:sha256:5e39b8b03a475c09729ce077b9de15f343b6dd553f2fcfb8c85027c4f60f04d1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5NjE4MTZkYTBhODYzMjVkM2M0YTcyZjFkNjI3ZTIyMmJlYTIxMjY5MmNlNjFiYzE3MDFhYWFkYWY1OTFhMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjZGYwMTAyYjM5MGYxM2ZmNmY2MjlhODdiMjlhNDRlOGI1MDRhYTQzM2ZhYjc1ZjU1NjFkMDMwMDM0MzE5ODMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0MDllMDkwYzBkZWNjYWFmMzA3MDg5NjY3MzMzYmU5NjQ0MmQxMDU4MzVmNTEyNzRiNTFjYjJkYzZmNmNhZmIifQ"
         }
       ]
     },
@@ -88,7 +88,7 @@
         },
         {
           "resource": "repo://backend/README.md#L15-L27",
-          "version": "repo-lines-v1:sha256:fe35f597f2d4edc68b43b2c34f29e526a338f000cc5460e99fc5309ac3ed15c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhZWVhZTJiYmQxNTcyMzA1MTE5M2QxYWM5ZTI0Yzg1ZWY1NzZiNzM0ZGU3MzliYmJkNzQzOGFiMzkzNDNkNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiOWZhOTBkMWEyOTQzMTNlNzRmZDg5MTYyZDRiOWI5Nzg3MmUyMWNhOGEyMmFjODk3YzU3NjExZGY2NTkyY2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1NTk1MTZhM2E5MWU4MWIyN2JhOTM0YWE4MTZiMGY0NDM5NjliYjFkN2FiZjgyZGI2MjQ5NGZhNjAwNDdiM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwZGEyZDE5NDRkZTIyNjM4ODJmM2JhODI4NWUzMzFkOTRiMDg4M2Q2MzY2ZmM4MTAzODUyN2EyY2I5YTllMGYifQ"
+          "version": "repo-lines-v1:sha256:8c526cf21d4c6caa66b918e884c91abfe670b635ca8652c9ea81b2f94a7f25cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhZWVhZTJiYmQxNTcyMzA1MTE5M2QxYWM5ZTI0Yzg1ZWY1NzZiNzM0ZGU3MzliYmJkNzQzOGFiMzkzNDNkNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiOWZhOTBkMWEyOTQzMTNlNzRmZDg5MTYyZDRiOWI5Nzg3MmUyMWNhOGEyMmFjODk3YzU3NjExZGY2NTkyY2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1NTk1MTZhM2E5MWU4MWIyN2JhOTM0YWE4MTZiMGY0NDM5NjliYjFkN2FiZjgyZGI2MjQ5NGZhNjAwNDdiM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwZGEyZDE5NDRkZTIyNjM4ODJmM2JhODI4NWUzMzFkOTRiMDg4M2Q2MzY2ZmM4MTAzODUyN2EyY2I5YTllMGYifQ"
         }
       ]
     },
@@ -144,7 +144,7 @@
       "evidence": [
         {
           "resource": "repo://config/README.md#L1-L29",
-          "version": "repo-lines-v1:sha256:b341684f63c6a4d4d00e59777436f4e0e0d02fd66a092a6610a74c98a1c6f2b3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiZjIxMjBlMThkNjI3YzA1MDk2NmViNjYzNjAyNWE5MDI1MDE1MTYwMmUwNDVkMDU1Y2Q1NTZmOWJlZTlhYTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlNzBhMzQzYjYxZTIyYTY1MzJkZWJiNTRjYmFhMjMzYjlkMmYyZDIyMWU2YTdlY2RlNmExZWYyMmQ1YWY1OGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhN2UxN2I0Y2VhZjIwNmRhMDNmZjhlYmY2ZmU0NTFkODljMjIzZDYwOGViZTEzYjM4NzM2NDJjM2NkODc0OTUifQ"
+          "version": "repo-lines-v1:sha256:fc1c918203d042008900bc89cfae297daebeb6b44e9b480c011d2b312f6e79a2:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiZjIxMjBlMThkNjI3YzA1MDk2NmViNjYzNjAyNWE5MDI1MDE1MTYwMmUwNDVkMDU1Y2Q1NTZmOWJlZTlhYTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlNzBhMzQzYjYxZTIyYTY1MzJkZWJiNTRjYmFhMjMzYjlkMmYyZDIyMWU2YTdlY2RlNmExZWYyMmQ1YWY1OGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhN2UxN2I0Y2VhZjIwNmRhMDNmZjhlYmY2ZmU0NTFkODljMjIzZDYwOGViZTEzYjM4NzM2NDJjM2NkODc0OTUifQ"
         }
       ]
     },
@@ -153,8 +153,8 @@
       "statement": "Backend settings are intended to be served by a configuration-server workload and consumed at startup and on refresh, allowing behavior changes without rebuilding or redeploying consumers; Spring Cloud Config is the expected implementation, but neither configuration sets nor the server exists yet.",
       "evidence": [
         {
-          "resource": "repo://config/README.md#L59-L68",
-          "version": "repo-lines-v1:sha256:bfc4622923aa4d225de916323c97870bca2f686762d76642c4ca33f58f1e245b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNWNiMmNmZDY2MjZiYzg5YjAzMTI4NDRkOWIzYTNjMzdkYmQ3MmIxNTQyNmRmOThhYmY4ZTkxZTA4YzhhNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+          "resource": "repo://config/README.md#L59-L72",
+          "version": "repo-lines-v1:sha256:51b38bc24b262f8a043f15c461f549618c97dbeefe367ed12cb273d2838c810d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlZTYxYjE1MjJmODMxOGM2YTY5NWE3MGM0YjIwNThkYjhhNjhmZWFlYWFhOWQ0NTlmMDAzMjc5ZjQ0ZTk4ZTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -215,7 +215,7 @@
       "statement": "The intended `gitops/apps/` and `gitops/platform/` separation keeps application workloads apart from shared cluster software because they have different owners, upgrade cadences, and blast radii; neither subtree exists yet.",
       "evidence": [
         {
-          "resource": "repo://gitops/README.md#L53-L60",
+          "resource": "repo://gitops/README.md#L55-L62",
           "version": "repo-lines-v1:sha256:590e95111bf10c8800e4bf35018b736fee27563109c51411475bc303b0297752:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM0M2M1MzY0YjJlMTI3OTQ2M2FmMDMxZjM3ZTZkZmNlNDQ3ZGQ2NDZhZGRjYmMyZjAzMDY2YTk5ZGJkMjcxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY0ZDFlOGI1OTlhMWE3OGM3NjNmZjI4MDI5MWI1ODRlODhmZmVlZmRkZmJmOGY4N2FkZjNiYjBkNTQ4N2NjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjQ4NTc2Zjg4M2FmZTkyZDViMTZjNjU3ZWQ4NTNjNDZiMjNlMGJjYjNhMDc3YWFhZGQ1NzE1NjYyOGU4NWExZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
         }
       ]
@@ -246,11 +246,11 @@
       "evidence": [
         {
           "resource": "repo://AGENTS.md#L42-L46",
-          "version": "repo-lines-v1:sha256:eea9768582c0686c2b5a622c50bb1a55e2b730e3fa775b749b35a546ef9ef008:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVhYjg2Mjc2NjczZDQyNjgyNzkxY2M2ZDE5ZmE2MzkzYzMxMmY4MDZlZDkzMTNkYzMyYzQ1ZTIzYzRhMzAwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWExZmEzYmQ4Y2E2YjIyNGUzNTg1NWU5NjIxNDI4ZGY0ZWRhNjcwNDdlMjU1NWRiOTkxM2MxZjBlNGFjNGE5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJhZWUwMTUwMWQxNWMyYjE0MWIxMzI3ZmIyYjJiYmIxZWM3YTFlMTdkOTA1ODQ0MjFhNjBhMzI5NGNkYTgyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE0NzkzZWQyMzE2NDYyZjc4OWM0YjZhMDE2M2Y5NmI4MTk1MGYxZTc3NTVmYmNiZTE4ZDU5YzI2N2FjZjM5OCJ9"
+          "version": "repo-lines-v1:sha256:093e9c36987acecfaf87943d1b1bd003c4bdadd0449c86bd4729ce9a3f8b4c31:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVhYjg2Mjc2NjczZDQyNjgyNzkxY2M2ZDE5ZmE2MzkzYzMxMmY4MDZlZDkzMTNkYzMyYzQ1ZTIzYzRhMzAwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2ZjY0MzQ2NTExMmY3ZDkwNmM1MDEwMjY1ODM3OTM3OGQ0ODAyOGRjYjFmMDZiNmQ1YmNlNGM3YzA0ZmI5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJhZWUwMTUwMWQxNWMyYjE0MWIxMzI3ZmIyYjJiYmIxZWM3YTFlMTdkOTA1ODQ0MjFhNjBhMzI5NGNkYTgyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE0NzkzZWQyMzE2NDYyZjc4OWM0YjZhMDE2M2Y5NmI4MTk1MGYxZTc3NTVmYmNiZTE4ZDU5YzI2N2FjZjM5OCJ9"
         },
         {
-          "resource": "repo://README.md#L42-L54",
-          "version": "repo-lines-v1:sha256:30b75ce5eefd46899d309f8c09531f59acdc02eafdcc70b3e27e7bdd44ceb956:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNDlkZWVkNDk4MGI2YTM4ZTQ3OTk2Y2Q2NjIwZjRhMzQwNjNiM2VhNTg5OWRiNWI4NWViYjNkY2Y0OTAzMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhYjY5NDI4OTY0YjYwMGI3ZjM3Y2RjZjkyM2YwZjQ0NDNmYWM4M2FhZTZiZmI2ZGI2NDRkMTlhOTliOTlmMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MDEwZDM3ZjBlZjQ1NGVhZGI5MzA1NzcxZDY0NDI3ZWRkODJjOTc4ZGQ2YjJmMzFkMjM2OTdlZWZmYmRkNDgifQ"
+          "resource": "repo://README.md#L55-L67",
+          "version": "repo-lines-v1:sha256:30b75ce5eefd46899d309f8c09531f59acdc02eafdcc70b3e27e7bdd44ceb956:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNDlkZWVkNDk4MGI2YTM4ZTQ3OTk2Y2Q2NjIwZjRhMzQwNjNiM2VhNTg5OWRiNWI4NWViYjNkY2Y0OTAzMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhYjY5NDI4OTY0YjYwMGI3ZjM3Y2RjZjkyM2YwZjQ0NDNmYWM4M2FhZTZiZmI2ZGI2NDRkMTlhOTliOTlmMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4YTRiOWVhYWU3ZWZjMWNjZjA2MzM0NjMxMmJjNGZlMmE2ZjUwMWYwODZlZDMxNzIwMGZkYWViMGZiMGVhMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MDEwZDM3ZjBlZjQ1NGVhZGI5MzA1NzcxZDY0NDI3ZWRkODJjOTc4ZGQ2YjJmMzFkMjM2OTdlZWZmYmRkNDgifQ"
         },
         {
           "resource": "repo://gitops/README.md#L21-L26",
@@ -267,8 +267,8 @@
       "statement": "Infrastructure and workload state have deliberately different ownership because infrastructure changes are slow, stateful, and expensive to reverse, while workload changes are frequent and routine; combining them would force routine deployments through the slower change's risk profile.",
       "evidence": [
         {
-          "resource": "repo://infra/README.md#L26-L38",
-          "version": "repo-lines-v1:sha256:afb4961322865432114e4b1ac576b309377349ed71424a15826154859e2e9975:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNzRiMmZiMzlkMjI3YTg3Y2VlNTRmYzVhODg5YmVmMWJhMDliY2VlODBhNDBiZTRiNmI1NzM1NjQxMWI5ODEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZWYwNjA1ZmJiNjE5YTZlNTA4ZmNhZDZiOWIzNGZmYmZhYTJhZTE2NjZkNDJlMjM1NDY0MmI2ODYxZDYyMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2Y2MxMjc1YjU5ZTdlMjMzNjE0OTA1OTMyYTU0Mjc1YTFiOTViZGU0NDdhMDBiMzdmNDk5YjQ3NjQwOGRjYjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+          "resource": "repo://infra/README.md#L26-L33",
+          "version": "repo-lines-v1:sha256:6cb3a8739f86e691b399130a071ea70e56831cb87c01b8f55d388934bb04305d:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3NGIyZmIzOWQyMjdhODdjZWU1NGZjNWE4ODliZWYxYmEwOWJjZWU4MGE0MGJlNGI2YjU3MzU2NDExYjk4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzYwMjQzNTFjNTlkOTdjMDBkZDdlNjQxZGJmMmFjYmU4NDVlZDI0ZTY5ZGU5MTM4NjZkYjk0MjVmMTdkZmY4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTZjYzEyNzViNTllN2UyMzM2MTQ5MDU5MzJhNTQyNzVhMWI5NWJkZTQ0N2EwMGIzN2Y0OTliNDc2NDA4ZGNiOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2QyOTgyOTI3ODQyMTEzYzg0ZGY3MDVhYzE3MjYwMTUwY2IwNjhiMWU2Y2ZmMGUyYzlmMGUxNzYxYTQxYmMzYyJ9"
         }
       ]
     },
@@ -312,11 +312,11 @@
     },
     {
       "id": "claim_6a9571934bd743908046d780e66f2980",
-      "statement": "The pull request template operationalizes ownership by requiring authors to list affected modules, explain cross-module coordination, confirm one owner per artifact, avoid committed secrets and environment-specific values, update changed boundaries, and add an ADR for new architectural decisions.",
+      "statement": "The pull request template operationalizes ownership by requiring authors to list affected modules, explain cross-module coordination, confirm one owner per artifact, avoid committed secrets and hardcoded environment knowledge, update changed boundaries, and add an ADR for new architectural decisions.",
       "evidence": [
         {
           "resource": "repo://.github/pull_request_template.md#L1-L15",
-          "version": "repo-lines-v1:sha256:56bc693cc00ce01ab9aff972b6cd6a05d556b0ae63b8af8632362df58fd470d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "version": "repo-lines-v1:sha256:d38721ff55cb1e67c5cbb87148ec83ef2282259b1db4f3c40ce0ac21082c05a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -340,15 +340,15 @@
       "evidence": [
         {
           "resource": "repo://config/README.md#L59-L68",
-          "version": "repo-lines-v1:sha256:bfc4622923aa4d225de916323c97870bca2f686762d76642c4ca33f58f1e245b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNWNiMmNmZDY2MjZiYzg5YjAzMTI4NDRkOWIzYTNjMzdkYmQ3MmIxNTQyNmRmOThhYmY4ZTkxZTA4YzhhNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+          "version": "repo-lines-v1:sha256:38f50ceefd1bb6e373a235dcda263a54276ab3c9e1c37f949c1fe0138e26c015:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNWNiMmNmZDY2MjZiYzg5YjAzMTI4NDRkOWIzYTNjMzdkYmQ3MmIxNTQyNmRmOThhYmY4ZTkxZTA4YzhhNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
         },
         {
-          "resource": "repo://gitops/README.md#L62-L67",
+          "resource": "repo://gitops/README.md#L64-L69",
           "version": "repo-lines-v1:sha256:8e5cba367cfa21ba19dbdbf72de3c055a1c7982e4e22a0c5ab16cc28b688b2d0:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDYwNjgwNmZmZmZlOTBhYjQxOGY3YTI0YzIwZjBjYWQ2MzkxMGIyMThlZGI3NWJlMDQ3Yjk5YTg3N2Q2NWIyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDgyZDU1OTJmMGVlZTRiZjM1ZmNkZWU4MmYzOTY5ODVmZjA3ZjIxZWZjNmE2YWM2MTZmM2Q5M2VmN2ZlZmJhOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         },
         {
-          "resource": "repo://infra/README.md#L26-L38",
-          "version": "repo-lines-v1:sha256:afb4961322865432114e4b1ac576b309377349ed71424a15826154859e2e9975:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNzRiMmZiMzlkMjI3YTg3Y2VlNTRmYzVhODg5YmVmMWJhMDliY2VlODBhNDBiZTRiNmI1NzM1NjQxMWI5ODEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZWYwNjA1ZmJiNjE5YTZlNTA4ZmNhZDZiOWIzNGZmYmZhYTJhZTE2NjZkNDJlMjM1NDY0MmI2ODYxZDYyMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2Y2MxMjc1YjU5ZTdlMjMzNjE0OTA1OTMyYTU0Mjc1YTFiOTViZGU0NDdhMDBiMzdmNDk5YjQ3NjQwOGRjYjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+          "resource": "repo://infra/README.md#L26-L42",
+          "version": "repo-lines-v1:sha256:684fc36dc4bd2a5e85407b98eb7efc3af5a95f1876a38cab2321e74a5be9e7e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNzRiMmZiMzlkMjI3YTg3Y2VlNTRmYzVhODg5YmVmMWJhMDliY2VlODBhNDBiZTRiNmI1NzM1NjQxMWI5ODEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZWYwNjA1ZmJiNjE5YTZlNTA4ZmNhZDZiOWIzNGZmYmZhYTJhZTE2NjZkNDJlMjM1NDY0MmI2ODYxZDYyMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2Y2MxMjc1YjU5ZTdlMjMzNjE0OTA1OTMyYTU0Mjc1YTFiOTViZGU0NDdhMDBiMzdmNDk5YjQ3NjQwOGRjYjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
         }
       ]
     },
@@ -378,25 +378,33 @@
     },
     {
       "id": "claim_d270e3d4368242b5b7c2785a72f52582",
-      "statement": "Artifacts and live runtime data are external to Git: registries hold container images, S3 or a CDN may hold static frontend output if that model is adopted, secret managers hold credentials, databases hold persistent data, and observability systems hold telemetry.",
+      "statement": "Artifacts, live runtime data, and observed runtime state are external to Git: registries hold container images, S3 or a CDN may hold static frontend output if that model is adopted, secret managers hold credentials, databases hold persistent data, observability systems hold telemetry, and EKS and AWS hold live workload and cloud state.",
       "evidence": [
         {
-          "resource": "repo://README.md#L42-L54",
-          "version": "repo-lines-v1:sha256:30b75ce5eefd46899d309f8c09531f59acdc02eafdcc70b3e27e7bdd44ceb956:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNDlkZWVkNDk4MGI2YTM4ZTQ3OTk2Y2Q2NjIwZjRhMzQwNjNiM2VhNTg5OWRiNWI4NWViYjNkY2Y0OTAzMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhYjY5NDI4OTY0YjYwMGI3ZjM3Y2RjZjkyM2YwZjQ0NDNmYWM4M2FhZTZiZmI2ZGI2NDRkMTlhOTliOTlmMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MDEwZDM3ZjBlZjQ1NGVhZGI5MzA1NzcxZDY0NDI3ZWRkODJjOTc4ZGQ2YjJmMzFkMjM2OTdlZWZmYmRkNDgifQ"
+          "resource": "repo://README.md#L55-L67",
+          "version": "repo-lines-v1:sha256:30b75ce5eefd46899d309f8c09531f59acdc02eafdcc70b3e27e7bdd44ceb956:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNDlkZWVkNDk4MGI2YTM4ZTQ3OTk2Y2Q2NjIwZjRhMzQwNjNiM2VhNTg5OWRiNWI4NWViYjNkY2Y0OTAzMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhYjY5NDI4OTY0YjYwMGI3ZjM3Y2RjZjkyM2YwZjQ0NDNmYWM4M2FhZTZiZmI2ZGI2NDRkMTlhOTliOTlmMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4YTRiOWVhYWU3ZWZjMWNjZjA2MzM0NjMxMmJjNGZlMmE2ZjUwMWYwODZlZDMxNzIwMGZkYWViMGZiMGVhMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MDEwZDM3ZjBlZjQ1NGVhZGI5MzA1NzcxZDY0NDI3ZWRkODJjOTc4ZGQ2YjJmMzFkMjM2OTdlZWZmYmRkNDgifQ"
         }
       ]
     },
     {
       "id": "claim_e609410cee3e4b1786f61acb3289db8e",
-      "statement": "The `dev`, `staging`, and `prod` environments are isolated, and a configuration, workload, or infrastructure change intended for one must not implicitly alter another.",
+      "statement": "There are four isolated environments: `local` is local development on a developer's machine and is not a repository-declared cluster, while `dev`, `stage`, and `prod` are remote Kubernetes clusters provisioned by `infra/` with workload desired state declared by `gitops/`; a change intended for one must not implicitly alter another.",
       "evidence": [
         {
           "resource": "repo://AGENTS.md#L44-L46",
-          "version": "repo-lines-v1:sha256:da69bca8a5338d1299ad21a6a8d3dd70383c694a966e388110db91c373fc15ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmU1NmM5NzM3MDRhZGY2YjczOTMwNWU2MmQ3MThmZmI3MTRmZGJmN2E3ZWNmZGEwYWFhNzM2ZDNjMjU2ZTczOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWExZmEzYmQ4Y2E2YjIyNGUzNTg1NWU5NjIxNDI4ZGY0ZWRhNjcwNDdlMjU1NWRiOTkxM2MxZjBlNGFjNGE5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWQwMmE1NjI2MzMwZjIzOWUyMTcyNjIzMWYzMDkxNzlmNzcxMWNhNmViZjFiNzMyOWMwYTBkODM3ZjNiMjMyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE0NzkzZWQyMzE2NDYyZjc4OWM0YjZhMDE2M2Y5NmI4MTk1MGYxZTc3NTVmYmNiZTE4ZDU5YzI2N2FjZjM5OCJ9"
+          "version": "repo-lines-v1:sha256:26986280d8adb989a7939785d5574dc138a278090229ad067f23b91e3fc3c23f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmU1NmM5NzM3MDRhZGY2YjczOTMwNWU2MmQ3MThmZmI3MTRmZGJmN2E3ZWNmZGEwYWFhNzM2ZDNjMjU2ZTczOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2ZjY0MzQ2NTExMmY3ZDkwNmM1MDEwMjY1ODM3OTM3OGQ0ODAyOGRjYjFmMDZiNmQ1YmNlNGM3YzA0ZmI5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWQwMmE1NjI2MzMwZjIzOWUyMTcyNjIzMWYzMDkxNzlmNzcxMWNhNmViZjFiNzMyOWMwYTBkODM3ZjNiMjMyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE0NzkzZWQyMzE2NDYyZjc4OWM0YjZhMDE2M2Y5NmI4MTk1MGYxZTc3NTVmYmNiZTE4ZDU5YzI2N2FjZjM5OCJ9"
         },
         {
-          "resource": "repo://gitops/README.md#L43-L51",
-          "version": "repo-lines-v1:sha256:e91b40c50a9610a18eba92b8ea5fbe2110bd489449c5e77e2ba80c2c0212c214:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYxZDQ3MTZjYjk1NTYxNDgxYjM1YTBmNTNiZjc0NGYzZGE1ODY0OTc1MWVmZjg4ODk5YmMxNTZmZWYwNDNiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmY1Y2JhYjlkNTkwMzgzOTZkM2I4YTRmZDhkODM4MjRhODA3NjZmYjI1OGU5OWMxYzE4NTFkNDk2M2U5NGRiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTY0ODY2MGIzNmJiYjJjMWU4Y2Y4NzQyM2IwMTY1ZTY3MGE0YTY3MzNkOWM3YTczOGQ3Y2VhYmRiYWQyZTU4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE4ODllNjI3OWM4YTY3NWIxM2Y2ZGUwY2Q5NDBiMzdlNzNjZjY0MjJjY2MyYjkyYmIxZmU4ZThmNmJhNmRjOSJ9"
+          "resource": "repo://README.md#L42-L53",
+          "version": "repo-lines-v1:sha256:395dd4bb5a009dbb3923414f76255d22bd1222e6c157269fa89a174562b470df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMGVjNDdhOTU3YWMxNGEwYjY2NTcyMjU2ZGZlMzhjM2IyYjQ3MmUyNjZjNTFiODgwNDYxOGI0OTE5ZTIxNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwY2JiZmM4OTk5ZjA1MmU0NDQwMWJhNzMzZjc1YTA2NzIxMzA3OGQ3NDQ5N2IxZWZjOTFkNWQzMjFmMWVhMmEifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L43-L53",
+          "version": "repo-lines-v1:sha256:120da3fe61bcc5a4a78c3f2861767b1faa08f38a38a8212ae8dc424dcb678b1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmNWNiYWI5ZDU5MDM4Mzk2ZDNiOGE0ZmQ4ZDgzODI0YTgwNzY2ZmIyNThlOTljMWMxODUxZDQ5NjNlOTRkYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2NDg2NjBiMzZiYmIyYzFlOGNmODc0MjNiMDE2NWU2NzBhNGE2NzMzZDljN2E3MzhkN2NlYWJkYmFkMmU1OGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYxODg5ZTYyNzljOGE2NzViMTNmNmRlMGNkOTQwYjM3ZTczY2Y2NDIyY2NjMmI5MmJiMWZlOGU4ZjZiYTZkYzkifQ"
+        },
+        {
+          "resource": "repo://infra/README.md#L35-L37",
+          "version": "repo-lines-v1:sha256:1aaa598345e3512ca1d287ec759232224a4b1e2e21ac9869774adcd234ba5360:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYxZDQ3MTZjYjk1NTYxNDgxYjM1YTBmNTNiZjc0NGYzZGE1ODY0OTc1MWVmZjg4ODk5YmMxNTZmZWYwNDNiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWI1MzFhZjYyNmEyNGUyYjJmOGFkYjg4OThjM2QxMWY5MzQ4ZjMyMzQ3MzkwZjJjMzgwNzYzNDJmZjc0ZDhmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjkwZGQ2N2I0YTFiZjI1N2Q5YzMxNGIwYjU3MWM2ZDJkMWYzZWE5MjNiYTJmZWUyNjA2YTc0OTVlNTM3MjQ3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
         }
       ]
     },
@@ -417,10 +425,50 @@
           "version": "repo-lines-v1:sha256:e9d96a06e9521fa758fd24cd1f65ade20a007493332d81b9f0e35b7b8f1a9797:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdkMjI1ZjQ3ODNjYTFkZjA5ODQzMzA0YmQxOGZlYzc1OGRhNTM2YzY0NDRiYWQyMDY5MjZlMzdkYjQyOTcxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM0Yjg3ZjU2NzYwODI5ZTE5Yzg0NTY5NGMwYWRkNmMyMGIxYmFiNjljZGQwMTQ2MTI2NjU2YzYwMjg4OGUzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzhhODQ4NDRhZTE0MmM1ZTQzMTUyMjRmNmZjOWVlMmU4ZjdmN2I3OGI1YTc4OGViMzk5YjA0Y2RkMjI1Y2ZlZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_8e66260a14a34b1b99f645f575ff896d",
+      "statement": "The web and mobile clients are intended as independent workspace roots with separate toolchains, dependency graphs, CI paths, and release cadences; they must not import from one another, and genuinely shared material should be a versioned package or common API contract rather than a relative cross-workspace dependency.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/README.md#L35-L37",
+          "version": "repo-lines-v1:sha256:d2eb1bf66325b162c095a9c9ea6f1fdf7c70c1c188576168221e477eb656db99:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3MTkwNzQxZDc5ZGQyYjAxYzQ3NzBmYmY5M2Q0MWYyODBlZTE0ZTAwNmIzYjE1MmQyYjk4M2IyZWQ1M2M0ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZiMWI0NTBjOWZkOGYzZmNiZWY3YTY5NDUxMTFhMDBlZTI5NTA5MDA5ZWZkZmUyN2UzY2IzMWMyMTc5MWIwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU0NWRhZDM3MzM0YTFkMGE5NjRiZDc2OGVkY2NlY2IxZWIyNTFkYzcyOGI5YjZmODNiMDZlMzgwNGM3ZDAwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://frontend/README.md#L5-L11",
+          "version": "repo-lines-v1:sha256:a59611aad43d96d750b6187cb512591b2a714c61576c8cd882a81689a3bab312:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZmMWZhN2I1NzMzN2FmYmI2Njc1NGYyZWQxZTdlYjdjMWFmYjgzMGU5ZWZlZjUwYjMzODEwNWJmOTQ4YmFjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5N2U5NjBmZTRiNDBiYjNmNjlhY2Y1ZDRkNDNiZTRlOGQ3NmNlMGRiOTk0OWU5MmJiOTE0NDlkMGJiNDdkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzYyMWYxOWRkNTJkOGI2MzRiZjNmN2UyMDE4N2VhNzEzMTgzMDllNjAyMzk0Mzc1MDY4OGQ2MjkwZDYxMDhmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L29-L31",
+          "version": "repo-lines-v1:sha256:1055f99614d7304fd6418b0c1a84345218b8f54d78c1891316117b0bf4421a55:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDJiY2EwNzYxOTFhOTIwOGVkOWQ4MjNmNDBmMzU5YzI1ZmUyNTI2YTllMTQ2ZmVlNzRmNTZkNDgxZTdlYjMwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjFjY2ExZWI5MGQ0MjI0NmQxNDZkMzgyMTc5ZDc4ZmNiOGEzYTBiM2M1MDM5Y2UxYzdkN2JlMjIxODlkM2YwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU1ZDU1YmRjZGRhZTc3YzQyZjVhZmY3ZjE4NmEzYzVkNDhjNzc5ZjI3OTI5MDIyNTY4NzczOGUyYjAzMTBhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_77b486c20f8f4ae9a3be1818284e99e5",
+      "statement": "The concrete local-development mechanism is undecided: `local` has no cloud infrastructure or GitOps-declared cluster, and it has not been decided whether local services will use a configuration server or read configuration files directly.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L42-L53",
+          "version": "repo-lines-v1:sha256:395dd4bb5a009dbb3923414f76255d22bd1222e6c157269fa89a174562b470df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMGVjNDdhOTU3YWMxNGEwYjY2NTcyMjU2ZGZlMzhjM2IyYjQ3MmUyNjZjNTFiODgwNDYxOGI0OTE5ZTIxNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwY2JiZmM4OTk5ZjA1MmU0NDQwMWJhNzMzZjc1YTA2NzIxMzA3OGQ3NDQ5N2IxZWZjOTFkNWQzMjFmMWVhMmEifQ"
+        },
+        {
+          "resource": "repo://config/README.md#L59-L63",
+          "version": "repo-lines-v1:sha256:615cfaa116db61b2e471a25a44f6422502c1267479bac06cc7bfb2d645b2fc86:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2UyMDY4N2I1ZTkxM2FkMmNmNjRmZjU5NDgxNjU1NTFkMDc5YjJhOTU4OTg3NTlmOGM3Y2Y2YTA5YWIzNzJhYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRiZWE0ZTQ0Y2IzNDBjNzEwZTQ5ZDY4NzU4ZGU1ODhlZWQ5MGNjZjJiN2UyOTcyNDZiMzdhODMzM2JkY2Q4OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjhjYzA3ZjkzOWViZDVlNjFiOWQxZWIxNzZjOGI0NDczMjBhYzhmOGIzNjAxOWQ3MWQ3NDEwZDhhMTFkZDYyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L43-L53",
+          "version": "repo-lines-v1:sha256:120da3fe61bcc5a4a78c3f2861767b1faa08f38a38a8212ae8dc424dcb678b1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmNWNiYWI5ZDU5MDM4Mzk2ZDNiOGE0ZmQ4ZDgzODI0YTgwNzY2ZmIyNThlOTljMWMxODUxZDQ5NjNlOTRkYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2NDg2NjBiMzZiYmIyYzFlOGNmODc0MjNiMDE2NWU2NzBhNGE2NzMzZDljN2E3MzhkN2NlYWJkYmFkMmU1OGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYxODg5ZTYyNzljOGE2NzViMTNmNmRlMGNkOTQwYjM3ZTczY2Y2NDIyY2NjMmI5MmJiMWZlOGU4ZjZiYTZkYzkifQ"
+        },
+        {
+          "resource": "repo://infra/README.md#L35-L37",
+          "version": "repo-lines-v1:sha256:1aaa598345e3512ca1d287ec759232224a4b1e2e21ac9869774adcd234ba5360:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYxZDQ3MTZjYjk1NTYxNDgxYjM1YTBmNTNiZjc0NGYzZGE1ODY0OTc1MWVmZjg4ODk5YmMxNTZmZWYwNDNiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWI1MzFhZjYyNmEyNGUyYjJmOGFkYjg4OThjM2QxMWY5MzQ4ZjMyMzQ3MzkwZjJjMzgwNzYzNDJmZjc0ZDhmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjkwZGQ2N2I0YTFiZjI1N2Q5YzMxNGIwYjU3MWM2ZDJkMWYzZWE5MjNiYTJmZWUyNjA2YTc0OTVlNTM3MjQ3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.4.3",
-    "at": "2026-08-29T16:26:54.497Z"
+    "at": "2026-08-29T17:10:15.382Z"
   }
 }

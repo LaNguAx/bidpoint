@@ -1,11 +1,11 @@
 ---
 type: architecture concept
 title: Application Domains and Client Boundaries
-description: Planned authority and dependency boundaries between the backend and the independent web and mobile clients, including API contracts, configuration ownership, release isolation, and unresolved architecture decisions.
+description: Authority and dependency boundaries between the planned backend and the independent web and mobile clients, including business-rule enforcement, API and configuration ownership, release isolation, and unresolved architecture decisions.
 tags: [architecture, application-domains, backend, web, mobile, api-contracts]
 verified:
   - by: openwiki/0.4.3
-    at: 2026-08-29T16:26:54.497Z
+    at: 2026-08-29T17:10:15.382Z
 sources:
   - id: openwiki-source-d7476156bc2e7db82971c90b
     resource: repo://.github/AUTOMATION.md
@@ -27,7 +27,7 @@ sources:
     resource: repo://gitops/README.md
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
-generated: { by: "openwiki/0.4.3", at: "2026-08-29T16:26:54.497Z" }
+generated: { by: "openwiki/0.4.3", at: "2026-08-29T17:10:15.382Z" }
 ---
 
 # Application Domains and Client Boundaries
@@ -38,18 +38,17 @@ BidPoint is an organization-level monorepo, but it is not intended to be one app
 
 ## Intended structure
 
-<!-- openwiki: mermaid parse failed and this diagram was converted to a text fence so it does not break rendering. Fix the diagram source and restore the mermaid fence. Parser error: Heuristic: an unescaped angle bracket inside a label breaks rendering; rephrase the label. -->
-```text
+```mermaid
 flowchart LR
-  Backend["backend/<br/>business rules and APIs"]
-  Config["config/<br/>backend behavior settings"]
-  GitOps["gitops/<br/>workload desired state"]
-  Automation[".github/<br/>path-aware automation"]
-  Contract["Future independent versioned<br/>package or contract"]
+  Backend["backend business rules and APIs"]
+  Config["config backend behavior settings"]
+  GitOps["gitops workload desired state"]
+  Automation[".github path aware automation"]
+  Contract["Future independent versioned package or contract"]
 
   subgraph ClientDomains["Independent client domains"]
-    Web["frontend/web/<br/>web workspace"]
-    Mobile["frontend/mobile/<br/>mobile workspace"]
+    Web["frontend/web workspace"]
+    Mobile["frontend/mobile workspace"]
   end
 
   Web -->|"consumes APIs"| Backend
@@ -85,13 +84,13 @@ The web domain does not own mobile code, backend runtime configuration, authorit
 
 ### Mobile: device application authority
 
-The mobile workspace is intended to own mobile application code and UI, navigation, platform-specific behavior, native integrations, device capability access, mobile assets and non-sensitive settings, and build, signing, and store-release configuration inseparable from its toolchain. Automation that executes builds and releases belongs under `.github/`, scoped to the mobile path.
+The mobile workspace is intended to own mobile application code and UI, navigation, platform-specific behavior, native integrations, device capability access, mobile assets and non-sensitive settings, and build, signing, and store-release configuration inseparable from its toolchain. Automation that executes builds and releases belongs under `.github/`, scoped to the mobile path. Secret signing material remains external and must not be committed merely because the non-secret signing configuration is mobile-owned.
 
 The mobile domain does not own web implementation, authoritative business rules, backend runtime configuration, infrastructure, deployment manifests, or secrets.
 
 ## Workspace and dependency isolation
 
-`frontend/web/` and `frontend/mobile/` are separate workspace roots. Each is intended to have its own toolchain, dependency graph, lockfile or equivalent resolution state, and CI path. None of those mechanisms exists yet. There is intentionally no package manifest or lockfile at `frontend/`: adding a shared root build would transfer dependency-resolution control away from both clients.
+`frontend/web/` and `frontend/mobile/` are separate workspace roots. Each is intended to have its own toolchain, dependency graph, lockfile or equivalent resolution state, and CI path. None of those mechanisms exists yet. There is intentionally no package manifest or lockfile at `frontend/`: adding a shared root build would transfer dependency-resolution control away from both clients. The repository therefore does not select a web framework, mobile framework, package manager, build command, or test runner here.
 
 The hard dependency rules are:
 
@@ -130,7 +129,7 @@ The root [`config/`](../../config/README.md) domain is backend-only. Web and mob
 
 For backend workloads, `gitops/` may inject only bootstrap and identity variables—`SPRING_PROFILES_ACTIVE`, `SPRING_APPLICATION_NAME`, and `SPRING_CONFIG_IMPORT`—plus values sourced from Kubernetes Secrets. Other backend behavior variables belong in `config/`. Duplicating a property in both domains is particularly dangerous because environment-variable precedence can silently override the configuration-service value, leaving the apparently correct value in `config/` unused.
 
-`dev`, `staging`, and `prod` are isolated environments. A change scoped to one must not implicitly change another. This applies independently to application behavior configuration and workload desired state.
+The exact environment names are `local`, `dev`, `stage`, and `prod`. `local` is development on a developer machine; `dev`, `stage`, and `prod` are the remote Kubernetes targets. They are isolated, so a change scoped to one must not implicitly change another. This applies independently to application behavior configuration, client settings, and workload desired state; `local` is not declared in `gitops/`.
 
 ## API and release lifecycle
 
@@ -162,7 +161,7 @@ Mobile release packaging stays in the mobile workspace because it is part of the
 | Client settings contain no secrets. | Credentials become recoverable from distributed artifacts or observable traffic. |
 | Backend source contains no environment knowledge. | The same artifact can no longer be promoted safely across environments. |
 | Web code assumes neither static nor server deployment. | An undecided hosting choice is made accidentally in code and becomes expensive to reverse. |
-| Environment changes remain isolated. | A change intended for `dev`, `staging`, or `prod` can alter another environment's behavior or workload. |
+| Environment changes remain isolated. | A change intended for `local`, `dev`, `stage`, or `prod` can alter another environment's behavior, client settings, or workload. |
 
 ## Validation as implementation arrives
 
@@ -173,7 +172,7 @@ No application or boundary-focused test suite exists yet. When these domains gai
 - dependency-boundary checks that reject imports crossing between `frontend/web/` and `frontend/mobile/`;
 - standalone builds from each client workspace, proving that neither relies on an implicit `frontend/` root build;
 - path-scoped CI checks proving that a client-only change does not trigger unrelated application or infrastructure pipelines;
-- configuration validation that rejects duplicate backend settings in `config/` and `gitops/`, disallowed workload environment variables, plaintext secrets, and cross-environment leakage.
+- configuration validation that rejects duplicate backend settings in `config/` and `gitops/`, disallowed workload environment variables, plaintext secrets, and cross-environment leakage across `local`, `dev`, `stage`, and `prod`.
 
 Tooling for these checks should be chosen with the eventual implementations. Choosing a backend framework decomposition, contract technology, client build system, or web hosting model merely to create a test now would turn an open decision into an undocumented one.
 
@@ -185,7 +184,7 @@ Tooling for these checks should be chosen with the eventual implementations. Cho
 | Web deployment model | Static delivery and a server runtime remain open. Do not assume either in application code; record the selection in `docs/adr/`. |
 | Shared package and API-contract mechanism | Sharing must be independent and versioned, but its location, format, publication, and compatibility policy are not selected. |
 | Web composition | Micro-frontends may be adopted later but are not current architecture. Web-internal UI sharing remains inside the web workspace. |
-| Concrete build and CI toolchains | Web, mobile, and backend paths are intended to be independent, but their toolchains and per-module workflows do not exist yet. |
+| Concrete client and backend toolchains | Web, mobile, and backend paths are intended to be independent, but concrete frameworks, package managers, build and test commands, and per-module workflows do not exist yet. |
 
 ## Related pages
 

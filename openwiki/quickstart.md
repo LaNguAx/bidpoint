@@ -1,11 +1,11 @@
 ---
 type: repository quickstart
 title: BidPoint Repository Quickstart
-description: A task-oriented starting point for coding agents working in BidPoint's early-scaffolding monorepo, covering required reading, ownership, safety rules, wiki routes, and the limited validation evidence available today.
+description: Evidence-based starting point for coding agents working in BidPoint's early-scaffolding monorepo, with mandatory reading, owner selection, safety checks, task routes, and current validation limits.
 tags: [quickstart, repository, ownership, agent-guidance, scaffolding, validation]
 verified:
   - by: openwiki/0.4.3
-    at: 2026-08-29T16:26:54.497Z
+    at: 2026-08-29T17:10:15.382Z
 sources:
   - id: openwiki-source-d7476156bc2e7db82971c90b
     resource: repo://.github/AUTOMATION.md
@@ -39,7 +39,7 @@ sources:
     resource: repo://infra/README.md
   - id: openwiki-source-23775c3de52f3ab95a13cb8b
     resource: repo://README.md
-generated: { by: "openwiki/0.4.3", at: "2026-08-29T16:26:54.497Z" }
+generated: { by: "openwiki/0.4.3", at: "2026-08-29T17:10:15.382Z" }
 ---
 
 # BidPoint Repository Quickstart
@@ -55,7 +55,8 @@ Read in this order:
 1. [`AGENTS.md`](../AGENTS.md). It is the authoritative agent instruction file; [`CLAUDE.md`](../CLAUDE.md) only points to it.
 2. The root [`README.md`](../README.md) for the monorepo thesis and top-level boundaries.
 3. The owning module guide for **every** module the task will change. For a frontend task, read both [`frontend/README.md`](../frontend/README.md) and the relevant client guide: [`frontend/web/README.md`](../frontend/web/README.md) or [`frontend/mobile/README.md`](../frontend/mobile/README.md). For automation, the owning guide is [`.github/AUTOMATION.md`](../.github/AUTOMATION.md).
-4. The task-specific wiki page from the routing table below. OpenWiki is just-in-time context, not a replacement for current source, tests, or module documentation.
+4. The current implementation and focused tests for the affected behavior, when they exist. Source and tests are authoritative.
+5. The task-specific wiki page from the routing table below. OpenWiki is optional just-in-time context, not a replacement for current source, tests, or module documentation.
 
 Treat `old/` as nonexistent: never read it, search it, cite it, or edit it.
 
@@ -86,14 +87,13 @@ A change may coordinate several modules, but the pull request must identify all 
 
 ## Route the task through the wiki
 
-Use these pages for depth rather than expanding this quickstart into a duplicate architecture manual:
+The complete planned hierarchy is compact by design. Use the question that matches the task, then return to current source and the owning module README before editing:
 
-| Question you need to answer | Go to |
-| --- | --- |
-| Where are authoritative business rules and APIs intended to live? How independent must web and mobile remain? | [Application Domains and Client Boundaries](architecture/application-domains.md) |
-| Which repository declaration owns a concern, and how are the application, configuration, GitOps, infrastructure, automation, and knowledge boundaries intended to compose? | [Ownership and System Boundaries](architecture/ownership-and-system-boundaries.md) |
-| Is this a backend setting, workload control, cloud resource, frontend setting, secret reference, or secret value? How should `dev`, `staging`, and `prod` stay isolated? | [Configuration, Secrets, and Environment Isolation](concepts/configuration-secrets-and-environments.md) |
-| How should a change be scoped, reviewed, validated, published, and eventually reconciled? What automation actually exists now? | [Repository Change and Delivery Lifecycle](workflows/repository-change-lifecycle.md) |
+- [`quickstart.md`](quickstart.md) — this starting page for reading order, owner selection, safeguards, and current validation limits.
+- [`architecture/application-domains.md`](architecture/application-domains.md) — **Application Domains and Client Boundaries**: backend rule and API authority, independent web and mobile workspaces, API/configuration ownership, release isolation, and deliberately open application decisions.
+- [`architecture/ownership-and-system-boundaries.md`](architecture/ownership-and-system-boundaries.md) — **Ownership and System Boundaries**: source-of-truth selection across application source, backend behavior, Kubernetes desired state, cloud foundations, automation, and durable knowledge, including intended runtime handoffs and failure boundaries.
+- [`concepts/configuration-secrets-and-environments.md`](concepts/configuration-secrets-and-environments.md) — **Configuration, Secrets, and Environment Isolation**: placement of backend settings, workload controls, cloud resources, frontend settings, secret resources, references, and values; duplicate-owner prevention; and isolation across `local`, `dev`, `stage`, and `prod`.
+- [`workflows/repository-change-lifecycle.md`](workflows/repository-change-lifecycle.md) — **Repository Change and Delivery Lifecycle**: scoping, pull-request review, focused validation, publication, desired-state change, reconciliation, and the distinction between intended product delivery and the one concrete OpenWiki workflow.
 
 If the answer is not settled in current source or these ownership documents, that is an architectural gap—not permission to choose silently.
 
@@ -117,7 +117,7 @@ The root `.gitignore` excludes common `.env` names, but that is only a convenien
 
 ### Preserve environment isolation
 
-`dev`, `staging`, and `prod` are separate targets. State the intended target, edit only declarations that are intentionally in scope, and verify that a target-specific change does not implicitly alter the other environments. Backend source must receive environment knowledge through explicit configuration and environment variables rather than hardcoding it.
+The exact model has four environments: `local` is developer-machine execution and is not a repository-declared Kubernetes cluster; `dev`, `stage`, and `prod` are isolated remote Kubernetes environments. State the intended target, edit only declarations intentionally in scope, and verify that a target-specific change does not implicitly alter another environment. Backend source must receive environment knowledge through explicit configuration and environment variables rather than hardcoding it.
 
 ### Do not invent architecture
 
@@ -148,7 +148,7 @@ Touch only what the requested result requires. Avoid adjacent refactors, broad f
 
 The current `CODEOWNERS` file routes every path to one default owner; it does not yet encode module-specific teams. Directory structure and the review checklist therefore express boundaries that human review must currently enforce.
 
-The OpenWiki updater is the repository's only concrete workflow. It can be started manually or by its daily schedule, runs the pinned OpenWiki tooling with full Git history, and opens a reviewable documentation pull request limited to selected documentation and agent-guidance paths. Success there is evidence only about that update flow—not about BidPoint product code, infrastructure, desired state, or a deployment.
+The OpenWiki updater is the repository's only concrete workflow. It can be started manually or by its daily schedule, checks out full history, sets up Node 22, installs pinned OpenWiki and Mermaid tooling, runs `openwiki code --update --print`, and opens a reviewable update pull request limited to `openwiki`, `AGENTS.md`, `CLAUDE.md`, and its own workflow file. The job has content and pull-request write permissions and resolves API credentials through GitHub secret references; none of this is evidence of a BidPoint product build, test, infrastructure apply, GitOps validation, or deployment.
 
 ## Validation evidence available today
 
@@ -172,6 +172,6 @@ Before completing a change, confirm:
 - [ ] Every changed artifact and setting has exactly one owner.
 - [ ] I explained every necessary cross-module change.
 - [ ] I committed no secret value and placed each reference with the correct owner.
-- [ ] I stated the environment scope and preserved isolation among `dev`, `staging`, and `prod`.
+- [ ] I stated the environment scope and preserved isolation across `local`, `dev`, `stage`, and `prod`.
 - [ ] I did not hide a new architecture decision in implementation; an ADR records it when required.
 - [ ] I kept the diff scoped and used only validation that the current repository can actually support.
