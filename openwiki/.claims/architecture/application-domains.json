@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:e5d74ad7a776303cde36ce53403cf3d01290599051ba9cb250e9031491373d28",
+  "claims": [
+    {
+      "id": "claim_e5b2c388257b43f283c9bb4bf65cdcf1",
+      "statement": "BidPoint is an organization-level monorepo whose application architecture is still early scaffolding; the documentation establishes intended module boundaries while almost nothing is implemented.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L3-L7",
+          "version": "repo-lines-v1:sha256:11c61140331730d36a69a7df5ffd1708628824f71ff20cd7c9dde3c7e8bead6d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk1ZWY3OWQ1YmFjYmVmYzk2MWZjMzI5ZmU4ZWM5NTBjOWY5ZWYxZmM1YTZkMGE5ZGJhNTUwNzAzODE5MmJkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYzMTcyZjJlM2NjNTk4ZjRlODJkMTZmYmUwYjgzYWE4ZmY5NjkwMDUyOGZmYzk5ZWI2YjRiZjMwZGVkNTdkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc5OTFkYzQyOTM0YjFjZTAxNzQ0ZmEyOGZhODIyNDhiZmZiYzRhYmRmYTkyMGZkMDZiNzk2NmQ0MGE3MGRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE1MDJlYWI0MGI5MzU2NDBjNWRiOTZhYTU4NzZkNWExNzYwMmE2ZWIxMjAzYzRjNDkxMzJkNTI4ZDgyZWIwZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_41502e79cdec492b8517aec8dd5e9df6",
+      "statement": "The repository assigns server-side application systems to `backend/` and user-facing browser and mobile clients to `frontend/`; `frontend/` is an organizational boundary rather than a shared build system.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L9-L19",
+          "version": "repo-lines-v1:sha256:c17d787d73f3c9efff0fab6601a5a41faa4f868223fd886cfa46aecf7e7e73b5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMmU4NTc0ZjMwNmQyNTQ4OTI5NTBjY2I2N2E2MWRiOTAzZTYwMTRmNWMyMTViOThiYjFlYmU4YzgxOGU0ZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkMzU3ZjllZjZlNjMyNTAwYzYzODJlMzJiMzU0NTM3ZTI5ZjljNDVhNDNiZjU1NDBlYzIxZmNjZDhiZTU0NDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQxMjQ5YWU4ODMzNTNhZTZmNjQwNjVmNDI0OGNmOTgwYWE2NmI3YmYxZWY1NmJjMzAyNjRiZjBiMzMxZmEwMGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJjNDU4YzYwMjQ4NTI0MmZiMmM4MjRmYjhjNGYwMjQwYzVmMzJlZGQzY2E4MmZlNzMyNDZhZWIzOGRmM2U5YzQifQ"
+        },
+        {
+          "resource": "repo://frontend/README.md#L1-L11",
+          "version": "repo-lines-v1:sha256:758854f83ff83cb5ec7d5b98d733006d886bdde7af9f10e7378170d2b4152fb0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhkYjk5MjVmNDk4N2NlYTVjNWU4ZDc1OWViYjRhNjMwMDk0MzM1YTE4NTZiNzNjZjZiN2MwNWVkNmY5YTk2OWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4OTdlOTYwZmU0YjQwYmIzZjY5YWNmNWQ0ZDQzYmU0ZThkNzZjZTBkYjk5NDllOTJiYjkxNDQ5ZDBiYjQ3ZGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzZDZkYzc4OGFlMjFkNmNkY2QwYzc2Yjk2ODdmODgyNjQ3M2IyOTkzOTUxM2M2M2E3OTgxY2IyOTVlOGFhYjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_309c29273cd94fa297241378e551e4a1",
+      "statement": "The planned backend domain owns server-side domain and business logic and the APIs consumed by web and mobile clients.",
+      "evidence": [
+        {
+          "resource": "repo://backend/README.md#L23-L29",
+          "version": "repo-lines-v1:sha256:2da7a58db4c26a4dd4d03bba4104f9f814220a80583c45c1c29d995a15027bea:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjFmMTQ3MTJhYTUwYzQ5Y2U2YzI4NDY4ZGZlMGFlNDUyZWRkY2NmMWFjMzZkMDA1MmRkM2YzYzEzNDExMzgyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjA4NGJlZWE2MDRlMjdjMDg3Yjg5YjU2NWEwYTJlM2VjZWQ0M2U0ZGI0OGI5MzMxODBiODQ4ZTJkNGRkODU0YiJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L3-L13",
+          "version": "repo-lines-v1:sha256:b3b827db78e04cd3cddf1048f7de9c4e83745343f9b6d7c3fb8b3e981fb26d17:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3ZjU2Y2EwOTc5OTZlNjhiODFkODgyMGM1MGNkYjVjNzFhYjA1ZDA4YjIzMGQwMTM2N2YxZDU2YjA0Njg5YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiNTgwOTJkOTY3YWI5M2I2OTc5M2Y0NjJjYTk4YzJlNDcwYmI4N2Q0OTc3M2MwZDU3ZDA0OGI3Zjg3Mzg1NWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZGY5ZDEyYWU3Y2VmNzRiYTNjOTA4NTYyYzU0YTI3Zjg2ODFiNjc0NDQ3ODBiNzhkMzNiODFiOWQ2NjY2NjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MWYzMWU1ZDAyNjY3YTJiZDEzMzkwODJkYzFiNjg4YzMzY2QxZDM3NzA4MzMxMDhmOTQwZmUzOWI3ZTE2NzAifQ"
+        },
+        {
+          "resource": "repo://frontend/README.md#L26-L29",
+          "version": "repo-lines-v1:sha256:9c34b75d1404880f18fb0af034cb77bfd79e4745c6b587c41c60a2d75938b139:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRiODcyY2UxZTJjNjU1OWVhMWIyMzlhYmJjNGYwYTA1NDkzZTVmNGRmZmQ2M2M1NzdjYTIxYzkzMGU3YjMxNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTk4NTQ5YmJjODg3MmUxZjY0NzE0MjYzYjg1NTc3ODgyYjAzMDdhM2MwMjY4ZGNjNmY0ODM0OWI2YWY0NTVmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTVkOTI5YzY0OTM0N2EwZWZiYTE1MWNlYzI4NzIxYjQzMTAwODI4MmRkODExNjBlZWZhMDUyNjEyOGMzNWRlZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1cf45825cf6c421b868e1a90bb45e8a4",
+      "statement": "Rules that must be authoritative belong in the backend and may not be enforced only by a frontend client.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/README.md#L20-L24",
+          "version": "repo-lines-v1:sha256:f65f790df7ae9e69678e0c05094233317276bc697c68900934b2942a64ec16b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUwZjdiMDBjZmNmNDVhYTAwNzI4NmZiM2U0ZjkyMmYyYTE5OTgzOTM5NzBjMWY2ZTdiNmYwZjk0OTVkMzViYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdjODY4N2IyMDZhMWE5YmEzYjc4ZjZmZWFkYWI4YTg5MjgzZTVjOGI3OGUzYzU0MmM4ZjEzMzYxMWMzMmU1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L13-L18",
+          "version": "repo-lines-v1:sha256:a0838d75084fbd4b7bd22c898d0e7f6cfb188e3bc24ab69b9cd86cf5b4062050:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQ2NTI5OWMzNzQ1YjBkNDhhN2YxMzdlMGNkMjMxNmY3YWY0MjdkZGM2M2M2Y2Q1NzFjMjFkNmE3YWFmYjQyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGRhZGM0NzQxZDAyOTRmNzhiNjRmZDMzNTA5NmMxOWU2ZjAzZWUzN2Q4ZmZkYTAyNDE4MzM3NDVkYWQyOTgxMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L14-L19",
+          "version": "repo-lines-v1:sha256:6ff4acfadef5ec4e7431c01ff261b8771c9475ff50209001dc0f04ce227098a4:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQ2NTI5OWMzNzQ1YjBkNDhhN2YxMzdlMGNkMjMxNmY3YWY0MjdkZGM2M2M2Y2Q1NzFjMjFkNmE3YWFmYjQyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTI2ZjNhODA5NWVmNzQ3Y2RjODcwZjQzODI0OGZkNzI3NzZhODUxNjYyNmU5NzZhZWE5YTY0ODAyY2JlNThjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_46be0330884e40528b40832f4eca7497",
+      "statement": "Backend services, shared backend libraries, API contracts, persistence, migrations, and asynchronous producers or consumers are future implementation categories rather than present systems, and backend service decomposition is deliberately undecided.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L3-L7",
+          "version": "repo-lines-v1:sha256:11c61140331730d36a69a7df5ffd1708628824f71ff20cd7c9dde3c7e8bead6d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk1ZWY3OWQ1YmFjYmVmYzk2MWZjMzI5ZmU4ZWM5NTBjOWY5ZWYxZmM1YTZkMGE5ZGJhNTUwNzAzODE5MmJkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYzMTcyZjJlM2NjNTk4ZjRlODJkMTZmYmUwYjgzYWE4ZmY5NjkwMDUyOGZmYzk5ZWI2YjRiZjMwZGVkNTdkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc5OTFkYzQyOTM0YjFjZTAxNzQ0ZmEyOGZhODIyNDhiZmZiYzRhYmRmYTkyMGZkMDZiNzk2NmQ0MGE3MGRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE1MDJlYWI0MGI5MzU2NDBjNWRiOTZhYTU4NzZkNWExNzYwMmE2ZWIxMjAzYzRjNDkxMzJkNTI4ZDgyZWIwZCJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L30-L32",
+          "version": "repo-lines-v1:sha256:2084beea604e27c087b89b565a0a2e3eced43e4db48b933180b848e2d4dd854b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwNGM3NzdlYzdkNjYyNTRlYzI1YmIwMWJlOThkOWJmOGRhMGJjODAzNTVhYTYwNzM2YWFkOWQ4M2NiZGIxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEyNTUwYjg3MDU2MjkxMmNmNGViN2NmNjZmYjRlY2ZiZDBkYzc4NDZhYzA5YjkwNWZmNTcwMWQ1NjBlMjcyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmNkNTA0NzU2ODU0NGUzOTVmZDg2NTJjMWM0NDYxOTJiYjk2MjMwOWRjZjQ4OThmZmJmNTAzZDJiMjY3OWE0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L5-L13",
+          "version": "repo-lines-v1:sha256:25ec1f586222325fc297cd505af4cef635c03f85e28e843d6f7c0886534e43a1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA2OWYzOGY4YjBjMzI1NWFhZjY5YWU2MGU2NTFlMzhmM2U2ZTI5OGZlYWU5MzQwN2IxNWNmNGQ5OGYyZGQ5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1ODA5MmQ5NjdhYjkzYjY5NzkzZjQ2MmNhOThjMmU0NzBiYjg3ZDQ5NzczYzBkNTdkMDQ4YjdmODczODU1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzkyYjFkMjY2NjU3OGMyZDAzMzBhNjJjNDUzNDVhNzY4MTI3YjlmYWI1Y2VmNDBhOTg5MDAxOGQ4MmQyZmRiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQxZjMxZTVkMDI2NjdhMmJkMTMzOTA4MmRjMWI2ODhjMzNjZDFkMzc3MDgzMzEwOGY5NDBmZTM5YjdlMTY3MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2cb02483e24e43c587ac0c39d47cf1f8",
+      "statement": "The web domain is intended to own browser applications and interfaces, web-internal shared UI, browser integration code, and web-specific non-sensitive configuration; micro-frontends are only a possible later extension.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/web/README.md#L1-L12",
+          "version": "repo-lines-v1:sha256:7d46e675fc02247d382aabf9de3d5262e6a4aeb6a0fc802b29f70d4fe7ddc720:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZjY5ODEzZTQ5NTZjZTEzNDNiMzc0NzNiMmMzYmU3MTc2MGFmN2FiN2UxNDgyNTI4ZDA0NTBjYTliMjdiMTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMGQ1NWJiYWY5NzRlZDFlZjMyZmVmZGM0NWVmMjEyNWFiNDA3ZjVmNzY1ZWUyODEyOWI3Mzg3YWY1YzcxOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MWYzMWU1ZDAyNjY3YTJiZDEzMzkwODJkYzFiNjg4YzMzY2QxZDM3NzA4MzMxMDhmOTQwZmUzOWI3ZTE2NzAifQ"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L26-L32",
+          "version": "repo-lines-v1:sha256:280a42023fdb35e311bdfae7c8015b432e9136d8e192d53cfbe59603e59d62d5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM0Yjg3ZjU2NzYwODI5ZTE5Yzg0NTY5NGMwYWRkNmMyMGIxYmFiNjljZGQwMTQ2MTI2NjU2YzYwMjg4OGUzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg5MDBlN2IzNDQwMmE1Y2YxYjY3NTY4NmI0MjBlMDFlZmQyZDg0Y2IxZWM0NmFkMjUxZjQyOTg1OTRlODhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2de043cad4194ca1bd18dbce59d74056",
+      "statement": "The mobile domain is intended to own mobile UI, navigation, platform and device integrations, mobile-specific non-sensitive configuration, and mobile build, signing, and release configuration.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/mobile/README.md#L1-L12",
+          "version": "repo-lines-v1:sha256:8af29c37d05aca10b8d84cfa4d8765622ae570e88d01f009beaafb9023a96bb4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyNzdjYWJiMWQ1YWM3NmUzZWIyNDY0MGFmNzkyNWY3YTE1YzY0YjIyMjIwZjUzYjQ1NjFlZWQxOTAzNmEyZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVhMjc1OTcyM2U1ODI3YTM4NjQxMzc1YjM3ZDU0MDNhN2IwZGU4YjY5M2UwM2QzYjZmYzczYTY2ODI4ZWJlZGEifQ"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L25-L27",
+          "version": "repo-lines-v1:sha256:b864302b1a1212986da5afa1e66121e82c57ce0f371a283cc3436d6719743418:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDg2OGVkYzI1ZTY1YWQ4Y2UxMTllNGE3OTYyZDg3NTUyZDkxNjNiM2I1NTIyNzVlYjg0YTgyNjMyN2Q4MTg5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzk5NDU5NzVkMTBiYzdmYjJlMWNjYTdhNmY4MzdmMTg3MGFkNTc1ZjUwNjBmZTBlZWMxOWRlYWNiOWZiYzE1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmQxMTFhNWNlNWM5NmZjMjBjM2IxZmI0MDgwZjg3YTExZTNiMmE3ZWFjZjFjNTgzYTlhNjYxYmMzOTQ1OTcwNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8b88b9c4551e40409abe696ac9738f09",
+      "statement": "`frontend/web/` and `frontend/mobile/` are intended as independent workspace roots with separate toolchains, dependency graphs, and CI paths; these mechanisms do not exist yet, and `frontend/` intentionally has no root package manifest or lockfile.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/README.md#L5-L11",
+          "version": "repo-lines-v1:sha256:a59611aad43d96d750b6187cb512591b2a714c61576c8cd882a81689a3bab312:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZmMWZhN2I1NzMzN2FmYmI2Njc1NGYyZWQxZTdlYjdjMWFmYjgzMGU5ZWZlZjUwYjMzODEwNWJmOTQ4YmFjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5N2U5NjBmZTRiNDBiYjNmNjlhY2Y1ZDRkNDNiZTRlOGQ3NmNlMGRiOTk0OWU5MmJiOTE0NDlkMGJiNDdkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzYyMWYxOWRkNTJkOGI2MzRiZjNmN2UyMDE4N2VhNzEzMTgzMDllNjAyMzk0Mzc1MDY4OGQ2MjkwZDYxMDhmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c7c3aa9935364dd8833a163e9147ec76",
+      "statement": "Web and mobile must not import from one another; genuinely shared material must instead be an independent versioned package or common API contract so each client can evolve on its own release cadence.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/README.md#L35-L37",
+          "version": "repo-lines-v1:sha256:d2eb1bf66325b162c095a9c9ea6f1fdf7c70c1c188576168221e477eb656db99:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3MTkwNzQxZDc5ZGQyYjAxYzQ3NzBmYmY5M2Q0MWYyODBlZTE0ZTAwNmIzYjE1MmQyYjk4M2IyZWQ1M2M0ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZiMWI0NTBjOWZkOGYzZmNiZWY3YTY5NDUxMTFhMDBlZTI5NTA5MDA5ZWZkZmUyN2UzY2IzMWMyMTc5MWIwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU0NWRhZDM3MzM0YTFkMGE5NjRiZDc2OGVkY2NlY2IxZWIyNTFkYzcyOGI5YjZmODNiMDZlMzgwNGM3ZDAwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L29-L31",
+          "version": "repo-lines-v1:sha256:1055f99614d7304fd6418b0c1a84345218b8f54d78c1891316117b0bf4421a55:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDJiY2EwNzYxOTFhOTIwOGVkOWQ4MjNmNDBmMzU5YzI1ZmUyNTI2YTllMTQ2ZmVlNzRmNTZkNDgxZTdlYjMwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjFjY2ExZWI5MGQ0MjI0NmQxNDZkMzgyMTc5ZDc4ZmNiOGEzYTBiM2M1MDM5Y2UxYzdkN2JlMjIxODlkM2YwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU1ZDU1YmRjZGRhZTc3YzQyZjVhZmY3ZjE4NmEzYzVkNDhjNzc5ZjI3OTI5MDIyNTY4NzczOGUyYjAzMTBhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c32a4b6687894a0899b7d14f17727e51",
+      "statement": "Mobile and web intentionally have different release cadences because store review gates mobile releases; a web implementation change must never require a mobile release.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/mobile/README.md#L29-L31",
+          "version": "repo-lines-v1:sha256:1055f99614d7304fd6418b0c1a84345218b8f54d78c1891316117b0bf4421a55:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDJiY2EwNzYxOTFhOTIwOGVkOWQ4MjNmNDBmMzU5YzI1ZmUyNTI2YTllMTQ2ZmVlNzRmNTZkNDgxZTdlYjMwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjFjY2ExZWI5MGQ0MjI0NmQxNDZkMzgyMTc5ZDc4ZmNiOGEzYTBiM2M1MDM5Y2UxYzdkN2JlMjIxODlkM2YwYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU1ZDU1YmRjZGRhZTc3YzQyZjVhZmY3ZjE4NmEzYzVkNDhjNzc5ZjI3OTI5MDIyNTY4NzczOGUyYjAzMTBhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_67bfcabc978849798330461b09f8d24c",
+      "statement": "Each frontend owns non-sensitive configuration inside its own workspace and neither web nor mobile reads the backend-only root `config/` domain.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L23-L29",
+          "version": "repo-lines-v1:sha256:ee226782c19d0a73424ff7a71c433576fdcad7d1e33d1f04771f8999772f8b3f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU3MGEzNDNiNjFlMjJhNjUzMmRlYmI1NGNiYWEyMzNiOWQyZjJkMjIxZTZhN2VjZGU2YTFlZjIyZDVhZjU4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjUxZGJkYzcwOTEzZWM2MDA0Yzg3NmFiMWZhNDM0YzEyMzY0MjU1YTkwMDM0OTk2MmFjY2ZmNDY4MmU2MTkwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2E3ZTE3YjRjZWFmMjA2ZGEwM2ZmOGViZjZmZTQ1MWQ4OWMyMjNkNjA4ZWJlMTNiMzg3MzY0MmMzY2Q4NzQ5NSJ9"
+        },
+        {
+          "resource": "repo://frontend/README.md#L31-L33",
+          "version": "repo-lines-v1:sha256:7594975e42904a0d5761f79d1ea37a5acaf0095ab5c2cc0005a7987755937e0c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDNhOTQzNDdjMDE3MmEzN2MyYzE0MjE0ODBlZGIyMTBiNGJjMjIwMGY5ZDQ1OWIwOGFjOGE3ODQwYTRhMTU4NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzI2M2Y1M2Q2Y2Q3YjNmN2RkNTJjODhkMzY4ZWY4ZmZlYzllZjgwMWY4MzAwNzhjZTU3YjdiZTZkYTMwMjRiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWEyODkwOTNjMzY3YzEzOGVmYjRlYTMwOGRhM2U4ODc4ZmJlMTY1ZjRlMzM1M2ZjOTlkZjgwZWZiZTE4MzQ0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWNiZmM0MjZkM2JjYjAyYTM1ZTFiMDNhZjRmMGUzNzQ3ZThhNGZiOTY5MjI4NmFhNzFhYmY2MzdhMWUyMDI5ZSJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L25-L27",
+          "version": "repo-lines-v1:sha256:b864302b1a1212986da5afa1e66121e82c57ce0f371a283cc3436d6719743418:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDg2OGVkYzI1ZTY1YWQ4Y2UxMTllNGE3OTYyZDg3NTUyZDkxNjNiM2I1NTIyNzVlYjg0YTgyNjMyN2Q4MTg5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzk5NDU5NzVkMTBiYzdmYjJlMWNjYTdhNmY4MzdmMTg3MGFkNTc1ZjUwNjBmZTBlZWMxOWRlYWNiOWZiYzE1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmQxMTFhNWNlNWM5NmZjMjBjM2IxZmI0MDgwZjg3YTExZTNiMmE3ZWFjZjFjNTgzYTlhNjYxYmMzOTQ1OTcwNiJ9"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L26-L28",
+          "version": "repo-lines-v1:sha256:8e1c5849f62eb65f26240a61e5ce16ca135372981a64acbb3315da68fe05d2f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGRiZDcyOWRjNjAwMGM0OWM5MjRiNTY0YzY1YjM5MWQ4NDgwNmIyNDNiZmM2MDIyNDNmNDc2MjMxMTE4MjlhYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg5MDBlN2IzNDQwMmE1Y2YxYjY3NTY4NmI0MjBlMDFlZmQyZDg0Y2IxZWM0NmFkMjUxZjQyOTg1OTRlODhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTcxZWQ3NDBjNjQ1MGQ0MmQ0N2Y3ZTlmNzk4YWEzNjA2OGE4ZTEwZjI3N2U2ZTBkOTE5ZWNjODk1N2Q2MjllZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_804df168f2ee474bb3859ea4bb48b5a8",
+      "statement": "Client configuration cannot contain secrets because browser and mobile artifacts, and mobile device traffic, are inspectable by users.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/README.md#L20-L24",
+          "version": "repo-lines-v1:sha256:f65f790df7ae9e69678e0c05094233317276bc697c68900934b2942a64ec16b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUwZjdiMDBjZmNmNDVhYTAwNzI4NmZiM2U0ZjkyMmYyYTE5OTgzOTM5NzBjMWY2ZTdiNmYwZjk0OTVkMzViYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdjODY4N2IyMDZhMWE5YmEzYjc4ZjZmZWFkYWI4YTg5MjgzZTVjOGI3OGUzYzU0MmM4ZjEzMzYxMWMzMmU1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L25-L27",
+          "version": "repo-lines-v1:sha256:b864302b1a1212986da5afa1e66121e82c57ce0f371a283cc3436d6719743418:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDg2OGVkYzI1ZTY1YWQ4Y2UxMTllNGE3OTYyZDg3NTUyZDkxNjNiM2I1NTIyNzVlYjg0YTgyNjMyN2Q4MTg5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzk5NDU5NzVkMTBiYzdmYjJlMWNjYTdhNmY4MzdmMTg3MGFkNTc1ZjUwNjBmZTBlZWMxOWRlYWNiOWZiYzE1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmQxMTFhNWNlNWM5NmZjMjBjM2IxZmI0MDgwZjg3YTExZTNiMmE3ZWFjZjFjNTgzYTlhNjYxYmMzOTQ1OTcwNiJ9"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L26-L28",
+          "version": "repo-lines-v1:sha256:8e1c5849f62eb65f26240a61e5ce16ca135372981a64acbb3315da68fe05d2f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGRiZDcyOWRjNjAwMGM0OWM5MjRiNTY0YzY1YjM5MWQ4NDgwNmIyNDNiZmM2MDIyNDNmNDc2MjMxMTE4MjlhYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg5MDBlN2IzNDQwMmE1Y2YxYjY3NTY4NmI0MjBlMDFlZmQyZDg0Y2IxZWM0NmFkMjUxZjQyOTg1OTRlODhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTcxZWQ3NDBjNjQ1MGQ0MmQ0N2Y3ZTlmNzk4YWEzNjA2OGE4ZTEwZjI3N2U2ZTBkOTE5ZWNjODk1N2Q2MjllZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f1b04e9e2cf944e79c42ab950d735ba6",
+      "statement": "Backend code must consume environment-specific knowledge through explicit configuration interfaces and environment variables rather than embedding that knowledge in source.",
+      "evidence": [
+        {
+          "resource": "repo://backend/README.md#L15-L21",
+          "version": "repo-lines-v1:sha256:ea584c25d06ab62236d27893b1e4a42e2fdada4f22a22aa7bec171aa180c800a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWNkZjAxMDJiMzkwZjEzZmY2ZjYyOWE4N2IyOWE0NGU4YjUwNGFhNDMzZmFiNzVmNTU2MWQwMzAwMzQzMTk4MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzU1OTUxNmEzYTkxZTgxYjI3YmE5MzRhYTgxNmIwZjQ0Mzk2OWJiMWQ3YWJmODJkYjYyNDk0ZmE2MDA0N2IzZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b40c3ba6075e4250b2b4aada2605eea9",
+      "statement": "`config/` owns backend application behavior settings, while `gitops/` owns Kubernetes workload operation; ownership is determined by which process reads a value rather than by its representation.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L1-L21",
+          "version": "repo-lines-v1:sha256:ddd4599a986a012e3f233dbd20e8b7e52476b525a7979433c8ab78409fe34e89:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiZjIxMjBlMThkNjI3YzA1MDk2NmViNjYzNjAyNWE5MDI1MDE1MTYwMmUwNDVkMDU1Y2Q1NTZmOWJlZTlhYTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxZjE0MjI1OTc1MDU3MGNmMTViZGI3ODg1MjJlYjJkYTUxZGRlZDI4MzZhYjY2ZThjOTljOWQ3ODNiN2I2NDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MWYzMWU1ZDAyNjY3YTJiZDEzMzkwODJkYzFiNjg4YzMzY2QxZDM3NzA4MzMxMDhmOTQwZmUzOWI3ZTE2NzAifQ"
+        },
+        {
+          "resource": "repo://config/README.md#L31-L44",
+          "version": "repo-lines-v1:sha256:52333bf147185f812527b606453d734c21862dcaf3748121f0feba2460e064f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhMDAxOWM2ZTY5NTQwM2FlOThhMDFlNjNjNzJjNzkwMTdkM2VmNGUxOWQ5Njc1YjZkZTRhNzMzZmFiZTI2ZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzA3YmEyNDkzODQwMDZkZjMyMzllMTA2M2ZiNGM4MGFhZTg4MTdlNjhiZjU0YTRmZjRhOTgxOTU5MzUwYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1YjZiN2ZmODg2Y2Y0MzE2YmVhMzliNzQ2NjY5ZTYyNzU3ZjY5YzNhMWQxNTAwYTQzYzhhZTJlYjIwNzc4MzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIyMDM3MmMzNjZmOTQyZDljYjgxYzRmYjY0YTYyY2U4MDM4MzVlYmUwNDI5YWUxYzA1YmNiZThmMTgzNmQxNmQifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L7-L30",
+          "version": "repo-lines-v1:sha256:a03d5e3a487316a066c00fbce914f57be96a4161a8f32688fc4256a86d1fa105:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNjlmMzhmOGIwYzMyNTVhYWY2OWFlNjBlNjUxZTM4ZjNlNmUyOThmZWFlOTM0MDdiMTVjZjRkOThmMmRkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgzNzIyNjcyMmFhNDA5OTUwY2JkODk4YTViNTgyNmZhZTU4MWQ3M2QyYzdiODhlMjJiZDY1MzMxODQ4NjJjZTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg0ODIxNGU0ODU2Y2NhMzVlMWE0YTU5OTI1Mjc0NjE0OTMwYzdiZDIwMTkyODE1NGQ4MTFmOGUxN2EyNmNlMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjllYTU3YTE3MjRhOGFiMTNmN2UwNzQzZThhMzIwYTA1MTUxZmNlMzAxNTk2ZjMzYzgxZmJlNmZhOTUwZDdmYzcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c03557b88cce441e95d842e4ff536a10",
+      "statement": "A backend workload in `gitops/` may set only `SPRING_PROFILES_ACTIVE`, `SPRING_APPLICATION_NAME`, and `SPRING_CONFIG_IMPORT`, plus secret-backed variables sourced from Kubernetes Secrets; other backend behavior variables create duplicate ownership.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L46-L57",
+          "version": "repo-lines-v1:sha256:c6fc66f4848c9ce0289504502ad0fa9c5f43fd3e1f59cac6d7ed340b2ab60658:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3ODUwNmRkMTczYjA3NjQ0NGMzODgyNmYyZTZmZTQyZGY5YTA2ZjM3Yjk5ZTZlYjBjYzY0NWQwMjA0NDIyNzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjMTM2YWU4YjQ0MjkwOWFlOGFlMzRjMTE5ZjFhNGUyYWM2NmIwYWEzOTYzZWVmYmE0ZjBiMGZhNmIzNTU1NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ3YmNmYTM3NjBlNGQ1MzMyMmRlMGRhMmQwYjYwNmI2YjI2ZmNiZmRhNTkyNzIxMDMzZGNmY2ZiYjA3NzJiZGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxYWVmYTVhNWIwNDgxZGY4MTIzNzgxYmUyMDQ2MmEzNDdlN2NkNDkzODRlOTJlNzliYTBkMzY4MDlhZDg2YmMifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L32-L41",
+          "version": "repo-lines-v1:sha256:a4a83910972ccbcff11761d4bc8a4315cc16f89141a34ee3a9bd2886cbb2a6bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5Yzc2NTU5NTQ3N2E0N2E5MDQ1MjE0YmVhYTM1YjFkZmU4NjlhMTU0NDdlOWNmMzExYTdjZWI0ODFjZGNkNDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxMWViNzE5ZWQwZDAzMzMxMDgxMjU1OWVmZDUxNzYxNTFjNGI3NGVkMDk3MTk4MDhkMjI5MTdlZWQ4NjFhMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM2NTEwNzUxNzQxOTM2NDA3YTZkZWQxODFjOTdhZGQ3NWRmOGQyZDZjNDMxOTU0ZGFjN2RlMGVmM2I1ZDQxOGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkMjk4MjkyNzg0MjExM2M4NGRmNzA1YWMxNzI2MDE1MGNiMDY4YjFlNmNmZjBlMmM5ZjBlMTc2MWE0MWJjM2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_96dc70dfc4fb4ec79543f2a37e3b56d0",
+      "statement": "Duplicating a backend property between `config/` and a `gitops/` environment variable can fail silently because Spring Boot relaxed binding treats alternate spellings as the same property and environment-variable precedence can override the configuration-server value.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L55-L57",
+          "version": "repo-lines-v1:sha256:26e1d6b849f599f1f1cbb3d2ca2cdfadde0bec80c9d4eb42dd1cc4f7cfb6c977:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhmZGM1Zjk3ZjU0ZTY3YzA1ZTI1OTI1N2VjMGQ4NWEzZDViZjhkOWYxOWRmNDE2MTlmYzUyODRhNzkxOTY3YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmMxMzZhZThiNDQyOTA5YWU4YWUzNGMxMTlmMWE0ZTJhYzY2YjBhYTM5NjNlZWZiYTRmMGIwZmE2YjM1NTU2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTVkMWZlZGJhNzVlNmM2ODdiOTA4OWIyYmRiYjk0ODI1ZGYyYmEzMzE4MmE0MzRhNzE2MDI0ZDUwMTQ3ODVlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjFhZWZhNWE1YjA0ODFkZjgxMjM3ODFiZTIwNDYyYTM0N2U3Y2Q0OTM4NGU5MmU3OWJhMGQzNjgwOWFkODZiYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_20b0548f6c84426481f10a623b594368",
+      "statement": "Backend settings are intended to be served by a configuration server so they can change without rebuilding or redeploying consumers, but no configuration sets or configuration-server workload are implemented.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L59-L63",
+          "version": "repo-lines-v1:sha256:615cfaa116db61b2e471a25a44f6422502c1267479bac06cc7bfb2d645b2fc86:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2UyMDY4N2I1ZTkxM2FkMmNmNjRmZjU5NDgxNjU1NTFkMDc5YjJhOTU4OTg3NTlmOGM3Y2Y2YTA5YWIzNzJhYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRiZWE0ZTQ0Y2IzNDBjNzEwZTQ5ZDY4NzU4ZGU1ODhlZWQ5MGNjZjJiN2UyOTcyNDZiMzdhODMzM2JkY2Q4OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjhjYzA3ZjkzOWViZDVlNjFiOWQxZWIxNzZjOGI0NDczMjBhYzhmOGIzNjAxOWQ3MWQ3NDEwZDhhMTFkZDYyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://config/README.md#L65-L72",
+          "version": "repo-lines-v1:sha256:893adb4a1e91ec17b319cfc05b4d3bb666db8f4847b2068a5462f9147753e6fe:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2VlNjFiMTUyMmY4MzE4YzZhNjk1YTcwYzRiMjA1OGRiOGE2OGZlYWVhYWE5ZDQ1OWYwMDMyNzlmNDRlOThlMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Y4NWZkYjRkN2MyZjRjM2NjNTZlYTkxYzZhZDhlMzIzYmEzOWI3YjExNTI0ZDBjYjlhMmZiZDY2NjM5MzY5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d368dffa22814f91a664a27e6ed58301",
+      "statement": "Secret values must not be committed; passwords, tokens, API keys, and credential-bearing connection strings live in an external secret-management system, while Git contains only references where needed.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L42-L44",
+          "version": "repo-lines-v1:sha256:80f742988ceeaf9815d57f43bbdb4028a6fd80d200e9d4de33768ca67f9d9177:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVhYjg2Mjc2NjczZDQyNjgyNzkxY2M2ZDE5ZmE2MzkzYzMxMmY4MDZlZDkzMTNkYzMyYzQ1ZTIzYzRhMzAwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmU1NmM5NzM3MDRhZGY2YjczOTMwNWU2MmQ3MThmZmI3MTRmZGJmN2E3ZWNmZGEwYWFhNzM2ZDNjMjU2ZTczOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJhZWUwMTUwMWQxNWMyYjE0MWIxMzI3ZmIyYjJiYmIxZWM3YTFlMTdkOTA1ODQ0MjFhNjBhMzI5NGNkYTgyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2Y3ZjE1Mzk3MDcxMjU1YmM4OTRjNzNlMjIxNjllNTFkMTY0NDAyM2E5ODBjMzcxMGVmOWE2MTQ0MWI5MTVkMCJ9"
+        },
+        {
+          "resource": "repo://config/README.md#L23-L29",
+          "version": "repo-lines-v1:sha256:ee226782c19d0a73424ff7a71c433576fdcad7d1e33d1f04771f8999772f8b3f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU3MGEzNDNiNjFlMjJhNjUzMmRlYmI1NGNiYWEyMzNiOWQyZjJkMjIxZTZhN2VjZGU2YTFlZjIyZDVhZjU4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjUxZGJkYzcwOTEzZWM2MDA0Yzg3NmFiMWZhNDM0YzEyMzY0MjU1YTkwMDM0OTk2MmFjY2ZmNDY4MmU2MTkwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2E3ZTE3YjRjZWFmMjA2ZGEwM2ZmOGViZjZmZTQ1MWQ4OWMyMjNkNjA4ZWJlMTNiMzg3MzY0MmMzY2Q4NzQ5NSJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L21-L26",
+          "version": "repo-lines-v1:sha256:45700c16c6556b657872210b124710743504456c95c523e377aa992082b79a6b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIyZjBmMWU1NjlkMzQxOWExYmRhNmEyMjRjMWQ4MTAyMWQxY2U1NzY0MmFmOGUwMjBiZGVlZDZlOGUwZGYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I2OTExZjRlNDJkMTBhYTg1YmU3YjQyZjFkMmFhOGJiMzVjOTA0NWY1NjMyMjA1NmRmMTRlMDc2M2ZlMzMwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU0OGQyYWEyYzM1YWM4YmQyZjZkYTA2OTlhYTdjOWY0NDYwYjI4Zjc4M2E0MTZlODAwMGVhMmQwY2I5Y2I1OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb00cf3c0f4f486baabeaed7a7624d00",
+      "statement": "`local`, `dev`, `stage`, and `prod` are isolated environments; `local` is developer-machine execution rather than GitOps-declared cluster state, and a change intended for one environment must not implicitly alter another.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L42-L53",
+          "version": "repo-lines-v1:sha256:395dd4bb5a009dbb3923414f76255d22bd1222e6c157269fa89a174562b470df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMGVjNDdhOTU3YWMxNGEwYjY2NTcyMjU2ZGZlMzhjM2IyYjQ3MmUyNjZjNTFiODgwNDYxOGI0OTE5ZTIxNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwY2JiZmM4OTk5ZjA1MmU0NDQwMWJhNzMzZjc1YTA2NzIxMzA3OGQ3NDQ5N2IxZWZjOTFkNWQzMjFmMWVhMmEifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L43-L53",
+          "version": "repo-lines-v1:sha256:120da3fe61bcc5a4a78c3f2861767b1faa08f38a38a8212ae8dc424dcb678b1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmNWNiYWI5ZDU5MDM4Mzk2ZDNiOGE0ZmQ4ZDgzODI0YTgwNzY2ZmIyNThlOTljMWMxODUxZDQ5NjNlOTRkYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2NDg2NjBiMzZiYmIyYzFlOGNmODc0MjNiMDE2NWU2NzBhNGE2NzMzZDljN2E3MzhkN2NlYWJkYmFkMmU1OGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYxODg5ZTYyNzljOGE2NzViMTNmNmRlMGNkOTQwYjM3ZTczY2Y2NDIyY2NjMmI5MmJiMWZlOGU4ZjZiYTZkYzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fa1d0fd7ede74ff1b5cd56a0f2e3f32c",
+      "statement": "Repository automation is intended to be path-aware so changes in one application domain do not run unrelated pipelines, but concrete workflow definitions and per-module ownership rules are not implemented yet.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L24-L32",
+          "version": "repo-lines-v1:sha256:958380c57d246a88c19b865f1b015da18f82603a5f5e130fe60b816965a50acd:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFjMTc3ZjVkOGMyNmU3ZmYxMjE3NzRkNTQ3Y2E3NzJkNWYyOWEzNDcyMmMxMjBlNTFkYzVhMzllNGQyMmM5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI2MDMyZmRhODA0ZTMwZDM2MzhjNWMwMzYzYmEzNTg0ODg4NjE4Zjk1OTlhMjM5NzRmZDM4ZjBjMTJkYmNiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVjZjhjOGUxMzg4Yzc3YmM2NTEwYzgyMmFiYjg5OTE1Mzc2NmI3MzVlN2E0ZDQzZGM1OGU0MjI4MzI5MDRjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://.github/AUTOMATION.md#L42-L44",
+          "version": "repo-lines-v1:sha256:0907de28ec30ea4becf7392fe14ba3dadffc44a6744f28bcf302d6bab1edd1db:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY1ZmU5Y2JhMDFiZjlkNTkwMjQ0Zjg5MzA5MzkxYmZhMTgxZDJmMmNlODcxOGQ3NDFhNWVhNGI0YTA4OGMzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NlNDg1YzljZWI0NGQzYzMzYmZjMDVmY2ExZDg5YTEyMWVhOWQ1YWQ4NjJjYTg4MzJlMDRkODY5YzlmNjQ4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiNWY0ZDAzYWU4Y2YwMDc3ZmNiMGUzYTNjZmIyYjRiMDQyYWE3NTUwMWMwOTI5ZDA5M2I2ODg3MGQzNThjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a291f27de782428498edd14ecd409420",
+      "statement": "CI builds and publishes artifacts but does not deploy cluster workloads directly; cluster delivery changes declared `gitops/` state and relies on a GitOps controller, while non-cluster static web or mobile artifacts may be delivered directly.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L34-L40",
+          "version": "repo-lines-v1:sha256:568f112072c2c4e1d9cff5ef3bb89165b148140347fb305e76dfc5c59493d245:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM2YWU3MzFmMzBmMjJjY2RjYzc5NjlhZjc5MmU1ZTk4ZDlmOTg1YzI0MmFmZWJiODdkMDY5MmVkOGY4ZWI0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWY0MGI2NzVmZjhhOTQwYTQzZmFmZGE3ZjM4MmMzYmJlMTM2ZTI5NGFlYTVkZTE2ODg0NDhkMjk4OTgyZTJiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U4NGFlYTE0ZDJlMGEzYzY5MDI0OWMwNzg1ZjkwNzlhMjZiZDc2YmE3MzI3NDNmODNhYjY4N2Q4MmE1ZjNmMSJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L1-L5",
+          "version": "repo-lines-v1:sha256:a7aafc110900e989899463edc2dc8b9befda2775892d22f168dda953a3b721ee:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IwODg5Y2JkZDg4ZWVlODc5MTc1M2U4NWFjMmZjYzIwZTM4NDhjZWM1NDBlZjlkYjE4MDkyMDc2YTEwMWFiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiYmJiNDFhNTFkYjQzMjY5ZWVhOWIwNTg0YWNlMzdlY2I0Y2YwN2ZlZmMxYjZhZDZiMmZmNTc0OTE4ZThjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_27a3799708644401af8ebd472b353e49",
+      "statement": "The web deployment model is undecided between static hosting behind a CDN and a server runtime; code must not assume either model, and the eventual choice must be recorded in an ADR.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L38-L40",
+          "version": "repo-lines-v1:sha256:2fcfde8a0fcd681a0d429181c817fce436f33dc19c22a1694afd7cb57e495c5d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjgwYThiY2FjMzBiMjY5YjY3ZWM1YzRkMjhlODIyNmM3NWMxYzBlYWM3ZTkxZTYwZmJjNGNlZTZmNWNlYjdjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM2YWU3MzFmMzBmMjJjY2RjYzc5NjlhZjc5MmU1ZTk4ZDlmOTg1YzI0MmFmZWJiODdkMDY5MmVkOGY4ZWI0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmVkYmRhOTFkNDEwNGRjYTgxZDcxN2I5YzAxNTE4NDRiNzBjZDA3MWM1Yjg2NjdmNTc5Nzc3NTBlZWM2YzYxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U4NGFlYTE0ZDJlMGEzYzY5MDI0OWMwNzg1ZjkwNzlhMjZiZDc2YmE3MzI3NDNmODNhYjY4N2Q4MmE1ZjNmMSJ9"
+        },
+        {
+          "resource": "repo://README.md#L42-L53",
+          "version": "repo-lines-v1:sha256:6c3b298002c5c59a5892dca9bfa202c6b2ca5fa778170b919d7a4f848d08f683:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNDlkZWVkNDk4MGI2YTM4ZTQ3OTk2Y2Q2NjIwZjRhMzQwNjNiM2VhNTg5OWRiNWI4NWViYjNkY2Y0OTAzMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyOTYzMDdiNDFlMzBmYTYxYjFjODEyNGQ4ZGI4ZmMyNDBiZDg5Y2EwMzhhMjE1N2RhZWJjZGNmZGNlZmMzYjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0ZDlhNThhMGU3ZWY2YmIyM2JjZTRlYmM3N2Y0NTZmMmY1ZDg3OWYwYWI0ZTcwZjgxMzI4MjA4Zjc5ODViYTcifQ"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L26-L32",
+          "version": "repo-lines-v1:sha256:280a42023fdb35e311bdfae7c8015b432e9136d8e192d53cfbe59603e59d62d5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM0Yjg3ZjU2NzYwODI5ZTE5Yzg0NTY5NGMwYWRkNmMyMGIxYmFiNjljZGQwMTQ2MTI2NjU2YzYwMjg4OGUzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg5MDBlN2IzNDQwMmE1Y2YxYjY3NTY4NmI0MjBlMDFlZmQyZDg0Y2IxZWM0NmFkMjUxZjQyOTg1OTRlODhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a258cfdad7f84fb7901774ca2899d93d",
+      "statement": "Mobile build, signing, and store-release configuration belongs in the mobile workspace because it is inseparable from the client toolchain, while the automation that executes it belongs in `.github/`.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L36-L40",
+          "version": "repo-lines-v1:sha256:411f8a118387fa28ee96e06667139492f93ba04d1475897f2762020d31817896:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmI2NzI5MTYxMjE1MGUxMzc0MDdhMDkyZjU1MjMzMWNlZjgxZjIzMzQ3YjU3ZmY5NzU0MjQyZDQxZjhlYjYyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTMwMGJhMWYzZTgyNTk2NjBkZmY1MGRjMDdmZWE2YzY4Y2YxZTQ0ZTAwZjEyNzM4NGExY2QwZDY2NzcxN2RmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjgxNWEzZGRhYjhlZTk4NzlmNWJhZTEyNzA4YzBjNTEwMjZkNTdhMWM0YmI0ZDkyZGRhZDU2N2ExNWIxMjg3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWQwMmE1NjI2MzMwZjIzOWUyMTcyNjIzMWYzMDkxNzlmNzcxMWNhNmViZjFiNzMyOWMwYTBkODM3ZjNiMjMyMyJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L20-L23",
+          "version": "repo-lines-v1:sha256:3b1500ad139bc9cf332754ee5e556e03c71120ec78a4af8ef34a1668b221ebd3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTM5OTA5MTBmMWRlODIxZDEwZGQ5YjExYzU1YTg3NDk3ZGJkNjNkODNiMjEwNjVmNTRjOWQ2MDhkZTkxOGY2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDQ2ZjgxYThjZmNjOWExNjE4MGEwNGFmYjFhZWM4MjA2NmZlNzBhNTIyMDlkNWJhMzIxMjM2NWUxMGJkMDcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTdkN2FmMzgwYzBkNmU2OGI3ZjRhOWFlYzVjMzA5M2QzMTc5YWQ2M2RkZDNiZDJiYTE1M2JlNmEwMTBlNjI2MyJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L5-L12",
+          "version": "repo-lines-v1:sha256:8dced26fc7de43a3b567acc549c3f68a736b92178e3eebdf499390c40c99fb9b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA2OWYzOGY4YjBjMzI1NWFhZjY5YWU2MGU2NTFlMzhmM2U2ZTI5OGZlYWU5MzQwN2IxNWNmNGQ5OGYyZGQ5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTgwYTVhYzkxMTdjMzUwNGJjZmU2ODQ1MjFmYmUzNzFmZTY1MTAzYjlmMzVkZGM1NmM0YWVlMmVlNWNlOTI0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWEyNzU5NzIzZTU4MjdhMzg2NDEzNzViMzdkNTQwM2E3YjBkZThiNjkzZTAzZDNiNmZjNzNhNjY4MjhlYmVkYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5d29322d61ab434cb7392fc9b7f58261",
+      "statement": "A cross-module change may coordinate artifacts from several owners, but each artifact retains exactly one owning module and the pull request must explain why coordination is necessary.",
+      "evidence": [
+        {
+          "resource": "repo://.github/pull_request_template.md#L5-L14",
+          "version": "repo-lines-v1:sha256:ee83fc4cece93208c8415ff20a232216121fd7be32afbfcb6a24e1a0e0a14fe7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMmU4NTc0ZjMwNmQyNTQ4OTI5NTBjY2I2N2E2MWRiOTAzZTYwMTRmNWMyMTViOThiYjFlYmU4YzgxOGU0ZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2N2EwOGNlZTRjNjE3NjhlNGZjZGE3YTJhYTFhNzQxOWJmZTU0ZTVkMmY3MzkwYTY0NTRmZGJlNzUwYzkzNTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiOWY0NjRlOWIxOTJiMzEzY2MzNjMxNzVjN2NlNzRjY2VjMjFmMDFmMGIyNWQ4NjdkMTZhZTRiMDdhYWMwYmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYifQ"
+        },
+        {
+          "resource": "repo://README.md#L21-L23",
+          "version": "repo-lines-v1:sha256:f6c4b991e2df4303ca4d403b2cfba1c3d8631bb7ec3f04c4912b3d6b7aedd8b2:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlY2RmMDliMTcyNzJmZGRkMWQxMWE4MWYzNWMxNTgxZjAyMWZkOTYwNzVjYjRiNDljNmFhOTNkZmM1NmJjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM3ODE1ZTFjM2U5NGIyZDNmOWVhMDk0MWVjMDhiODliMzIzNjJkYmRjODdiYWE5NGUxZWZlNTBiNTcwNmI3YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzJkMmVkNDgxNzg5NzU3YmU4NWMzYmMwYzFjZGJlODhiNDc1MTI0MTEyZGZlZjEzYTk1ZGUzMmIyMzMwZDdmYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGYyYWMxMzAwMjBkZDQ0MGJlMDRlMjFjM2MzNGIwMjBiNzE3Yzk3NjNmZWFiMzNmMjIyZjc1NjgwYjg4ZDM4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_847fee47304748879423a1288feb8b72",
+      "statement": "No concrete client-to-backend endpoint, protocol, or runtime request flow is implemented or specified yet; only the intended API-consumer relationship is established.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L3-L7",
+          "version": "repo-lines-v1:sha256:11c61140331730d36a69a7df5ffd1708628824f71ff20cd7c9dde3c7e8bead6d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk1ZWY3OWQ1YmFjYmVmYzk2MWZjMzI5ZmU4ZWM5NTBjOWY5ZWYxZmM1YTZkMGE5ZGJhNTUwNzAzODE5MmJkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYzMTcyZjJlM2NjNTk4ZjRlODJkMTZmYmUwYjgzYWE4ZmY5NjkwMDUyOGZmYzk5ZWI2YjRiZjMwZGVkNTdkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc5OTFkYzQyOTM0YjFjZTAxNzQ0ZmEyOGZhODIyNDhiZmZiYzRhYmRmYTkyMGZkMDZiNzk2NmQ0MGE3MGRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE1MDJlYWI0MGI5MzU2NDBjNWRiOTZhYTU4NzZkNWExNzYwMmE2ZWIxMjAzYzRjNDkxMzJkNTI4ZDgyZWIwZCJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L23-L32",
+          "version": "repo-lines-v1:sha256:316529eb5e321d5dc9e1026c8a681c175fae9babe779c4cd572fa10d18b39c56:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhYWYzOGY5ZDhhZDRjNjU4NWNkYTA1NTU0ZGVhYzU0NDg4ZTkwNDA0ODBkZTkwZTRkNjljMjkzMjhkODQ3NWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMjU1MGI4NzA1NjI5MTJjZjRlYjdjZjY2ZmI0ZWNmYmQwZGM3ODQ2YWMwOWI5MDVmZjU3MDFkNTYwZTI3MmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYxZjE0NzEyYWE1MGM0OWNlNmMyODQ2OGRmZTBhZTQ1MmVkZGNjZjFhYzM2ZDAwNTJkZDNmM2MxMzQxMTM4MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L20-L23",
+          "version": "repo-lines-v1:sha256:3b1500ad139bc9cf332754ee5e556e03c71120ec78a4af8ef34a1668b221ebd3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTM5OTA5MTBmMWRlODIxZDEwZGQ5YjExYzU1YTg3NDk3ZGJkNjNkODNiMjEwNjVmNTRjOWQ2MDhkZTkxOGY2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDQ2ZjgxYThjZmNjOWExNjE4MGEwNGFmYjFhZWM4MjA2NmZlNzBhNTIyMDlkNWJhMzIxMjM2NWUxMGJkMDcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTdkN2FmMzgwYzBkNmU2OGI3ZjRhOWFlYzVjMzA5M2QzMTc5YWQ2M2RkZDNiZDJiYTE1M2JlNmEwMTBlNjI2MyJ9"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L21-L24",
+          "version": "repo-lines-v1:sha256:f7b3b2d0795679a3d8985a3f08384d95ba592719f9eb0968c36fdbd152986a15:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmZiMzM2ZWRkODY1MDRhZDMwODU3YTJkOGE2OTg4MzEwMTFlNWRmYzViNDM2NWE1YjYyZTA3MzIwYzdlMGUyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDQ2ZjgxYThjZmNjOWExNjE4MGEwNGFmYjFhZWM4MjA2NmZlNzBhNTIyMDlkNWJhMzIxMjM2NWUxMGJkMDcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTdkN2FmMzgwYzBkNmU2OGI3ZjRhOWFlYzVjMzA5M2QzMTc5YWQ2M2RkZDNiZDJiYTE1M2JlNmEwMTBlNjI2MyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-08-29T17:10:15.382Z"
+  }
+}

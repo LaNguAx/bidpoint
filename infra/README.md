@@ -32,9 +32,13 @@ gitops/  → deploys software onto the cluster
 
 This split is deliberate. Infrastructure changes are slow, stateful, and expensive to reverse; workload changes are fast and routine. Merging the two would force every deployment through the risk profile of the slower one.
 
+## Environments
+
+`dev`, `stage`, and `prod` each run on a remote Kubernetes cluster provisioned from here. `local` is local development on a developer's machine and has no cloud infrastructure.
+
 ## Interacts with
 
-- [`gitops/`](../gitops/README.md) — consumes the cluster created here
+- [`gitops/`](../gitops/README.md) — consumes the clusters created here
 - [`.github/`](../.github/AUTOMATION.md) — validates and applies infrastructure changes
 
 ## Likely later

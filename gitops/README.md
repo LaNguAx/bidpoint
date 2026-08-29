@@ -44,9 +44,11 @@ Those are bootstrap and identity — the minimum a service needs before it can f
 
 ```text
 dev
-staging
+stage
 prod
 ```
+
+These are the remote Kubernetes clusters whose desired state is declared here. `local` is local development on a developer's machine and is not declared in this directory.
 
 Environment isolation is a hard boundary. A change intended for one environment must not implicitly alter another.
 

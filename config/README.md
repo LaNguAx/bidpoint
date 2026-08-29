@@ -18,7 +18,7 @@ infra/   → what underlying infrastructure exists
 - Timeouts and retry settings
 - Application behavior switches
 - Logging configuration
-- Per-environment values for any of the above
+- Per-environment values for any of the above — `local`, `dev`, `stage`, `prod`
 
 ## What does not belong here
 
@@ -60,7 +60,7 @@ Any other environment variable in a `gitops/` manifest means a property is decla
 
 Services read these settings from a configuration server rather than from mounted files, so a value can change without rebuilding or redeploying the workload that consumes it. The backend is Spring Boot, which makes Spring Cloud Config the expected implementation.
 
-The configuration server is itself a workload: [`gitops/`](../gitops/README.md) deploys it, and this directory is what it serves. None of this is implemented — no configuration sets exist and no server is deployed.
+The configuration server is itself a workload: [`gitops/`](../gitops/README.md) deploys it, and this directory is what it serves. Whether `local` reads from a configuration server or directly from files in this directory is not decided. None of this is implemented — no configuration sets exist and no server is deployed.
 
 ## Interacts with
 

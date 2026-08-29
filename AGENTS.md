@@ -43,7 +43,7 @@ infra/   → what underlying infrastructure exists
 
 **Never commit secrets.** No passwords, tokens, API keys, or credential-bearing connection strings anywhere in this repository, including `config/`. Secret values live in AWS Secrets Manager or Vault; only references to them are declared in Git.
 
-**Preserve environment isolation.** `dev`, `staging`, and `prod` are separate. A change intended for one must not implicitly alter another.
+**Preserve environment isolation.** There are four environments: `local`, `dev`, `stage`, and `prod`. `local` is local development on a developer's machine; `dev`, `stage`, and `prod` are remote Kubernetes clusters. Each is separate. A change intended for one must not implicitly alter another.
 
 **Prefer small, scoped changes.** Touch only what the task requires. Do not refactor adjacent code, reformat untouched lines, or add abstractions for single-use code.
 
@@ -57,3 +57,16 @@ infra/   → what underlying infrastructure exists
 - Module `README.md` files — per-module responsibilities
 - `docs/architecture/` — system architecture
 - `docs/adr/` — Architecture Decision Records
+
+<!-- OPENWIKI:START -->
+
+## OpenWiki
+
+This repository has a generated `openwiki/` evidence index. It is optional just-in-time context, not required startup reading.
+
+- Treat source code and tests as authoritative. A brief's unknowns and review items are verification gaps, not automatic requirements.
+- Prefer the narrowest quiet validation that proves the changed behavior. Preserve complete failure output.
+
+The scheduled OpenWiki GitHub Actions workflow refreshes the repository wiki. Do not hand-edit generated OpenWiki pages unless explicitly asked; prefer updating source code/docs and letting OpenWiki regenerate.
+
+<!-- OPENWIKI:END -->

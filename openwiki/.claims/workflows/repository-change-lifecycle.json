@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3ff95c710d9f34ef9e3972c8898fbf9e1c3a451925cd663ce17257a707fcceb2",
+  "claims": [
+    {
+      "id": "claim_e4647d566acd4ba1accb7d1989dd68b9",
+      "statement": "BidPoint is an early-scaffolding organization-level monorepo whose product delivery architecture is documented but whose concrete product implementations, per-module ownership rules, and product CI/CD workflows are not yet implemented; the OpenWiki updater is documentation automation rather than a product pipeline.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L42-L44",
+          "version": "repo-lines-v1:sha256:0907de28ec30ea4becf7392fe14ba3dadffc44a6744f28bcf302d6bab1edd1db:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY1ZmU5Y2JhMDFiZjlkNTkwMjQ0Zjg5MzA5MzkxYmZhMTgxZDJmMmNlODcxOGQ3NDFhNWVhNGI0YTA4OGMzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NlNDg1YzljZWI0NGQzYzMzYmZjMDVmY2ExZDg5YTEyMWVhOWQ1YWQ4NjJjYTg4MzJlMDRkODY5YzlmNjQ4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiNWY0ZDAzYWU4Y2YwMDc3ZmNiMGUzYTNjZmIyYjRiMDQyYWE3NTUwMWMwOTI5ZDA5M2I2ODg3MGQzNThjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L63",
+          "version": "repo-lines-v1:sha256:5d889024f103f843e45c4971d998f3b89e76d648c3ec2348bb205fa5cb83b86a:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://README.md#L3-L7",
+          "version": "repo-lines-v1:sha256:11c61140331730d36a69a7df5ffd1708628824f71ff20cd7c9dde3c7e8bead6d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk1ZWY3OWQ1YmFjYmVmYzk2MWZjMzI5ZmU4ZWM5NTBjOWY5ZWYxZmM1YTZkMGE5ZGJhNTUwNzAzODE5MmJkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYzMTcyZjJlM2NjNTk4ZjRlODJkMTZmYmUwYjgzYWE4ZmY5NjkwMDUyOGZmYzk5ZWI2YjRiZjMwZGVkNTdkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDc5OTFkYzQyOTM0YjFjZTAxNzQ0ZmEyOGZhODIyNDhiZmZiYzRhYmRmYTkyMGZkMDZiNzk2NmQ0MGE3MGRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE1MDJlYWI0MGI5MzU2NDBjNWRiOTZhYTU4NzZkNWExNzYwMmE2ZWIxMjAzYzRjNDkxMzJkNTI4ZDgyZWIwZCJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L30-L32",
+          "version": "repo-lines-v1:sha256:2084beea604e27c087b89b565a0a2e3eced43e4db48b933180b848e2d4dd854b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwNGM3NzdlYzdkNjYyNTRlYzI1YmIwMWJlOThkOWJmOGRhMGJjODAzNTVhYTYwNzM2YWFkOWQ4M2NiZGIxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEyNTUwYjg3MDU2MjkxMmNmNGViN2NmNjZmYjRlY2ZiZDBkYzc4NDZhYzA5YjkwNWZmNTcwMWQ1NjBlMjcyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmNkNTA0NzU2ODU0NGUzOTVmZDg2NTJjMWM0NDYxOTJiYjk2MjMwOWRjZjQ4OThmZmJmNTAzZDJiMjY3OWE0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://frontend/README.md#L11-L11",
+          "version": "repo-lines-v1:sha256:8897e960fe4b40bb3f69acf5d4d43be4e8d76ce0db9949e92bb91449d0bb47db:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5N2U5NjBmZTRiNDBiYjNmNjlhY2Y1ZDRkNDNiZTRlOGQ3NmNlMGRiOTk0OWU5MmJiOTE0NDlkMGJiNDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5N2U5NjBmZTRiNDBiYjNmNjlhY2Y1ZDRkNDNiZTRlOGQ3NmNlMGRiOTk0OWU5MmJiOTE0NDlkMGJiNDdkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmZjNzMzNWRlMDhlYmEzODRmNjYxNDZjMDk3Y2I2NzZiOWRiODdiOWU1ZjcxYzZhNjg1YjQxODIyN2M3YTlhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f9240c4b643a4d309f087b9cb4e52545",
+      "statement": "Every committed artifact is intended to have exactly one owning module, while a pull request may coordinate multiple modules only when it explains why the change must cross their boundaries.",
+      "evidence": [
+        {
+          "resource": "repo://.github/pull_request_template.md#L5-L15",
+          "version": "repo-lines-v1:sha256:ce6d37e8a54aadc86a7d967abca500d942a32284651f1b1f025031bcfd0b4c29:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMmU4NTc0ZjMwNmQyNTQ4OTI5NTBjY2I2N2E2MWRiOTAzZTYwMTRmNWMyMTViOThiYjFlYmU4YzgxOGU0ZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiOWY0NjRlOWIxOTJiMzEzY2MzNjMxNzVjN2NlNzRjY2VjMjFmMDFmMGIyNWQ4NjdkMTZhZTRiMDdhYWMwYmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://AGENTS.md#L32-L42",
+          "version": "repo-lines-v1:sha256:5a7525cf2f27695b3eafbb7cea4bef221486e6d48c6bfdff51ab653d12ef186c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyNGIwODdjNGMwNDIyZmE4NDQ1MTQ2ODA4OWE4YWM3M2MwZmIxYWM0Y2E4NzhmZTJlNDM1MDlmNDg2YWJiNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1YWI4NjI3NjY3M2Q0MjY4Mjc5MWNjNmQxOWZhNjM5M2MzMTJmODA2ZWQ5MzEzZGMzMmM0NWUyM2M0YTMwMDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5YWVmNmZmODBjMDE4ZThkMDBjNWZkNTcwM2UwNjFlYWVjOTQzZmNkNWEzZjI4NDI3MjJmYTMyODZhOTk1ZmUifQ"
+        },
+        {
+          "resource": "repo://README.md#L21-L31",
+          "version": "repo-lines-v1:sha256:16f990e13a49280cacdae95d89de3775d243d88b9396eb0bcbe83a831cf720bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxZWNkZjA5YjE3MjcyZmRkZDFkMTFhODFmMzVjMTU4MWYwMjFmZDk2MDc1Y2I0YjQ5YzZhYTkzZGZjNTZiY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkN2IwOGJmN2E5ZjhhZDZkMTZiODJmZTc0OGU0MTllMzlhZWJlNmQxYjNhMWFkYmY3Yjg4NjVhMWZlMDhhODkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcyZDJlZDQ4MTc4OTc1N2JlODVjM2JjMGMxY2RiZTg4YjQ3NTEyNDExMmRmZWYxM2E5NWRlMzJiMjMzMGQ3ZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkZDk4Y2YxYTJhZTFjYWI0OTQyODAyOGFmYTBjNTI2MzYwNzUwY2Q4NDM5MGJlMmM1NzMwOWI3ODBlMDM2ZDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b8b446d48d244d2492f9b7f8fb1fcd2f",
+      "statement": "The pull request template asks authors to summarize what changes and why, identify the modules owning changed artifacts, justify cross-module work, confirm exactly one owner per artifact, commit no secrets or credentials, hardcode no environment knowledge in application code, update a module README when responsibilities change, and add an ADR for architectural decisions.",
+      "evidence": [
+        {
+          "resource": "repo://.github/pull_request_template.md#L1-L15",
+          "version": "repo-lines-v1:sha256:d38721ff55cb1e67c5cbb87148ec83ef2282259b1db4f3c40ce0ac21082c05a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0MTViMmRiNGVmM2FlZWRiNDNhMGViZmQyNTYzMDEyMmNlNjM3YzcwMmQwZWRlMjliNjY2ODU5ZjNhYjMwMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZmNlZWMxNDdlMGM2N2ViYzIxOTM4NTM4NmFlNDU0M2I4MzBlNDA3ZWFmNjc2NzgzZTk5OWQwYWIwYzc0NzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_87d9d1b3a9c34bec82c5ee0539e2ef73",
+      "statement": "CODEOWNERS currently contains only a repository-wide wildcard owned by @LaNguAx; per-module ownership rules have not been added.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L30-L32",
+          "version": "repo-lines-v1:sha256:22b95c5cd5ea692f0569ee4ca4906fdb4f5c5750485110ce8f1879e650b95084:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q5NzhjYTYxZDcyMTU5NmQ5MTkwZGM4M2VhYTNmZDQ2ZWIyY2Y3YWUyNzY4NjEyNzg2NDYzNDU1MmRjMWYwYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI2MDMyZmRhODA0ZTMwZDM2MzhjNWMwMzYzYmEzNTg0ODg4NjE4Zjk1OTlhMjM5NzRmZDM4ZjBjMTJkYmNiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGE2ZmM3ODg3YmVlNzRhOWU5ZDU2ODUwNjE2NDRhYTRkMGIzNTQ5N2UwNWI3ZjYwZjFhMWQ2MmNlMDEwYTA2MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://.github/AUTOMATION.md#L42-L44",
+          "version": "repo-lines-v1:sha256:0907de28ec30ea4becf7392fe14ba3dadffc44a6744f28bcf302d6bab1edd1db:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY1ZmU5Y2JhMDFiZjlkNTkwMjQ0Zjg5MzA5MzkxYmZhMTgxZDJmMmNlODcxOGQ3NDFhNWVhNGI0YTA4OGMzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NlNDg1YzljZWI0NGQzYzMzYmZjMDVmY2ExZDg5YTEyMWVhOWQ1YWQ4NjJjYTg4MzJlMDRkODY5YzlmNjQ4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiNWY0ZDAzYWU4Y2YwMDc3ZmNiMGUzYTNjZmIyYjRiMDQyYWE3NTUwMWMwOTI5ZDA5M2I2ODg3MGQzNThjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://.github/CODEOWNERS#L1-L4",
+          "version": "repo-lines-v1:sha256:56e430ad375115ccf9ec55084c2f7099f490a3ecf05a4001a20ae4afc5b89626:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1OGRiOTBjNmMyMTA1Mzc2NWQ1ZDZjMmMxMjNiYWQ4N2Y4ZWQ5MjFhOWJjNGI3ZDYwN2I4OTUzMTUzYTI0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWUyMWVmYjIxZDY5YThhOTBkMjI1ZjdkZmMyYmYxMmNjM2JmZGRjNjQzMzkwOWY0Y2I2YThhNzJkNmZhOThmMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_72865cf8d8bd4694afa2d1fe6b1c76f5",
+      "statement": "Significant architectural choices must be recorded under docs/adr with their context and rejected alternatives, while routine implementation of an already-decided design does not become an architectural decision merely because it coordinates modules.",
+      "evidence": [
+        {
+          "resource": "repo://.github/pull_request_template.md#L14-L15",
+          "version": "repo-lines-v1:sha256:74f4d2bafb22d40a9ae88d594e994c2408d2c43132c15515a16652770651c7d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY3YTA4Y2VlNGM2MTc2OGU0ZmNkYTdhMmFhMWE3NDE5YmZlNTRlNWQyZjczOTBhNjQ1NGZkYmU3NTBjOTM1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNmY2VlYzE0N2UwYzY3ZWJjMjE5Mzg1Mzg2YWU0NTQzYjgzMGU0MDdlYWY2NzY3ODNlOTk5ZDBhYjBjNzQ3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDEyN2Y5MTk2YWI3NjM3ZGMwOWEzYWQxYTEzZGI1Y2YwOWUwZDk1ZGM4ZDQ3NTNmZTVmZjkzN2I3MjQ5ZmM1ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L48-L52",
+          "version": "repo-lines-v1:sha256:d6306753152c3e59ad528e5fc4e43cca779ba5ef3d426ae71867736a99e45eab:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg5NTJhYjAyNGM1Y2VlMjlhMDQ4YTI2NWMzZjQ4M2JlOWU5ODNmOGE0MzRkNzUwNmU3NzMwMTViYzQyYTI1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDZmYzJjMjQ5ZGJjZTZiNjUwYjQ3NTA4MjA5YzNlNGQzZmZjMzYwOTVmMjY1OTQ4NGFlOTVjNDg4MWE5ZDIzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2Y3ZjE1Mzk3MDcxMjU1YmM4OTRjNzNlMjIxNjllNTFkMTY0NDAyM2E5ODBjMzcxMGVmOWE2MTQ0MWI5MTVkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTgxODUxMmE5NjJmYTI2ZDQ1MTkyMmFhYjI1ZDlmNGNjYWZmNTgzMDFjZmZiNGI1ZjFlNWVhNzIyZDJkOTQxYSJ9"
+        },
+        {
+          "resource": "repo://docs/README.md#L32-L36",
+          "version": "repo-lines-v1:sha256:bfb0a8c108d120531499480de57db7ee670c893d7949191307af3c048ec20ebf:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWFkYTBkZjE3MWM4Y2Q3ODk2ZWE4NTA2NTZhN2IzYjMwOWFhOTU0ZDQ3NTNkNjRlOTNjOWQxN2I4MjI1NTY1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ1NTM3Njk0MzAyYzNkZDI0NmFhNThhMThlYTllODg3MWI3NzliZmU2NTlmZjFlYjI3ZDI4MDg5YzExNTk2OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmYxMGYwMjE3M2RlMjc4OWNmYmRlZWRjZDcwOWVjYzE3ZmZmMDQ0ZTdjOTFlYjY0NmU3MDYwYmJlYzI2YWNhNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4ddaf4a411bf422f8281d26da8295690",
+      "statement": "Product workflows are intended to be path-scoped so unrelated domains do not trigger one another, and a job that must consume paths from multiple domains for one responsibility is a signal that the boundary may be wrong.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L24-L28",
+          "version": "repo-lines-v1:sha256:65b5acbed4f596229f95bf72a6a657aba4c5980341a2e98b815142abf0f170e0:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFjMTc3ZjVkOGMyNmU3ZmYxMjE3NzRkNTQ3Y2E3NzJkNWYyOWEzNDcyMmMxMjBlNTFkYzVhMzllNGQyMmM5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA1OTNlNzAwOTQzNTNhMWQ3NTNlYzgxNGNmNGY4YjE0MDdhZjJkMTI3NzRkNjAwYWJiYWY2MjFkZDJlYTdkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVjZjhjOGUxMzg4Yzc3YmM2NTEwYzgyMmFiYjg5OTE1Mzc2NmI3MzVlN2E0ZDQzZGM1OGU0MjI4MzI5MDRjMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWVlOTQ5NjUzMGRiMjRiMzZiOGRiMzY0MTJjNjFiNTQyOTc2ZDUzMjM5OTZlNmZkMjliZjBlYmVlYzNhMTgwOSJ9"
+        },
+        {
+          "resource": "repo://frontend/README.md#L26-L29",
+          "version": "repo-lines-v1:sha256:9c34b75d1404880f18fb0af034cb77bfd79e4745c6b587c41c60a2d75938b139:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRiODcyY2UxZTJjNjU1OWVhMWIyMzlhYmJjNGYwYTA1NDkzZTVmNGRmZmQ2M2M1NzdjYTIxYzkzMGU3YjMxNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTk4NTQ5YmJjODg3MmUxZjY0NzE0MjYzYjg1NTc3ODgyYjAzMDdhM2MwMjY4ZGNjNmY0ODM0OWI2YWY0NTVmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTVkOTI5YzY0OTM0N2EwZWZiYTE1MWNlYzI4NzIxYjQzMTAwODI4MmRkODExNjBlZWZhMDUyNjEyOGMzNWRlZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_095cbf4997684c93a0842caae78fcb2c",
+      "statement": "Web and mobile are intended as independent workspace roots with separate toolchains, dependency graphs, and CI paths rather than a shared frontend build root, but none of those concrete mechanisms exists yet.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/README.md#L26-L29",
+          "version": "repo-lines-v1:sha256:9c34b75d1404880f18fb0af034cb77bfd79e4745c6b587c41c60a2d75938b139:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRiODcyY2UxZTJjNjU1OWVhMWIyMzlhYmJjNGYwYTA1NDkzZTVmNGRmZmQ2M2M1NzdjYTIxYzkzMGU3YjMxNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTk4NTQ5YmJjODg3MmUxZjY0NzE0MjYzYjg1NTc3ODgyYjAzMDdhM2MwMjY4ZGNjNmY0ODM0OWI2YWY0NTVmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTVkOTI5YzY0OTM0N2EwZWZiYTE1MWNlYzI4NzIxYjQzMTAwODI4MmRkODExNjBlZWZhMDUyNjEyOGMzNWRlZSJ9"
+        },
+        {
+          "resource": "repo://frontend/README.md#L5-L11",
+          "version": "repo-lines-v1:sha256:a59611aad43d96d750b6187cb512591b2a714c61576c8cd882a81689a3bab312:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZmMWZhN2I1NzMzN2FmYmI2Njc1NGYyZWQxZTdlYjdjMWFmYjgzMGU5ZWZlZjUwYjMzODEwNWJmOTQ4YmFjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5N2U5NjBmZTRiNDBiYjNmNjlhY2Y1ZDRkNDNiZTRlOGQ3NmNlMGRiOTk0OWU5MmJiOTE0NDlkMGJiNDdkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzYyMWYxOWRkNTJkOGI2MzRiZjNmN2UyMDE4N2VhNzEzMTgzMDllNjAyMzk0Mzc1MDY4OGQ2MjkwZDYxMDhmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_33249af9ed404ba984dfb53a0370e5bb",
+      "statement": "The intended backend CI boundary is to build, test, and publish container artifacts to ECR; backend source does not own deployment infrastructure, and gitops owns how the published images are deployed and scaled.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L34-L40",
+          "version": "repo-lines-v1:sha256:568f112072c2c4e1d9cff5ef3bb89165b148140347fb305e76dfc5c59493d245:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM2YWU3MzFmMzBmMjJjY2RjYzc5NjlhZjc5MmU1ZTk4ZDlmOTg1YzI0MmFmZWJiODdkMDY5MmVkOGY4ZWI0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWY0MGI2NzVmZjhhOTQwYTQzZmFmZGE3ZjM4MmMzYmJlMTM2ZTI5NGFlYTVkZTE2ODg0NDhkMjk4OTgyZTJiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U4NGFlYTE0ZDJlMGEzYzY5MDI0OWMwNzg1ZjkwNzlhMjZiZDc2YmE3MzI3NDNmODNhYjY4N2Q4MmE1ZjNmMSJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L15-L28",
+          "version": "repo-lines-v1:sha256:72c60f9c465f0a989c4b90f30b78d83f8a056b2c9ccec5782d363b0f8e650dad:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhZWVhZTJiYmQxNTcyMzA1MTE5M2QxYWM5ZTI0Yzg1ZWY1NzZiNzM0ZGU3MzliYmJkNzQzOGFiMzkzNDNkNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhMWM3ZjBmZjJlM2RmM2U3ODRhY2I0NzhjOWQxNmQzZjEyMGY0ZTdmMGYwZDg4MGY5MGJiMjk0NjE1ODNmNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1NTk1MTZhM2E5MWU4MWIyN2JhOTM0YWE4MTZiMGY0NDM5NjliYjFkN2FiZjgyZGI2MjQ5NGZhNjAwNDdiM2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L7-L19",
+          "version": "repo-lines-v1:sha256:8268df9d79c7fbf3c7b92797ea44efdbf8757a968d2577981db0b82f7f6ca4d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNjlmMzhmOGIwYzMyNTVhYWY2OWFlNjBlNjUxZTM4ZjNlNmUyOThmZWFlOTM0MDdiMTVjZjRkOThmMmRkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZDA2OWYzZDZjMmMxN2Q4ZGRlNzhlYTg5ZDZkYzNlYTY3NjBhODUwYjYwMjg3MzFhZTRmMDk0Y2QzNTY5NDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg0ODIxNGU0ODU2Y2NhMzVlMWE0YTU5OTI1Mjc0NjE0OTMwYzdiZDIwMTkyODE1NGQ4MTFmOGUxN2EyNmNlMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MWYzMWU1ZDAyNjY3YTJiZDEzMzkwODJkYzFiNjg4YzMzY2QxZDM3NzA4MzMxMDhmOTQwZmUzOWI3ZTE2NzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_44dcb5548a394a0ba20e54598e25dfe6",
+      "statement": "Git is intended to be the source of truth for Kubernetes desired state in gitops, and a GitOps controller such as ArgoCD reconciles the cluster toward that state; gitops assumes the cluster already exists and does not provision infrastructure.",
+      "evidence": [
+        {
+          "resource": "repo://gitops/README.md#L1-L5",
+          "version": "repo-lines-v1:sha256:a7aafc110900e989899463edc2dc8b9befda2775892d22f168dda953a3b721ee:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IwODg5Y2JkZDg4ZWVlODc5MTc1M2U4NWFjMmZjYzIwZTM4NDhjZWM1NDBlZjlkYjE4MDkyMDc2YTEwMWFiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiYmJiNDFhNTFkYjQzMjY5ZWVhOWIwNTg0YWNlMzdlY2I0Y2YwN2ZlZmMxYjZhZDZiMmZmNTc0OTE4ZThjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L21-L26",
+          "version": "repo-lines-v1:sha256:45700c16c6556b657872210b124710743504456c95c523e377aa992082b79a6b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIyZjBmMWU1NjlkMzQxOWExYmRhNmEyMjRjMWQ4MTAyMWQxY2U1NzY0MmFmOGUwMjBiZGVlZDZlOGUwZGYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I2OTExZjRlNDJkMTBhYTg1YmU3YjQyZjFkMmFhOGJiMzVjOTA0NWY1NjMyMjA1NmRmMTRlMDc2M2ZlMzMwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU0OGQyYWEyYzM1YWM4YmQyZjZkYTA2OTlhYTdjOWY0NDYwYjI4Zjc4M2E0MTZlODAwMGVhMmQwY2I5Y2I1OCJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L62-L67",
+          "version": "repo-lines-v1:sha256:8e5cba367cfa21ba19dbdbf72de3c055a1c7982e4e22a0c5ab16cc28b688b2d0:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDYwNjgwNmZmZmZlOTBhYjQxOGY3YTI0YzIwZjBjYWQ2MzkxMGIyMThlZGI3NWJlMDQ3Yjk5YTg3N2Q2NWIyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDgyZDU1OTJmMGVlZTRiZjM1ZmNkZWU4MmYzOTY5ODVmZjA3ZjIxZWZjNmE2YWM2MTZmM2Q5M2VmN2ZlZmJhOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://infra/README.md#L26-L33",
+          "version": "repo-lines-v1:sha256:6cb3a8739f86e691b399130a071ea70e56831cb87c01b8f55d388934bb04305d:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3NGIyZmIzOWQyMjdhODdjZWU1NGZjNWE4ODliZWYxYmEwOWJjZWU4MGE0MGJlNGI2YjU3MzU2NDExYjk4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzYwMjQzNTFjNTlkOTdjMDBkZDdlNjQxZGJmMmFjYmU4NDVlZDI0ZTY5ZGU5MTM4NjZkYjk0MjVmMTdkZmY4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTZjYzEyNzViNTllN2UyMzM2MTQ5MDU5MzJhNTQyNzVhMWI5NWJkZTQ0N2EwMGIzN2Y0OTliNDc2NDA4ZGNiOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a23817c24e23481c9937b98d59feab5f",
+      "statement": "For cluster workloads, CI is intended to publish an artifact and change the image version in GitOps state, after which the controller reconciles the cluster; CI must not deploy cluster workloads directly.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L34-L40",
+          "version": "repo-lines-v1:sha256:568f112072c2c4e1d9cff5ef3bb89165b148140347fb305e76dfc5c59493d245:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM2YWU3MzFmMzBmMjJjY2RjYzc5NjlhZjc5MmU1ZTk4ZDlmOTg1YzI0MmFmZWJiODdkMDY5MmVkOGY4ZWI0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWY0MGI2NzVmZjhhOTQwYTQzZmFmZGE3ZjM4MmMzYmJlMTM2ZTI5NGFlYTVkZTE2ODg0NDhkMjk4OTgyZTJiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U4NGFlYTE0ZDJlMGEzYzY5MDI0OWMwNzg1ZjkwNzlhMjZiZDc2YmE3MzI3NDNmODNhYjY4N2Q4MmE1ZjNmMSJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L23-L28",
+          "version": "repo-lines-v1:sha256:0cc013af78c1c223fbd08cba39318e3c3585c8d97839d04f1f9be41c40f6210e:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGExYzdmMGZmMmUzZGYzZTc4NGFjYjQ3OGM5ZDE2ZDNmMTIwZjRlN2YwZjBkODgwZjkwYmIyOTQ2MTU4M2Y2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjFmMTQ3MTJhYTUwYzQ5Y2U2YzI4NDY4ZGZlMGFlNDUyZWRkY2NmMWFjMzZkMDA1MmRkM2YzYzEzNDExMzgyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTlmMzE2ODhlOTk4MGJlMjllMDIyOWUxNDBmMWQ0NTI3ZWU2OWJhMDA5ZDBlOGQ2MmMwY2JiN2EwYjFiYWY1NSJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L1-L19",
+          "version": "repo-lines-v1:sha256:a35b0be7f34913c68d0440b2f1ddd3cef7c386978d4db65b492789d1fb1431b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMDg4OWNiZGQ4OGVlZTg3OTE3NTNlODVhYzJmY2MyMGUzODQ4Y2VjNTQwZWY5ZGIxODA5MjA3NmExMDFhYjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZDA2OWYzZDZjMmMxN2Q4ZGRlNzhlYTg5ZDZkYzNlYTY3NjBhODUwYjYwMjg3MzFhZTRmMDk0Y2QzNTY5NDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MWYzMWU1ZDAyNjY3YTJiZDEzMzkwODJkYzFiNjg4YzMzY2QxZDM3NzA4MzMxMDhmOTQwZmUzOWI3ZTE2NzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ec7a138efd21438088c6e79eb9003d08",
+      "statement": "Direct CI delivery is limited to non-cluster artifacts: mobile store releases and a static web bundle if static hosting is selected; if web is deployed as a cluster workload, it must use the GitOps path.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L38-L40",
+          "version": "repo-lines-v1:sha256:2fcfde8a0fcd681a0d429181c817fce436f33dc19c22a1694afd7cb57e495c5d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjgwYThiY2FjMzBiMjY5YjY3ZWM1YzRkMjhlODIyNmM3NWMxYzBlYWM3ZTkxZTYwZmJjNGNlZTZmNWNlYjdjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM2YWU3MzFmMzBmMjJjY2RjYzc5NjlhZjc5MmU1ZTk4ZDlmOTg1YzI0MmFmZWJiODdkMDY5MmVkOGY4ZWI0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmVkYmRhOTFkNDEwNGRjYTgxZDcxN2I5YzAxNTE4NDRiNzBjZDA3MWM1Yjg2NjdmNTc5Nzc3NTBlZWM2YzYxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U4NGFlYTE0ZDJlMGEzYzY5MDI0OWMwNzg1ZjkwNzlhMjZiZDc2YmE3MzI3NDNmODNhYjY4N2Q4MmE1ZjNmMSJ9"
+        },
+        {
+          "resource": "repo://README.md#L42-L54",
+          "version": "repo-lines-v1:sha256:30b75ce5eefd46899d309f8c09531f59acdc02eafdcc70b3e27e7bdd44ceb956:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzNDlkZWVkNDk4MGI2YTM4ZTQ3OTk2Y2Q2NjIwZjRhMzQwNjNiM2VhNTg5OWRiNWI4NWViYjNkY2Y0OTAzMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhYjY5NDI4OTY0YjYwMGI3ZjM3Y2RjZjkyM2YwZjQ0NDNmYWM4M2FhZTZiZmI2ZGI2NDRkMTlhOTliOTlmMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MDEwZDM3ZjBlZjQ1NGVhZGI5MzA1NzcxZDY0NDI3ZWRkODJjOTc4ZGQ2YjJmMzFkMjM2OTdlZWZmYmRkNDgifQ"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L20-L31",
+          "version": "repo-lines-v1:sha256:c2907e48b5f391ebdd597dfddb4f3bb3efb742433411d864e5e570da9d829bc7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhYWYzOGY5ZDhhZDRjNjU4NWNkYTA1NTU0ZGVhYzU0NDg4ZTkwNDA0ODBkZTkwZTRkNjljMjkzMjhkODQ3NWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxY2NhMWViOTBkNDIyNDZkMTQ2ZDM4MjE3OWQ3OGZjYjhhM2EwYjNjNTAzOWNlMWM3ZDdiZTIyMTg5ZDNmMGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NmY4MWE4Y2ZjYzlhMTYxODBhMDRhZmIxYWVjODIwNjZmZTcwYTUyMjA5ZDViYTMyMTIzNjVlMTBiZDA3MDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L26-L32",
+          "version": "repo-lines-v1:sha256:280a42023fdb35e311bdfae7c8015b432e9136d8e192d53cfbe59603e59d62d5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM0Yjg3ZjU2NzYwODI5ZTE5Yzg0NTY5NGMwYWRkNmMyMGIxYmFiNjljZGQwMTQ2MTI2NjU2YzYwMjg4OGUzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg5MDBlN2IzNDQwMmE1Y2YxYjY3NTY4NmI0MjBlMDFlZmQyZDg0Y2IxZWM0NmFkMjUxZjQyOTg1OTRlODhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_abbe4881355a483bb0807c696744e1b2",
+      "statement": "Mobile build, signing, and store-release configuration belongs with the mobile client because it is inseparable from its toolchain, while the workflow that executes the release belongs under .github; mobile releases also have a store-review gate and must not contain committed credentials.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L36-L44",
+          "version": "repo-lines-v1:sha256:a413a9c5cfe563f86dece8a1c29d45d8f30c87d2a25bade26c1c696611a55e45:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmI2NzI5MTYxMjE1MGUxMzc0MDdhMDkyZjU1MjMzMWNlZjgxZjIzMzQ3YjU3ZmY5NzU0MjQyZDQxZjhlYjYyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmU1NmM5NzM3MDRhZGY2YjczOTMwNWU2MmQ3MThmZmI3MTRmZGJmN2E3ZWNmZGEwYWFhNzM2ZDNjMjU2ZTczOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjgxNWEzZGRhYjhlZTk4NzlmNWJhZTEyNzA4YzBjNTEwMjZkNTdhMWM0YmI0ZDkyZGRhZDU2N2ExNWIxMjg3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2Y3ZjE1Mzk3MDcxMjU1YmM4OTRjNzNlMjIxNjllNTFkMTY0NDAyM2E5ODBjMzcxMGVmOWE2MTQ0MWI5MTVkMCJ9"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L20-L31",
+          "version": "repo-lines-v1:sha256:c2907e48b5f391ebdd597dfddb4f3bb3efb742433411d864e5e570da9d829bc7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhYWYzOGY5ZDhhZDRjNjU4NWNkYTA1NTU0ZGVhYzU0NDg4ZTkwNDA0ODBkZTkwZTRkNjljMjkzMjhkODQ3NWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxY2NhMWViOTBkNDIyNDZkMTQ2ZDM4MjE3OWQ3OGZjYjhhM2EwYjNjNTAzOWNlMWM3ZDdiZTIyMTg5ZDNmMGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0NmY4MWE4Y2ZjYzlhMTYxODBhMDRhZmIxYWVjODIwNjZmZTcwYTUyMjA5ZDViYTMyMTIzNjVlMTBiZDA3MDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://frontend/mobile/README.md#L5-L18",
+          "version": "repo-lines-v1:sha256:22cf108f44c6f82fd60ee91393984a60bca4e4caee8dadac65cf90eb135fdb9f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNjlmMzhmOGIwYzMyNTVhYWY2OWFlNjBlNjUxZTM4ZjNlNmUyOThmZWFlOTM0MDdiMTVjZjRkOThmMmRkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkNjUyOTljMzc0NWIwZDQ4YTdmMTM3ZTBjZDIzMTZmN2FmNDI3ZGRjNjNjNmNkNTcxYzIxZDZhN2FhZmI0MmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4MGE1YWM5MTE3YzM1MDRiY2ZlNjg0NTIxZmJlMzcxZmU2NTEwM2I5ZjM1ZGRjNTZjNGFlZTJlZTVjZTkyNDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0MDllMDkwYzBkZWNjYWFmMzA3MDg5NjY3MzMzYmU5NjQ0MmQxMDU4MzVmNTEyNzRiNTFjYjJkYzZmNmNhZmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fd8e7184092b4ee8905a9f317262a6d4",
+      "statement": "The web deployment model is intentionally undecided between static hosting and a server runtime, so application code must not encode either assumption and the eventual selection must be recorded in an ADR.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L5-L13",
+          "version": "repo-lines-v1:sha256:8c09d73d30cdd2eec8d8cf9794e03ae7409cf60e832e2b5f2b26cb3a4806aefb:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA2OWYzOGY4YjBjMzI1NWFhZjY5YWU2MGU2NTFlMzhmM2U2ZTI5OGZlYWU5MzQwN2IxNWNmNGQ5OGYyZGQ5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBmOTBhMmU3ZDE5MzUyNjdjN2E1ZWZhYjdmZjI5NzZmZmYxNjA2OGUyMjM3YmNjYmYxZDVjMTFjNTQzMmIxNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDMwMWFiODhhZTY5M2E0ZWZhZTViNmJkMWI2OWRiZWE0N2E3ZDJiYWMwZmM4NDA5NGQ1OTBjNmRkYjY0NWE3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWJmNTY0NDFhOTAzZTdjM2M2NTk4YjBkOTA3YTRkN2I2N2UzZWMzNWE3OTUyOThmMWQzMWQ4MmY0OTBhMGY4ZiJ9"
+        },
+        {
+          "resource": "repo://frontend/web/README.md#L26-L32",
+          "version": "repo-lines-v1:sha256:280a42023fdb35e311bdfae7c8015b432e9136d8e192d53cfbe59603e59d62d5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM0Yjg3ZjU2NzYwODI5ZTE5Yzg0NTY5NGMwYWRkNmMyMGIxYmFiNjljZGQwMTQ2MTI2NjU2YzYwMjg4OGUzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg5MDBlN2IzNDQwMmE1Y2YxYjY3NTY4NmI0MjBlMDFlZmQyZDg0Y2IxZWM0NmFkMjUxZjQyOTg1OTRlODhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f8a0f4d6f06c4e7b833db0f605fb8d72",
+      "statement": "Infrastructure definitions belong in infra while .github workflows only validate and apply them; infrastructure changes have a slower, stateful, harder-to-reverse risk profile than workload changes and must remain separate from GitOps workload reconciliation.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L5-L22",
+          "version": "repo-lines-v1:sha256:5348eb1d362bfee57eed128a93306a905e77b9189e99094da60c270abc26378e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNjlmMzhmOGIwYzMyNTVhYWY2OWFlNjBlNjUxZTM4ZjNlNmUyOThmZWFlOTM0MDdiMTVjZjRkOThmMmRkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViMzkwZjZkOTFmZTFjOTQxOWY1NTRjOTE0NGZkYzlhNWY4MmRjNzA4YTBmYzE0ZTdlMGIyNDE3Yzk3OGViNzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQzMDFhYjg4YWU2OTNhNGVmYWU1YjZiZDFiNjlkYmVhNDdhN2QyYmFjMGZjODQwOTRkNTkwYzZkZGI2NDVhN2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5OWE1NjU1YmY0YzE1MDY4YjAyODliMWQ5MzMxOTRiODgxYjc0ZGJhMGExZDQ2Y2EyYjk4ZjQxNjU1OGE2ZjcifQ"
+        },
+        {
+          "resource": "repo://infra/README.md#L20-L38",
+          "version": "repo-lines-v1:sha256:998578533f173ba3a36a6195244c1fa7e07c20a7a3ba4cff70e67b6361f6be04:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhZWVhZTJiYmQxNTcyMzA1MTE5M2QxYWM5ZTI0Yzg1ZWY1NzZiNzM0ZGU3MzliYmJkNzQzOGFiMzkzNDNkNWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZWYwNjA1ZmJiNjE5YTZlNTA4ZmNhZDZiOWIzNGZmYmZhYTJhZTE2NjZkNDJlMjM1NDY0MmI2ODYxZDYyMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0Nzg4MjZmYzQ3YWQxYTcyYzQ0YjA1ZjQwMmM0NmZkZjA5MTI0Y2I1NThjMTQyZTY2MWIxNDdjNDY5ZTczMzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_23569a01b62045688b41c71056e869a8",
+      "statement": "Concrete Infrastructure as Code and infrastructure workflows are absent; Terraform or OpenTofu is only a likely future mechanism rather than a currently selected implementation.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L42-L44",
+          "version": "repo-lines-v1:sha256:0907de28ec30ea4becf7392fe14ba3dadffc44a6744f28bcf302d6bab1edd1db:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY1ZmU5Y2JhMDFiZjlkNTkwMjQ0Zjg5MzA5MzkxYmZhMTgxZDJmMmNlODcxOGQ3NDFhNWVhNGI0YTA4OGMzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NlNDg1YzljZWI0NGQzYzMzYmZjMDVmY2ExZDg5YTEyMWVhOWQ1YWQ4NjJjYTg4MzJlMDRkODY5YzlmNjQ4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiNWY0ZDAzYWU4Y2YwMDc3ZmNiMGUzYTNjZmIyYjRiMDQyYWE3NTUwMWMwOTI5ZDA5M2I2ODg3MGQzNThjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://infra/README.md#L1-L18",
+          "version": "repo-lines-v1:sha256:d1c11508b6042ae28b8f53a797908b53a6c671cae4bdd186b792237d792b9f38:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwMGU2NjhmYTUxNWE3N2FhMGE2ZDE4ZTMxMjdkNzYzMjgyMGYyNzExMjI2MjcwNTNhZDY5YjhkNTM2MzdjYzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YWUzOWY1NTJmZjJkMmM3ZWRmZWRkYzlkNjBhZDUxODY0MWEwMDQwYTc4ZjRhYzE0YmMyOWU2YTE3MzE3NGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MWYzMWU1ZDAyNjY3YTJiZDEzMzkwODJkYzFiNjg4YzMzY2QxZDM3NzA4MzMxMDhmOTQwZmUzOWI3ZTE2NzAifQ"
+        },
+        {
+          "resource": "repo://infra/README.md#L35-L42",
+          "version": "repo-lines-v1:sha256:603850ab82d534bb1fedf325619f9a72eb895eb43d65536eb7697633f7dc75a5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5YjVjYWQzZmUxY2Q5NjZkNjBiZDc2OGIyMTY5M2RlY2U3Y2U0ODE2NGQ0MTk3OTc3ODUyZWNiNjZlOTg3N2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5MGRkNjdiNGExYmYyNTdkOWMzMTRiMGI1NzFjNmQyZDFmM2VhOTIzYmEyZmVlMjYwNmE3NDk1ZTUzNzI0N2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_89f0e4331ddd4305baa659c84ae5d884",
+      "statement": "Backend behavior configuration is intended to be served by a configuration server and consumed at startup or on refresh, allowing behavior changes without rebuilding or redeploying the workload, but no configuration sets or configuration server are implemented.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L31-L63",
+          "version": "repo-lines-v1:sha256:05867802cca8be595b507781564df9a119d57458e1fd80911c4d91f0c492f4c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhMDAxOWM2ZTY5NTQwM2FlOThhMDFlNjNjNzJjNzkwMTdkM2VmNGUxOWQ5Njc1YjZkZTRhNzMzZmFiZTI2ZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0YmVhNGU0NGNiMzQwYzcxMGU0OWQ2ODc1OGRlNTg4ZWVkOTBjY2YyYjdlMjk3MjQ2YjM3YTgzMzNiZGNkODgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1YjZiN2ZmODg2Y2Y0MzE2YmVhMzliNzQ2NjY5ZTYyNzU3ZjY5YzNhMWQxNTAwYTQzYzhhZTJlYjIwNzc4MzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI0MDllMDkwYzBkZWNjYWFmMzA3MDg5NjY3MzMzYmU5NjQ0MmQxMDU4MzVmNTEyNzRiNTFjYjJkYzZmNmNhZmIifQ"
+        },
+        {
+          "resource": "repo://config/README.md#L65-L72",
+          "version": "repo-lines-v1:sha256:893adb4a1e91ec17b319cfc05b4d3bb666db8f4847b2068a5462f9147753e6fe:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2VlNjFiMTUyMmY4MzE4YzZhNjk1YTcwYzRiMjA1OGRiOGE2OGZlYWVhYWE5ZDQ1OWYwMDMyNzlmNDRlOThlMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Y4NWZkYjRkN2MyZjRjM2NjNTZlYTkxYzZhZDhlMzIzYmEzOWI3YjExNTI0ZDBjYjlhMmZiZDY2NjM5MzY5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ee2861791df0448089982d89f18430b8",
+      "statement": "The exact environment model is local, dev, stage, and prod: local is development on a developer machine, dev, stage, and prod are separate remote Kubernetes clusters, and a change intended for one must not implicitly alter another.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L44-L46",
+          "version": "repo-lines-v1:sha256:26986280d8adb989a7939785d5574dc138a278090229ad067f23b91e3fc3c23f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmU1NmM5NzM3MDRhZGY2YjczOTMwNWU2MmQ3MThmZmI3MTRmZGJmN2E3ZWNmZGEwYWFhNzM2ZDNjMjU2ZTczOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2ZjY0MzQ2NTExMmY3ZDkwNmM1MDEwMjY1ODM3OTM3OGQ0ODAyOGRjYjFmMDZiNmQ1YmNlNGM3YzA0ZmI5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWQwMmE1NjI2MzMwZjIzOWUyMTcyNjIzMWYzMDkxNzlmNzcxMWNhNmViZjFiNzMyOWMwYTBkODM3ZjNiMjMyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE0NzkzZWQyMzE2NDYyZjc4OWM0YjZhMDE2M2Y5NmI4MTk1MGYxZTc3NTVmYmNiZTE4ZDU5YzI2N2FjZjM5OCJ9"
+        },
+        {
+          "resource": "repo://README.md#L42-L53",
+          "version": "repo-lines-v1:sha256:395dd4bb5a009dbb3923414f76255d22bd1222e6c157269fa89a174562b470df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMGVjNDdhOTU3YWMxNGEwYjY2NTcyMjU2ZGZlMzhjM2IyYjQ3MmUyNjZjNTFiODgwNDYxOGI0OTE5ZTIxNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZTA0NzI3ZjE5MzBhODcxNzg2MTExZGVkMzgwMjJkNzM2YTlhMDk4NTVjODU4ZTRkOWI3OTJlZjc4MzFhZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwY2JiZmM4OTk5ZjA1MmU0NDQwMWJhNzMzZjc1YTA2NzIxMzA3OGQ3NDQ5N2IxZWZjOTFkNWQzMjFmMWVhMmEifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L43-L53",
+          "version": "repo-lines-v1:sha256:120da3fe61bcc5a4a78c3f2861767b1faa08f38a38a8212ae8dc424dcb678b1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2MWQ0NzE2Y2I5NTU2MTQ4MWIzNWEwZjUzYmY3NDRmM2RhNTg2NDk3NTFlZmY4ODg5OWJjMTU2ZmVmMDQzYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmNWNiYWI5ZDU5MDM4Mzk2ZDNiOGE0ZmQ4ZDgzODI0YTgwNzY2ZmIyNThlOTljMWMxODUxZDQ5NjNlOTRkYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2NDg2NjBiMzZiYmIyYzFlOGNmODc0MjNiMDE2NWU2NzBhNGE2NzMzZDljN2E3MzhkN2NlYWJkYmFkMmU1OGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYxODg5ZTYyNzljOGE2NzViMTNmNmRlMGNkOTQwYjM3ZTczY2Y2NDIyY2NjMmI5MmJiMWZlOGU4ZjZiYTZkYzkifQ"
+        },
+        {
+          "resource": "repo://infra/README.md#L35-L37",
+          "version": "repo-lines-v1:sha256:1aaa598345e3512ca1d287ec759232224a4b1e2e21ac9869774adcd234ba5360:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYxZDQ3MTZjYjk1NTYxNDgxYjM1YTBmNTNiZjc0NGYzZGE1ODY0OTc1MWVmZjg4ODk5YmMxNTZmZWYwNDNiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWI1MzFhZjYyNmEyNGUyYjJmOGFkYjg4OThjM2QxMWY5MzQ4ZjMyMzQ3MzkwZjJjMzgwNzYzNDJmZjc0ZDhmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjkwZGQ2N2I0YTFiZjI1N2Q5YzMxNGIwYjU3MWM2ZDJkMWYzZWE5MjNiYTJmZWUyNjA2YTc0OTVlNTM3MjQ3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_15cc70d1b5ab489a90dfa86476242f8d",
+      "statement": "Secret values must never be committed: credentials live in an external secret manager, while Git may contain only references; workflow secret names and expressions such as GitHub secrets references identify credential sources but are not credential values.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L17-L22",
+          "version": "repo-lines-v1:sha256:7fe78b6f09270fce6924dc2b55371adcb3de835eae2a1cea914199fd4f74a3e6:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIzOTBmNmQ5MWZlMWM5NDE5ZjU1NGM5MTQ0ZmRjOWE1ZjgyZGM3MDhhMGZjMTRlN2UwYjI0MTdjOTc4ZWI3NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWJmNTY0NDFhOTAzZTdjM2M2NTk4YjBkOTA3YTRkN2I2N2UzZWMzNWE3OTUyOThmMWQzMWQ4MmY0OTBhMGY4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk5YTU2NTViZjRjMTUwNjhiMDI4OWIxZDkzMzE5NGI4ODFiNzRkYmEwYTFkNDZjYTJiOThmNDE2NTU4YTZmNyJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L35-L47",
+          "version": "repo-lines-v1:sha256:aa6b4db25c4a72a67e709eb90262f156323ba11760e7f07df75bf27fe553b5e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMDc4NDhhNDM2NjY1NmIyYmE2MTk3YmUwMmI5MjA4MTQ1NDZmOWQ5YWQwYjUzMzllNGMyNmEyYzk0NjUxMTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyMzI1NzRmYmIzMjY1MzdmYjUxMDdjMDgzNWQ4ZWRhODZiNmE3NTY1ZDdlZjVmYTlmY2JlODg4NDJiZThiNGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        },
+        {
+          "resource": "repo://AGENTS.md#L42-L46",
+          "version": "repo-lines-v1:sha256:093e9c36987acecfaf87943d1b1bd003c4bdadd0449c86bd4729ce9a3f8b4c31:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVhYjg2Mjc2NjczZDQyNjgyNzkxY2M2ZDE5ZmE2MzkzYzMxMmY4MDZlZDkzMTNkYzMyYzQ1ZTIzYzRhMzAwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM2ZjY0MzQ2NTExMmY3ZDkwNmM1MDEwMjY1ODM3OTM3OGQ0ODAyOGRjYjFmMDZiNmQ1YmNlNGM3YzA0ZmI5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJhZWUwMTUwMWQxNWMyYjE0MWIxMzI3ZmIyYjJiYmIxZWM3YTFlMTdkOTA1ODQ0MjFhNjBhMzI5NGNkYTgyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE0NzkzZWQyMzE2NDYyZjc4OWM0YjZhMDE2M2Y5NmI4MTk1MGYxZTc3NTVmYmNiZTE4ZDU5YzI2N2FjZjM5OCJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L21-L26",
+          "version": "repo-lines-v1:sha256:45700c16c6556b657872210b124710743504456c95c523e377aa992082b79a6b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIyZjBmMWU1NjlkMzQxOWExYmRhNmEyMjRjMWQ4MTAyMWQxY2U1NzY0MmFmOGUwMjBiZGVlZDZlOGUwZGYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I2OTExZjRlNDJkMTBhYTg1YmU3YjQyZjFkMmFhOGJiMzVjOTA0NWY1NjMyMjA1NmRmMTRlMDc2M2ZlMzMwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU0OGQyYWEyYzM1YWM4YmQyZjZkYTA2OTlhYTdjOWY0NDYwYjI4Zjc4M2E0MTZlODAwMGVhMmQwY2I5Y2I1OCJ9"
+        },
+        {
+          "resource": "repo://infra/README.md#L20-L24",
+          "version": "repo-lines-v1:sha256:b867086695a8977e71ca021aa650db38c1aff71c844d02587f0bfa413760eda8:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFlZWFlMmJiZDE1NzIzMDUxMTkzZDFhYzllMjRjODVlZjU3NmI3MzRkZTczOWJiYmQ3NDM4YWIzOTM0M2Q1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzYxNDZhNjk1MDg5MDk3ZTY4NDlmNjUxZWMyYTcwOGNiYWYzYmQ3ZmFmNDcyZDM1ODQ5M2YyM2E2YmRhYjE4OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjQ3ODgyNmZjNDdhZDFhNzJjNDRiMDVmNDAyYzQ2ZmRmMDkxMjRjYjU1OGMxNDJlNjYxYjE0N2M0NjllNzMzMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTQ3NmZmNzNhMTUwMTE0OWY0N2I1MjU2MzQ4N2I2MjY1Mzc2MTNlZTE5MjRmMmQxOWZhYWM3YmQ5MjZlNzViYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0b379aa5ed3f48a2a543c0a009e6c340",
+      "statement": "The implemented OpenWiki workflow can be started manually or by the daily cron schedule 0 8 * * *, runs on ubuntu-latest, and has contents and pull-requests write permissions for creating its update branch and pull request.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L15",
+          "version": "repo-lines-v1:sha256:1eb137ceaf99258446e05dfc0f2ffe702bb4688f297bfc4aaef6398bf60ff55a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4OTk5MTEwM2Y2YmE4ODhlM2RlNzY1MWM1YTMwNWM3N2U1NTQ3Njc3M2FiYTgzOTU5MWVjYzViZDBmMmFiMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiZTQ3ZmVmMmJkOGY5OTE5MWRlMzQzN2UyNWNiMTM2OGVlNzg1MWZkYzk4ZGMyN2UxZWJkMGQzOGZkZDdhMDcifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L49-L63",
+          "version": "repo-lines-v1:sha256:2507faafa9faf9e43981bd485c049cc5f2131c782c9588d50641b6b05c8b5686:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5a6059aaa7df457c9fd51948b0489c7d",
+      "statement": "The OpenWiki workflow checks out the repository with full history because openwiki code --update diffs HEAD against the last documented commit and a shallow clone can hide that commit and yield an empty change summary.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L16-L22",
+          "version": "repo-lines-v1:sha256:5f513af748b362994b00e41cc2ab8ac7880f4f9a4ac3fb63f49be6f3f2680e8b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDVkNmNmN2Q0MjhjYTgxMTVmYzRiYWJiNjgwNzM5MDIzMzI3YTdhOWQ5MTYzZjcwNmEyNzY4N2RkNTE2ZjM5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMwOTc1YzdlMjBlYmE4ODU3ZWZkMzFlNjJiNjY1Zjc4N2U1MTY0MTk1MWE2NjA3ODlmYmE5MzNhNjM0NzIxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWM1YTg5Mjc3MGFlNGY1MzMzZmQ3YzllMTJlMGE2YmM0NWIyNmI1YmI3NzUzZTAzOWRmOGVkNDljOTdiOTYwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2VmMTZlM2M4YjU0ZTJiMjA0ODE5NmFiYjRjZDgwZDIyYTUwOGVjZDYwNzQ2MTI0YTJlYTJkY2MzNDE3OTlkMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3592423c6d3c407d9f9a8faf4ac5e40e",
+      "statement": "The OpenWiki workflow uses SHA-pinned checkout and Node setup actions, Node.js 22, exact global versions openwiki@0.4.3, mermaid@11.16.0, and jsdom@29.1.1, then runs openwiki code --update --print.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L16-L34",
+          "version": "repo-lines-v1:sha256:1de26958162c4cc56e0625fa500d7824d4c50cffded53d528e9ff38911ff643c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1ZDZjZjdkNDI4Y2E4MTE1ZmM0YmFiYjY4MDczOTAyMzMyN2E3YTlkOTE2M2Y3MDZhMjc2ODdkZDUxNmYzOTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0MWM2MGQ4MzU5N2M3NmNjYTY5NmFhYzc0ZGZiN2FjNWRjMzM2MmZlNjUxZjhjYWI1YTMwNDk5NjMwMTdkNDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVjNWE4OTI3NzBhZTRmNTMzM2ZkN2M5ZTEyZTBhNmJjNDViMjZiNWJiNzc1M2UwMzlkZjhlZDQ5Yzk3Yjk2MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmODQ2MzY1YmRiMGEyMWQzYWY5MGNlZTA5YjkyZTk0ZGI5NmMyMjg1YWE3N2ZiZTkwZTFjZGYxMmY0MDdkY2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b25b7470eb243bcb94b4f164b050df0",
+      "statement": "The OpenWiki run maps OPENWIKI_LANGSMITH_API_KEY and LANGSMITH_API_KEY to GitHub secret references, documents the former for authenticated LangSmith code-mode pull and the latter as optional tracing authentication, and notes that browser-login authentication for the selected OpenAI provider has no unattended equivalent.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L33-L47",
+          "version": "repo-lines-v1:sha256:93dc2b9c37fe33f36bf9727fef233b2a71f6d0d4a2ae7ed5bdb6ba1e4196854c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZThmOWZhNDBlN2JkMDQ5OWQxYzBkODNmZDc1OGFhODViMzA4NDJkYmQ2MWYwZWE2YjdhZTEwZWZlYzc2ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhMmQ5NWViODViNjA0YjdiZmIxNzRiMzdlNThkYzg1ODVlZjcyNjUzNTAzMGExZTE4YTZkZDUwNTQ1OGM5YjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ba07c5e5c9a64e84b32ba7845af67097",
+      "statement": "After OpenWiki runs, the SHA-pinned create-pull-request action proposes only openwiki, AGENTS.md, CLAUDE.md, and the OpenWiki workflow itself on branch openwiki/update, using docs: update OpenWiki as the commit message and pull request title.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L49-L63",
+          "version": "repo-lines-v1:sha256:2507faafa9faf9e43981bd485c049cc5f2131c782c9588d50641b6b05c8b5686:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_46daba0dbb5c4df8bcfe0bb63e69394f",
+      "statement": "Concrete product build, test, validation, publication, GitOps, infrastructure, configuration, web, and mobile workflow commands do not yet exist; future checks described by the repository are design guidance rather than runnable entrypoints.",
+      "evidence": [
+        {
+          "resource": "repo://.github/AUTOMATION.md#L42-L44",
+          "version": "repo-lines-v1:sha256:0907de28ec30ea4becf7392fe14ba3dadffc44a6744f28bcf302d6bab1edd1db:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY1ZmU5Y2JhMDFiZjlkNTkwMjQ0Zjg5MzA5MzkxYmZhMTgxZDJmMmNlODcxOGQ3NDFhNWVhNGI0YTA4OGMzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NlNDg1YzljZWI0NGQzYzMzYmZjMDVmY2ExZDg5YTEyMWVhOWQ1YWQ4NjJjYTg4MzJlMDRkODY5YzlmNjQ4ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiNWY0ZDAzYWU4Y2YwMDc3ZmNiMGUzYTNjZmIyYjRiMDQyYWE3NTUwMWMwOTI5ZDA5M2I2ODg3MGQzNThjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://backend/README.md#L30-L32",
+          "version": "repo-lines-v1:sha256:2084beea604e27c087b89b565a0a2e3eced43e4db48b933180b848e2d4dd854b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMwNGM3NzdlYzdkNjYyNTRlYzI1YmIwMWJlOThkOWJmOGRhMGJjODAzNTVhYTYwNzM2YWFkOWQ4M2NiZGIxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEyNTUwYjg3MDU2MjkxMmNmNGViN2NmNjZmYjRlY2ZiZDBkYzc4NDZhYzA5YjkwNWZmNTcwMWQ1NjBlMjcyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmNkNTA0NzU2ODU0NGUzOTVmZDg2NTJjMWM0NDYxOTJiYjk2MjMwOWRjZjQ4OThmZmJmNTAzZDJiMjY3OWE0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://config/README.md#L59-L72",
+          "version": "repo-lines-v1:sha256:51b38bc24b262f8a043f15c461f549618c97dbeefe367ed12cb273d2838c810d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlZTYxYjE1MjJmODMxOGM2YTY5NWE3MGM0YjIwNThkYjhhNjhmZWFlYWFhOWQ0NTlmMDAzMjc5ZjQ0ZTk4ZTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://frontend/README.md#L5-L11",
+          "version": "repo-lines-v1:sha256:a59611aad43d96d750b6187cb512591b2a714c61576c8cd882a81689a3bab312:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZmMWZhN2I1NzMzN2FmYmI2Njc1NGYyZWQxZTdlYjdjMWFmYjgzMGU5ZWZlZjUwYjMzODEwNWJmOTQ4YmFjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5N2U5NjBmZTRiNDBiYjNmNjlhY2Y1ZDRkNDNiZTRlOGQ3NmNlMGRiOTk0OWU5MmJiOTE0NDlkMGJiNDdkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzYyMWYxOWRkNTJkOGI2MzRiZjNmN2UyMDE4N2VhNzEzMTgzMDllNjAyMzk0Mzc1MDY4OGQ2MjkwZDYxMDhmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjNkNmRjNzg4YWUyMWQ2Y2RjZDBjNzZiOTY4N2Y4ODI2NDczYjI5OTM5NTEzYzYzYTc5ODFjYjI5NWU4YWFiNyJ9"
+        },
+        {
+          "resource": "repo://gitops/README.md#L55-L62",
+          "version": "repo-lines-v1:sha256:590e95111bf10c8800e4bf35018b736fee27563109c51411475bc303b0297752:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM0M2M1MzY0YjJlMTI3OTQ2M2FmMDMxZjM3ZTZkZmNlNDQ3ZGQ2NDZhZGRjYmMyZjAzMDY2YTk5ZGJkMjcxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY0ZDFlOGI1OTlhMWE3OGM3NjNmZjI4MDI5MWI1ODRlODhmZmVlZmRkZmJmOGY4N2FkZjNiYjBkNTQ4N2NjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjQ4NTc2Zjg4M2FmZTkyZDViMTZjNjU3ZWQ4NTNjNDZiMjNlMGJjYjNhMDc3YWFhZGQ1NzE1NjYyOGU4NWExZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjQwOWUwOTBjMGRlY2NhYWYzMDcwODk2NjczMzNiZTk2NDQyZDEwNTgzNWY1MTI3NGI1MWNiMmRjNmY2Y2FmYiJ9"
+        },
+        {
+          "resource": "repo://infra/README.md#L18-L18",
+          "version": "repo-lines-v1:sha256:66ae39f552ff2d2c7edfeddc9d60ad518641a0040a78f4ac14bc29e6a173174b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZhZTM5ZjU1MmZmMmQyYzdlZGZlZGRjOWQ2MGFkNTE4NjQxYTAwNDBhNzhmNGFjMTRiYzI5ZTZhMTczMTc0YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZhZTM5ZjU1MmZmMmQyYzdlZGZlZGRjOWQ2MGFkNTE4NjQxYTAwNDBhNzhmNGFjMTRiYzI5ZTZhMTczMTc0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWM0ZDQ1ZjcxZjU5NDE1YmY2MGZiYzUzN2QyOGQxYjVhNjI2MTk3NjI4MGQ2ZDg0N2U2ZGFjZWU0N2Q4N2E4MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQxZjMxZTVkMDI2NjdhMmJkMTMzOTA4MmRjMWI2ODhjMzNjZDFkMzc3MDgzMzEwOGY5NDBmZTM5YjdlMTY3MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ddef38f706654752ab3a68b5c28b43b7",
+      "statement": "The intended configuration server is itself a workload deployed from GitOps, while config owns the behavior values that it serves to backend workloads; neither the server nor any configuration sets are implemented.",
+      "evidence": [
+        {
+          "resource": "repo://config/README.md#L59-L68",
+          "version": "repo-lines-v1:sha256:38f50ceefd1bb6e373a235dcda263a54276ab3c9e1c37f949c1fe0138e26c015:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMjA2ODdiNWU5MTNhZDJjZjY0ZmY1OTQ4MTY1NTUxZDA3OWIyYTk1ODk4NzU5ZjhjN2NmNmEwOWFiMzcyYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwNWNiMmNmZDY2MjZiYzg5YjAzMTI4NDRkOWIzYTNjMzdkYmQ3MmIxNTQyNmRmOThhYmY4ZTkxZTA4YzhhNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4Y2MwN2Y5MzllYmQ1ZTYxYjlkMWViMTc2YzhiNDQ3MzIwYWM4ZjhiMzYwMTlkNzFkNzQxMGQ4YTExZGQ2MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5ZjMxNjg4ZTk5ODBiZTI5ZTAyMjllMTQwZjFkNDUyN2VlNjliYTAwOWQwZThkNjJjMGNiYjdhMGIxYmFmNTUifQ"
+        },
+        {
+          "resource": "repo://gitops/README.md#L64-L69",
+          "version": "repo-lines-v1:sha256:8e5cba367cfa21ba19dbdbf72de3c055a1c7982e4e22a0c5ab16cc28b688b2d0:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFhZjM4ZjlkOGFkNGM2NTg1Y2RhMDU1NTRkZWFjNTQ0ODhlOTA0MDQ4MGRlOTBlNGQ2OWMyOTMyOGQ4NDc1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDYwNjgwNmZmZmZlOTBhYjQxOGY3YTI0YzIwZjBjYWQ2MzkxMGIyMThlZGI3NWJlMDQ3Yjk5YTg3N2Q2NWIyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDgyZDU1OTJmMGVlZTRiZjM1ZmNkZWU4MmYzOTY5ODVmZjA3ZjIxZWZjNmE2YWM2MTZmM2Q5M2VmN2ZlZmJhOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ec97f649f08c4bb5a72a23384df80ecb",
+      "statement": "The OpenWiki run explicitly selects provider openai-chatgpt and model gpt-5.6-sol and enables the openwiki LangChain tracing project in addition to mapping LangSmith key names to GitHub secret references.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L33-L47",
+          "version": "repo-lines-v1:sha256:93dc2b9c37fe33f36bf9727fef233b2a71f6d0d4a2ae7ed5bdb6ba1e4196854c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZThmOWZhNDBlN2JkMDQ5OWQxYzBkODNmZDc1OGFhODViMzA4NDJkYmQ2MWYwZWE2YjdhZTEwZWZlYzc2ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhMmQ5NWViODViNjA0YjdiZmIxNzRiMzdlNThkYzg1ODVlZjcyNjUzNTAzMGExZTE4YTZkZDUwNTQ1OGM5YjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-08-29T17:10:15.382Z"
+  }
+}
