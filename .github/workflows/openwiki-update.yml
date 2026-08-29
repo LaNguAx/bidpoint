@@ -1,9 +1,9 @@
 name: OpenWiki Update
 
 on:
+  # Manual only. The wiki is normally refreshed locally with `openwiki --update`;
+  # this workflow needs CI credentials for the model provider before it can run unattended.
   workflow_dispatch:
-  schedule:
-    - cron: "0 8 * * *"
 
 permissions:
   contents: write
