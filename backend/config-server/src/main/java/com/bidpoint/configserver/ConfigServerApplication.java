@@ -11,10 +11,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class ConfigServerApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(ConfigServerApplication.class);
-
-     static void main(String[] args) {
+    
+    static void main(String[] args) {
         SpringApplication.run(ConfigServerApplication.class, args);
-        logger.info("Config Server Started");
     }
-
 }
