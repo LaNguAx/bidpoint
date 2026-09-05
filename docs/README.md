@@ -16,6 +16,12 @@ docs/
 
 These directories are created as content requires them.
 
+## Local environment
+
+- [Foundations and learning checkpoint](architecture/environment-foundations.docs.local.md)
+- [Kubernetes bootstrap runbook](runbooks/kubernetes-bootstrap.docs.local.md)
+- [Local GitOps reconciliation decision](adr/0003.local-gitops-reconciliation.docs.md)
+
 ## What belongs here
 
 - System architecture and module boundaries

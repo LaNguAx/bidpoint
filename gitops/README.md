@@ -1,6 +1,6 @@
 # gitops/
 
-The desired runtime state of Kubernetes workloads. Git is the source of truth; a GitOps controller such as ArgoCD reconciles the cluster toward what is declared here.
+The desired runtime state of Kubernetes workloads in every environment. Git is the source of truth; a GitOps controller such as ArgoCD reconciles a cluster toward what is declared here.
 
 Nothing in this directory provisions infrastructure, and nothing here contains application logic. It answers one question: given a cluster that already exists, what should be running on it?
 
@@ -34,6 +34,7 @@ A backend workload declared here may set **only** these environment variables:
 ```text
 SPRING_PROFILES_ACTIVE     which environment the service is running as
 SPRING_APPLICATION_NAME    which configuration set to request
+SPRING_CLOUD_CONFIG_NAME   which dotted configuration source to request
 SPRING_CONFIG_IMPORT       where the configuration server is
 + secret-backed variables sourced from Kubernetes Secrets
 ```
@@ -43,12 +44,13 @@ Those are bootstrap and identity — the minimum a service needs before it can f
 ## Environments
 
 ```text
+local
 dev
 stage
 prod
 ```
 
-These are the remote Kubernetes clusters whose desired state is declared here. `local` is local development on a developer's machine and is not declared in this directory.
+`local` is a Kind Kubernetes cluster on a developer's machine. `dev`, `stage`, and `prod` are remote Kubernetes clusters. This directory declares the desired workload state for all four; shared workload definitions must be separated from explicit environment overlays so local behavior remains as close to remote behavior as practical. [`infra/`](../infra/README.md) does not provision local.
 
 Environment isolation is a hard boundary. A change intended for one environment must not implicitly alter another.
 
