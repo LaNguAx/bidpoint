@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-server-local
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/LaNguAx/bidpoint.git
+    targetRevision: chore/local-environment
+    path: gitops/apps/config-server/overlays/local
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      enabled: true
+      selfHeal: true
