@@ -42,13 +42,13 @@ infra/   → what underlying infrastructure exists
 ## Environments
 
 ```text
-local   local development on a developer's machine
+local   Kind Kubernetes cluster on a developer's machine
 dev     remote Kubernetes cluster
 stage   remote Kubernetes cluster
 prod    remote Kubernetes cluster
 ```
 
-`dev`, `stage`, and `prod` are remote Kubernetes clusters: [`infra/`](infra/README.md) provisions them and [`gitops/`](gitops/README.md) declares what runs on them. `local` is not a cluster declared in this repository; how it is run on a developer's machine is not yet decided.
+[`gitops/`](gitops/README.md) declares Kubernetes workloads for every environment. `local` runs those workloads in Kind; it has no cloud infrastructure. [`infra/`](infra/README.md) provisions the remote `dev`, `stage`, and `prod` clusters.
 
 Environments are isolated. A change intended for one must not implicitly alter another.
 
